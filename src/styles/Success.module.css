@@ -1,0 +1,35 @@
+.container{
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2vw;
+  padding: 6vw 2vw 6vw 2vw;
+  position: absolute;
+  background-color: var(--white);
+  place-content: center;
+  animation : fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+    
+}
+
+.container svg {
+  font-size: 5rem;
+  color: var(--green);
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+  } 
+}

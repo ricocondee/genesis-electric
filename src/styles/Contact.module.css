@@ -3,8 +3,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 50px;
-    background-color: #f4f4f4;
+    padding: 3vw;
+    position: relative;
+    color: var(--medium-blue);
   }
   
   .call__to__action__container {
@@ -26,80 +27,147 @@
   .container img {
     max-width: 400px;
     width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 30%;
     height: auto;
-    flex: 1;
+    flex: 2;
   }
   
-  .form__container {
+  .form__container{
+    width: 50%;
+    height: 100%;
     flex: 1;
-    padding-left: 20px;
-  }
-  
-  form {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    position: inherit;
+    overflow: hidden;
+  }
+
+  .form__container form h2 {
+    margin-bottom: 20px;
+    font-family: var(--font-family-lato);
+    font-weight: var(--font-weight-black);
+    color: var(--medium-blue);
+  }
+  
+  .form__container form {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
   }
   
-  form label {
+  .form__container form label {
     margin-bottom: 5px;
     font-weight: bold;
   }
   
-  form input,
-  form textarea {
+  .form__container form input,
+  .form__container form textarea {
     margin-bottom: 15px;
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 100%;
+    width: 90%;
   }
   
-  form textarea {
+  .form__container form textarea {
     resize: vertical;
+    max-height: 150px;
   }
   
-  form button {
-    padding: 12px 20px;
-    background-color: #007bff;
-    color: white;
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
+  .form__container form button {
+    background-color: var(--light-blue);
+    padding: 1rem 2rem;
+    border-radius: 100px;
     cursor: pointer;
+    color: var(--white) !important;
+    text-transform: uppercase;
+    font-family: var(--font-family-lato);
+    font-weight: var(--font-weight-bold);
+    text-decoration: none;
   }
   
-  form button:hover {
-    background-color: #0056b3;
+  .form__container form button:hover {
+    background-color: var(--medium-blue);
   }
 
-  @media (max-width: 768px) {
+  @media (width <= 768px) {
     .container {
       flex-direction: column;
       padding: 20px;
+      gap: 2vw;
     }
   
     .call__to__action__container {
       padding: 0;
-      text-align: center;
+      text-align: left;
+      padding: 4vw;
+      margin-bottom: 2vw;
+    }
+
+    .call__to__action__container strong{
+      font-size: 1.3rem;
+    }
+
+    .form__container{
+      width: 100%;
+    }
+
+    .form__container form {
+      width: 90%;
     }
   
     .container img {
-      max-width: 300px;
-      margin: 20px 0;
+      display: none;
     }
   
-    .form__container {
+    .form__container form input,
+    .form__container form textarea {
+      font-size: .850rem;
+      width: 100%;
+    }
+  
+    .form__container form button {
+      font-size: 16px;
+      padding: 2vw 4vw;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1104px) {
+
+    .container {
+      padding: 4vw;
+      width: 100%;
+      height: 100vh;
+      flex-direction: column;
+    }
+  
+    .container img {
+      max-width: 250px;
+      left: 0;
+    }
+
+    .call__to__action__container {
+      width: 100%;
+      height: auto;
+      padding: 0;
+      text-align: center;
+      padding: 4vw;
+      margin-bottom: 2vw;
+      flex: 0;
+    }
+
+    .form__container{
+      width: 100%;
       padding: 0;
     }
   
-    form input,
-    form textarea {
-      font-size: 14px;
-    }
-  
-    form button {
-      font-size: 16px;
-      padding: 10px;
+    .form__container form {
+      width: 70%;
     }
   }
