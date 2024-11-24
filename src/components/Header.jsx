@@ -16,7 +16,7 @@ const Header = () => {
                 <li><a href="#home">Inicio</a></li>
                 <li><a href="#about">Nosotros</a></li>
                 <li><a href="#services">Servicios</a></li>
-                <li><a href="/products">Productos</a></li>
+                <li><a href="">Productos</a></li>
                 <li><Button text='Contacto' url='#contact'/></li>
             </ul>
         </nav>
