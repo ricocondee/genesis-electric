@@ -1,15 +1,17 @@
 @font-face {
     font-family: 'Lato';
     src: url('/path/to/assets/fonts/Lato/Lato-Black.woff') format('woff'),
-         url('/path/to/assets/fonts/Lato/Lato-Blackltalic.woff') format('woff'),
+         url('/path/to/assets/fonts/Lato/Lato-BlackItalic.woff') format('woff'),
          url('/path/to/assets/fonts/Lato/Lato-Bold.woff') format('woff'),
-         url('/path/to/assets/fonts/Lato/Lato-Boldltalic.woff') format('woff'),
-         url('/path/to/assets/fonts/Lato/Lato-HairIine.woff') format('woff'),
-         url('/path/to/assets/fonts/Lato/Lato-Hairlineltalic.woff') format('woff'),
-         url('/path/to/assets/fonts/Lato/Lato-ltalic.woff') format('woff'),
+         url('/path/to/assets/fonts/Lato/Lato-BoldItalic.woff') format('woff'),
+         url('/path/to/assets/fonts/Lato/Lato-Hairline.woff') format('woff'),
+         url('/path/to/assets/fonts/Lato/Lato-HairlineItalic.woff') format('woff'),
+         url('/path/to/assets/fonts/Lato/Lato-Italic.woff') format('woff'),
          url('/path/to/assets/fonts/Lato/Lato-Light.woff') format('woff'),
-         url('/path/to/assets/fonts/Lato/Lato-Lightltalic.woff') format('woff'),
+         url('/path/to/assets/fonts/Lato/Lato-LightItalic.woff') format('woff'),
          url('/path/to/assets/fonts/Lato/Lato-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
@@ -41,6 +43,7 @@
     --medium-blue: #0A2472;
     --light-blue: #0E6BA8;
     --pale-blue: #A6E1FA;
+    --contrast-blue: #97becf;
 
     --font-family-sentient: 'Sentient', sans-serif;
     --font-weight-normal: normal;
@@ -50,17 +53,14 @@
     
     --font-weight-black: 900;
     --font-style-black: normal;
-    --font-weight-black-italic: 900;
     --font-style-black-italic: italic;
     
     --font-weight-bold: 700;
     --font-style-bold: normal;
-    --font-weight-bold-italic: 700;
     --font-style-bold-italic: italic;
     
     --font-weight-hairline: 100;
     --font-style-hairline: normal;
-    --font-weight-hairline-italic: 100;
     --font-style-hairline-italic: italic;
     
     --font-weight-italic: normal;
@@ -68,7 +68,6 @@
     
     --font-weight-light: 300;
     --font-style-light: normal;
-    --font-weight-light-italic: 300;
     --font-style-light-italic: italic;
     
     --font-weight-regular: normal;
