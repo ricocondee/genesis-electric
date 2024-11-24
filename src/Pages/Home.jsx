@@ -1,4 +1,4 @@
-import Home_Styles from "../styles/Home.module.css";
+import HomeStyles from "../styles/Home.module.css";
 import Model from "../assets/model.png";
 import About from "./About";
 import Services from "./Services";
@@ -8,9 +8,9 @@ import Button from "../components/Button";
 const Home = () => {
   return (
     <article id="home">
-      <section className={Home_Styles.container}>
-        <div className={Home_Styles.text__container}>
-          <div className={Home_Styles.title}>
+      <section className={HomeStyles.container}>
+        <div className={HomeStyles.text__container}>
+          <div className={HomeStyles.title}>
             <h1 translate="no">G&eacute;nesis Electric</h1>
             <strong>Somos calidad en Servicios de refrigeraci&oacute;n</strong>
           </div>
@@ -20,8 +20,8 @@ const Home = () => {
           </p>
           <Button text="Contactanos" url="#contact" />
         </div>
-        <div className={Home_Styles.image__container}>
-          <div className={Home_Styles.image__background}>
+        <div className={HomeStyles.image__container}>
+          <div className={HomeStyles.image__background}>
             <img src={Model} alt="Tecnico posando con brazos cruzados" />
           </div>
         </div>

@@ -1,29 +1,29 @@
 import { TbTool, TbShoppingCart, TbPaint, TbHammer } from "react-icons/tb";
-import Services_Styles from "../Styles/Services.module.css";
+import ServicesStyles from "../styles/Services.module.css";
 
 const Services = () => {
   return (
-    <section className={Services_Styles.container} id="services" >
+    <section className={ServicesStyles.container} id="services" >
       <h2>Nuestros Servicios</h2>
-      <div className={Services_Styles.services__cards}>
-        <div className={Services_Styles.card}>
+      <div className={ServicesStyles.services__cards}>
+        <div className={ServicesStyles.card}>
           <TbPaint />
           <strong>Mantenimiento</strong>
         </div>
-        <div className={Services_Styles.card}>
+        <div className={ServicesStyles.card}>
           <TbTool />
           <strong>Reparacion</strong>
         </div>
-        <div className={Services_Styles.card}>
+        <div className={ServicesStyles.card}>
           <TbHammer />
           <strong>Instalacion</strong>
         </div>
-        <div className={Services_Styles.card}>
+        <div className={ServicesStyles.card}>
           <TbShoppingCart />
           <strong>Venta</strong>
         </div>
       </div>
-      <div className={Services_Styles.p__container}>
+      <div className={ServicesStyles.p__container}>
         <p>
           Ofrecemos una gama completa de servicios para satisfacer todas tus
           necesidades de aire acondicionado. Nuestro equipo de t&eacute;cnicos
