@@ -1,33 +1,16 @@
 import About_Styles from "../styles/About.module.css";
-import Model3 from "../assets/model3.png";
-import Model4 from "../assets/model4.png";
-import Model5 from "../assets/model5.png";
-import Industrial from "../assets/industrial.svg";
-import Residential from "../assets/residential.svg";
+import Tech from "../assets/tech2.png";
+import { TbBuildingFactory, TbHome } from "react-icons/tb";
 import CEO from "../assets/ceo.png";
 
 const About = () => {
   return (
-    <section className={About_Styles.container}>
+    <section className={About_Styles.container} id="about">
       <div className={About_Styles.image__container}>
-        <img
-          src={Model3}
-          className={About_Styles.model3}
-          alt="T&eacute;cnico revisando una nevera"
-        />
-        <img
-          src={Model4}
-          className={About_Styles.model4}
-          alt="T&eacute;cnico reparando una unidad de aire acondicionado"
-        />
-        <img
-          src={Model5}
-          className={About_Styles.model5}
-          alt="T&eacute;cnico lavando un aire acondicionado"
-        />
+        <img src={Tech} alt=""  className={About_Styles.tech}/>
       </div>
       <div className={About_Styles.text__container}>
-        <h2>Somos G&eacute;nesis Electric</h2>
+        <h2 translate="no" >Somos G&eacute;nesis Electric</h2>
         <strong>El principio de la soluci&oacute;n de climatizaci&oacute;n</strong>
         <p className={About_Styles.highlighted}>Tu hogar o negocio en las mejores manos.</p>
         <p className={About_Styles.mission}>
@@ -36,9 +19,9 @@ const About = () => {
           necesidades.
         </p>
         <div className={About_Styles.icons}>
-          <img src={Industrial} alt="Icono de industria" />
+          <TbBuildingFactory />
           <span>Servicio Industrial</span>
-          <img src={Residential} alt="Icono de casa" />
+          <TbHome />
           <span>Servicio Residencial</span>
         </div>
         <div className={About_Styles.profile}>

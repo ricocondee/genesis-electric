@@ -1,28 +1,25 @@
+import { TbTool, TbShoppingCart, TbPaint, TbHammer } from "react-icons/tb";
 import Services_Styles from "../Styles/Services.module.css";
-import Service1 from "../assets/service1.svg";
-import Service2 from "../assets/service2.svg";
-import Service3 from "../assets/service3.svg";
-import Service4 from "../assets/service4.svg";
 
 const Services = () => {
   return (
-    <section className={Services_Styles.container}>
+    <section className={Services_Styles.container} id="services" >
       <h2>Nuestros Servicios</h2>
       <div className={Services_Styles.services__cards}>
         <div className={Services_Styles.card}>
-          <img src={Service1} alt="" />
+          <TbPaint />
           <strong>Mantenimiento</strong>
         </div>
         <div className={Services_Styles.card}>
-          <img src={Service2} alt="" />
+          <TbTool />
           <strong>Reparacion</strong>
         </div>
         <div className={Services_Styles.card}>
-          <img src={Service3} alt="" />
+          <TbHammer />
           <strong>Instalacion</strong>
         </div>
         <div className={Services_Styles.card}>
-          <img src={Service4} alt="" />
+          <TbShoppingCart />
           <strong>Venta</strong>
         </div>
       </div>
