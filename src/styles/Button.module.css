@@ -1,14 +1,1 @@
-.button {
-    background-color: var(--light-blue);
-    padding: 1rem 1rem;
-    border-radius: 100px;
-    cursor: pointer;
-  }
-
-  .button a {
-    color: var(--white) !important;
-    text-transform: uppercase;
-    font-family: var(--font-family-lato);
-    font-weight: var(--font-weight-bold);
-    text-decoration: none;
-  }
+.button{background-color:var(--light-blue);border-radius:100px;cursor:pointer;padding:1rem}.button a{color:var(--white)!important;font-family:var(--font-family-lato);font-weight:var(--font-weight-bold);text-decoration:none;text-transform:uppercase}
