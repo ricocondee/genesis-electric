@@ -20,16 +20,16 @@ const Footer = () => {
           <div className={FooterStyles.footer__items}>
             <img src={Logo} alt="Logo" />
             <div className={FooterStyles.social__media}>
-              <a href="">
+              <a href="https://www.facebook.com/profile.php?id=100089745155648" target="blank">
                 <TbBrandFacebook />
               </a>
-              <a href="">
+              <a href="https://www.instagram.com/genesiselectricsas/" target="blank">
                 <TbBrandInstagram />
               </a>
-              <a href="">
+              <a href="https://api.whatsapp.com/send?phone=573005515224" target="blank">
                 <TbBrandWhatsapp />
               </a>
-              <a href="">
+              <a href="https://www.linkedin.com/company/genesiselectricsas/" target="blank">
                 <TbBrandLinkedin />
               </a>
             </div>
