@@ -31,7 +31,7 @@ const About = () => {
             alt="Fundador Wilson Nu&ntilde;ez"
           />
           <div className={AboutStyles.profile__text}>
-            <span>Wilson Nu&ntilde;ez</span>
+            <strong>Wilson Nu&ntilde;ez</strong>
             <p>Director y Fundador</p>
           </div>
         </div>
