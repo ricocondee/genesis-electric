@@ -16,10 +16,10 @@
 
 @font-face {
     font-family: 'Sentient';
-    src: url('/path/to/assets/fonts/Sentient.woff2') format('woff2'),
-         url('/path/to/assets/fonts/Sentient.woff') format('woff'),
-         url('/path/to/assets/fonts/Sentient.ttf') format('truetype'),
-         url('/path/to/assets/fonts/Sentient.eot'); /* Para IE9 */
+    src: url('/path/to/assets/fonts/Sentient-Regular.woff2') format('woff2'),
+         url('/path/to/assets/fonts/Sentient-Regular.woff') format('woff'),
+         url('/path/to/assets/fonts/Sentient-Regular.ttf') format('truetype'),
+         url('/path/to/assets/fonts/Sentient-Regular.eot'); /* Para IE9 */
     font-weight: normal;
     font-style: normal;
 }
