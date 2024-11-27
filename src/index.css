@@ -32,6 +32,7 @@
     outline: none;
     border: none;
     font-family: "Lato", sans-serif;
+    font-size: 400;
     text-decoration: none;
     scroll-behavior: smooth;
   }
