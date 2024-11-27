@@ -1,25 +1,25 @@
 @font-face {
     font-family: 'Lato';
-    src: url('/path/to/assets/fonts/Lato-Black.woff') format('woff'),
-         url('/path/to/assets/fonts/Lato-BlackItalic.woff') format('woff'),
-         url('/path/to/assets/fonts/Lato-Bold.woff') format('woff'),
-         url('/path/to/assets/fonts/Lato-BoldItalic.woff') format('woff'),
-         url('/path/to/assets/fonts/Lato-Hairline.woff') format('woff'),
-         url('/path/to/assets/fonts/Lato-HairlineItalic.woff') format('woff'),
-         url('/path/to/assets/fonts/Lato-Italic.woff') format('woff'),
-         url('/path/to/assets/fonts/Lato-Light.woff') format('woff'),
-         url('/path/to/assets/fonts/Lato-LightItalic.woff') format('woff'),
-         url('/path/to/assets/fonts/Lato-Regular.woff') format('woff');
+    src: url('./assets/fonts/Lato-Black.woff') format('woff'),
+         url('./assets/fonts/Lato-BlackItalic.woff') format('woff'),
+         url('./assets/fonts/Lato-Bold.woff') format('woff'),
+         url('./assets/fonts/Lato-BoldItalic.woff') format('woff'),
+         url('./assets/fonts/Lato-Hairline.woff') format('woff'),
+         url('./assets/fonts/Lato-HairlineItalic.woff') format('woff'),
+         url('./assets/fonts/Lato-Italic.woff') format('woff'),
+         url('./assets/fonts/Lato-Light.woff') format('woff'),
+         url('./assets/fonts/Lato-LightItalic.woff') format('woff'),
+         url('./assets/fonts/Lato-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Sentient';
-    src: url('/path/to/assets/fonts/Sentient-Regular.woff2') format('woff2'),
-         url('/path/to/assets/fonts/Sentient-Regular.woff') format('woff'),
-         url('/path/to/assets/fonts/Sentient-Regular.ttf') format('truetype'),
-         url('/path/to/assets/fonts/Sentient-Regular.eot'); /* Para IE9 */
+    src: url('./assets/fonts/Sentient-Regular.woff2') format('woff2'),
+         url('./assets/fonts/Sentient-Regular.woff') format('woff'),
+         url('./assets/fonts/Sentient-Regular.ttf') format('truetype'),
+         url('./assets/fonts/Sentient-Regular.eot'); /* Para IE9 */
     font-weight: normal;
     font-style: normal;
 }
