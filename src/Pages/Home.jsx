@@ -4,6 +4,7 @@ import About from "./About";
 import Services from "./Services";
 import Contact from "./Contact";
 import Button from "../components/Button";
+import CookieCons from "../components/CookieConsent"
 
 const Home = () => {
   return (
@@ -29,6 +30,7 @@ const Home = () => {
       <About />
       <Services />
       <Contact />
+      <CookieCons/>
     </article>
   );
 };

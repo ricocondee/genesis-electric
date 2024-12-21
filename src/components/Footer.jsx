@@ -45,7 +45,7 @@ const Footer = () => {
             <nav>
               <ul>
                 <li>
-                  <a href="#home">Inicio</a>
+                  <a href="/">Inicio</a>
                 </li>
                 <li>
                   <a href="#about">Nosotros</a>
