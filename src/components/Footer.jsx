@@ -8,6 +8,7 @@ import {
   TbHome,
   TbClock,
 } from "react-icons/tb";
+import { InstagramEmbed } from "react-social-media-embed";
 
 const today = new Date();
 const year = today.getFullYear();
@@ -63,7 +64,7 @@ const Footer = () => {
             <h3>Ubicaci&oacute;n</h3>
             <div className={FooterStyles.address}>
               <TbHome />
-              <span>Calle 52 #8D 44 AP 4. Barranquilla, Atlántico.</span>
+              <span>Carrera 7H #48 120. Barranquilla, Atlántico.</span>
             </div>
             <div className={FooterStyles.service__hours}>
               <TbClock />
@@ -86,6 +87,17 @@ const Footer = () => {
                 </a>
               </span>
             </div>
+          </div>
+          <div className={FooterStyles.footer__feed}>
+            <InstagramEmbed
+              url="https://www.instagram.com/p/DFs03Crvswn/"
+              maxWidth={320}
+              hideCaption={true}
+              containerTagName="div"
+              injectScript
+            />
+            <InstagramEmbed url="https://www.instagram.com/p/DBukHF7RhRz/" />
+            <InstagramEmbed url="https://www.instagram.com/p/DBwqDclyzsJ/" />
           </div>
           <div className={FooterStyles.footer__info}>
             <p>

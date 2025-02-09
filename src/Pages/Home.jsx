@@ -5,6 +5,7 @@ import Services from "./Services";
 import Contact from "./Contact";
 import Button from "../components/Button";
 import CookieCons from "../components/CookieConsent"
+import { TbBrandWhatsapp } from "react-icons/tb";
 
 const Home = () => {
   return (
@@ -19,7 +20,7 @@ const Home = () => {
             El calor de Barranquilla ya no ser&aacute; un problema. Brindamos servicio de instalaci&oacute;n, mantenimiento y venta de aires
             acondicionados.
           </p>
-          <Button text="Contactanos" url="#contact" />
+          <div><Button text="Whatsapp" url="https://api.whatsapp.com/send?phone=573005515224" icon={<TbBrandWhatsapp/>}/></div>
         </div>
         <div className={HomeStyles.image__container}>
           <div className={HomeStyles.image__background}>

@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <header className={HeaderStyles.container}>
       <div className={HeaderStyles.logo__container}>
-        <img src={Logo} alt="Logo de G&eacute;nesis Electric"/>
+        <a href="/"><img src={Logo} alt="Logo de G&eacute;nesis Electric"/></a>
       </div>
       <input type="checkbox" name="menu" id="menu" />
         <label className={HeaderStyles.menu} htmlFor="menu"><TbMenu2 /></label>

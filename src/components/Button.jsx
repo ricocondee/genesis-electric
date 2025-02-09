@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import ButtonStyles from '../styles/Button.module.css'
 
-const Button = ({text, url}) => {
+const Button = ({text, url, icon}) => {
   return (
-    <div className={ButtonStyles.button}><a href={url}>{text}</a></div>
+    <button className={ButtonStyles.button}><div className={ButtonStyles.icon}>{icon}</div><a href={url} target='blank'>{text}</a></button>
   )
 }
 Button.propTypes = {

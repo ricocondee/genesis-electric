@@ -1,1 +1,33 @@
-.button{background-color:var(--light-blue);border-radius:100px;cursor:pointer;padding:1rem}.button a{color:var(--white)!important;font-family:var(--font-family-lato);font-weight:var(--font-weight-bold);text-decoration:none;text-transform:uppercase}
+.button {
+    background-color: var(--light-blue);
+    border-radius: 100px;
+    cursor: pointer;
+    width: 150px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5vw;
+    padding: .5vw;
+}
+
+.button:hover {
+    background-color: var(--medium-blue);
+    width: 140px;
+    height: 45px;
+    transition: all .3s;
+}
+
+.button .icon {
+    font-size: 24px;
+    color: white;
+}
+
+.button a {
+    color: var(--white) !important;
+    font-family: var(--font-family-lato);
+    font-weight: var(--font-weight-bold);
+    text-decoration: none;
+    text-transform: capitalize;
+    letter-spacing: .2vw;
+}
