@@ -6,7 +6,7 @@ function App() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("public/db/products.json")
+    fetch("src/assets/db/products.json")
       .then((response) => response.json())
       .then((data) => setProducts(data))
       .catch((error) => console.error("Error loading JSON:", error));
