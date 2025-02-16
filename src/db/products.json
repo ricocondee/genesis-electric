@@ -1,0 +1,338 @@
+[
+    {
+        "name": "Aire acondicionado Mirage XLife",
+        "specs": [{"volt": "110V", "btu":"12000"}],
+        "refr": "R410A",
+        "price":"1.170.000",
+        "image": ["src/assets/AIRES/MIRAGE/mirage4.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 12K BTU, voltaje 110V y refrigerante R410A."
+    },
+    {
+        "name": "Aire acondicionado Mirage XLife",
+        "specs": [{"volt": "220V", "btu":"12000"}],
+        "refr": "R410A",
+        "price":"1.150.000",
+        "image": ["src/assets/AIRES/MIRAGE/mirage4.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 12K BTU, voltaje 220V y refrigerante R410A."
+    },
+    {
+        "name": "Aire acondicionado Mirage XLife",
+        "specs": [{"volt": "220V", "btu":"18000"}],
+        "refr": "R410A",
+        "price":"1.650.000",
+        "image": ["src/assets/AIRES/MIRAGE/mirage4.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 18K BTU, voltaje 220V y refrigerante R410A."
+    },
+    {
+        "name": "Aire acondicionado Mirage XLife",
+        "specs": [{"volt": "220V", "btu":"24000"}],
+        "refr": "R410A",
+        "price": "2.120.000",
+        "image": ["src/assets/AIRES/MIRAGE/mirage4.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 24K BTU, voltaje 220V y refrigerante R410A."
+    },
+    {
+        "name": "Aire acondicionado Mirage XLife",
+        "specs": [{"volt": "220V", "btu":"36000"}],
+        "refr": "R410A",
+        "price": "4.160.000",
+        "image": ["src/assets/AIRES/MIRAGE/mirage4.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 36K BTU, voltaje 220V y refrigerante R410A."
+    },
+    {
+        "name": "Aire acondicionado Inverter Mirage X32",
+        "specs": [{"volt": "110V", "btu":"12000"}],
+        "refr": "R32",
+        "price": "1.350.000",
+        "image": ["src/assets/AIRES/MIRAGE/mirage1.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 12K BTU, voltaje 110V y refrigerante R32."
+    },
+    {
+        "name": "Aire acondicionado Inverter Mirage X32",
+        "specs": [{"volt": "220V", "btu":"12000"}],
+        "refr": "R32",
+        "price": "1.300.000",
+        "image": ["src/assets/AIRES/MIRAGE/mirage1.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 12K BTU, voltaje 220V y refrigerante R32."
+    },
+    {
+        "name": "Aire acondicionado Inverter Mirage X32",
+        "specs": [{"volt": "220V", "btu":"18000"}],
+        "refr": "R32",
+        "price": "2.079.000",
+        "image": ["src/assets/AIRES/MIRAGE/mirage1.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 18K BTU y refrigerante R32."
+    },
+    {
+        "name": "Aire acondicionado Inverter Mirage X32",
+        "specs": [{"volt": "220V", "btu":"24000"}],
+        "refr": "R32",
+        "price": "2.679.000",
+        "image": ["src/assets/AIRES/MIRAGE/mirage1.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 24K BTU y refrigerante R32."
+    },
+    {
+        "name": "Aire acondicionado Mirage Inverter Magnum Tipo B",
+        "specs": [{"volt": "220V", "btu":"9000"}],
+        "refr": "R410A",
+        "price": "1.840.000",
+        "image": ["src/assets/AIRES/MIRAGE/miragemagnum22.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 9K BTU, voltaje 220V y refrigerante R410A."
+    },
+    {
+        "name": "Aire acondicionado Mirage Inverter Magnum Tipo C Wi-Fi",
+        "specs": [{"volt": "220V", "btu":"12000"}],
+        "refr": "R410A",
+        "price": "1.750.000",
+        "image": ["src/assets/AIRES/MIRAGE/miragemagnum22.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Cuenta con conexion WIFI. Capacidad de 12K BTU, voltaje 220V y refrigerante R410A."
+    },
+    {
+        "name": "Aire acondicionado Mirage Inverter Magnum Tipo C Wi-Fi",
+        "specs": [{"volt": "220V", "btu":"18000"}],
+        "refr": "R410A",
+        "price": "2.190.000",
+       "image": ["src/assets/AIRES/MIRAGE/miragemagnum22.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Cuenta con conexion WIFI. Capacidad de 18K BTU, voltaje 220V y refrigerante R410A."
+    },
+    {
+        "name": "Aire acondicionado Mirage Inverter Magnum Tipo D Wi-Fi",
+        "specs": [{"volt": "220V", "btu":"24000"}],
+        "refr": "R410A",
+        "price": "2.869.000",
+        "image": ["src/assets/AIRES/MIRAGE/miragemagnum22.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Cuenta con conexion WIFI. Capacidad de 24K BTU, voltaje 220V y refrigerante R410A."
+    },
+    {
+        "name": "Aire acondicionado Mirage Inverter Magnum Platinum color GRIS",
+        "specs": [{"volt": "220V", "btu":"12000"}],
+        "refr": "R410A",
+        "price": "1.699.000",
+        "image": ["src/assets/AIRES/MIRAGE/miragemagnumplatinum.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 12K BTU, voltaje 220V y refrigerante R410A."
+    },
+    {
+        "name": "Aire acondicionado Mirage Inverter Magnum Platinum color Gris",
+        "specs": [{"volt": "220V", "btu":"18000"}],
+        "refr": "R410A",
+        "price": "2.190.000",
+        "image": ["src/assets/AIRES/MIRAGE/miragemagnumplatinum.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 18K BTU y refrigerante R410A."
+    },
+    {
+        "name": "Aire acondicionado Mirage Inverter Magnum Platinum color Gris",
+        "specs": [{"volt": "220V", "btu":"24000"}],
+        "refr": "R410A",
+        "price": "2.830.000",
+        "image": ["src/assets/AIRES/MIRAGE/miragemagnumplatinum.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 24K BTU y refrigerante R410A."
+    },
+    {
+        "name": "Aire acondicionado Midea Forest",
+        "specs": [{"volt": "110V", "btu":"12000"}],
+        "refr": "R410A",
+        "price": "1.275.000",
+        "image": ["src/assets/AIRES/MIDEA/midea.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 12K BTU, voltaje 110V y refrigerante R410A."
+    },
+    {
+        "name": "Aire acondicionado Midea Forest",
+        "specs": [{"volt": "220V", "btu":"36000"}],
+        "refr": "R410A",
+        "price": "3.999.000",
+        "image": ["src/assets/AIRES/MIDEA/midea.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 36K BTU, voltaje 220V y refrigerante R410A."
+    },
+    {
+        "name": "Aire acondicionado Inverter Midea Silk Tipo C",
+        "specs": [{"volt": "220V", "btu":"12000"}],
+        "refr": "R410",
+        "price": "1.499.000",
+        "image": ["src/assets/AIRES/MIDEA/mideasilk.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 12K BTU, voltaje 220V."
+    },
+    {
+        "name": "Aire acondicionado Inverter Midea All Easy Pro - WIFI",
+        "specs": [{"volt": "220V", "btu":"12000"}],
+        "refr": "R32",
+        "price": "2.023.000",
+        "image": ["src/assets/AIRES/MIDEA/midealleasypro.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Cuenta con conexion WIFI. Capacidad de 12K BTU, voltaje 220V y refrigerante R32."
+    },
+    {
+        "name": "Aire acondicionado Inverter Midea All Easy Pro - WIFI",
+        "specs": [{"volt": "220V", "btu":"24000"}],
+        "refr": "R32",
+        "price": "3.615.000",
+        "image": ["src/assets/AIRES/MIDEA/midealleasypro.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Cuenta con conexion WIFI. Capacidad de 24K BTU, voltaje 220V y refrigerante R32."
+    },
+    {
+        "name": "Aire acondicionado Hisense",
+        "specs": [{"volt": "110V", "btu":"12000"}],
+        "refr": "R410A",
+        "price": "1.260.000",
+        "image": ["src/assets/AIRES/HISENSE/hisense.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 12K BTU, voltaje 110V y refrigerante R410A."
+    },
+    {
+        "name": "Aire acondicionado Hisense",
+        "specs": [{"volt": "220V", "btu":"18000"}],
+        "refr": "R410A",
+        "price": "1.650.000",
+        "image": ["src/assets/AIRES/HISENSE/hisense.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 18K BTU y refrigerante R410A."
+    },
+    {
+        "name": "Aire acondicionado Hisense",
+        "specs": [{"volt": "220V", "btu":"24000"}],
+        "refr": "R410A",
+        "price": "2.150.000",
+        "image": ["src/assets/AIRES/HISENSE/hisense.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 24K BTU y refrigerante R410A."
+    },
+    {
+        "name": "Hisense Portatil On-Off WIFI",
+        "specs": [{"volt": "110V", "btu":"12000"}],
+        "refr": "R32",
+        "price": "1.475.000",
+        "image": ["src/assets/AIRES/HISENSE/hisensep.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Cuenta con conexion WIFI. Capacidad de 12K BTU y refrigerante R32."
+    },
+    {
+        "name": "Hisense Inverter Seer 19 Tipo C",
+        "specs": [{"volt": "220V", "btu":"9000"}],
+        "refr": "R410A",
+        "price": "1.399.000",
+        "image": ["src/assets/AIRES/HISENSE/hisensebrissa.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 9K BTU, voltaje 220V y refrigerante R410A."
+    },
+    {
+        "name": "Hisense Inverter Tipo C",
+        "specs": [{"volt": "220V", "btu":"12000"}],
+        "refr": "R410A",
+        "price": "1.435.000",
+        "image": ["src/assets/AIRES/HISENSE/hisensebrissa.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 12K BTU, voltaje 220V y refrigerante R410A."
+    },
+    {
+        "name": "Hisense Inverter Tipo C",
+        "specs": [{"volt": "110V", "btu":"12000"}],
+        "refr": "R410A",
+        "price": "1.450.000",
+        "image": ["src/assets/AIRES/HISENSE/hisensebrissa.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 12K BTU, voltaje 110V y refrigerante R410A."
+    },
+    {
+        "name": "Hisense Inverter Tipo C",
+        "specs": [{"volt": "220V", "btu":"18000"}],
+        "refr": "R410A",
+        "price": "2.100.000",
+        "image": ["src/assets/AIRES/HISENSE/hisense.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 18K BTU, voltaje 220V y refrigerante R410A."
+    },
+    {
+        "name": "Hisense Inverter Tipo C",
+        "specs": [{"volt": "220V", "btu":"24000"}],
+        "refr": "R410A",
+        "price": "2.430.000",
+        "image": ["src/assets/AIRES/HISENSE/hisense.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 24K BTU, voltaje 220V y refrigerante R410A."
+    },
+    {
+        "name": "Hisense Inverter Seer 17",
+        "specs": [{"volt": "220V", "btu":"36000"}],
+        "refr": "R410A",
+        "price": "4.699.000",
+        "image": ["src/assets/AIRES/HISENSE/hisense.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 36K BTU y refrigerante R410A."
+    },
+    {
+        "name": "Hisense Inverter Tipo A Wi-Fi Energy Pro (Negro)",
+        "specs": [{"volt": "220V", "btu":"12000"}],
+        "refr": "R32",
+        "price": "2.799.000",
+        "image": ["src/assets/AIRES/HISENSE/hisensenegro.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 12K BTU, voltaje 220V y refrigerante R32."
+    },
+    {
+        "name": "Aire acondicionado Mabe ON-OFF",
+        "specs": [{"volt": "110V", "btu":"9000"}],
+        "refr": "R410A",
+        "price": "1.190.000",
+        "image": ["src/assets/AIRES/MABE/mabe.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 9K BTU, voltaje 110V y refrigerante R410A."
+    },
+    {
+        "name": "Aire acondicionado Mabe ON-OFF",
+        "specs": [{"volt": "110V", "btu":"12000"}],
+        "refr": "R410A",
+        "price": "1.275.000",
+        "image": ["src/assets/AIRES/MABE/mabe.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 12K BTU, voltaje 110V y refrigerante R410A."
+    },
+    {
+        "name": "Aire acondicionado Mabe ON-OFF",
+        "specs": [{"volt": "220V", "btu":"12000"}],
+        "refr": "R410A",
+        "price": "1.320.000",
+        "image": ["src/assets/AIRES/MABE/mabe.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 12K BTU, voltaje 220V y refrigerante R410A."
+    },
+    {
+        "name": "Aire acondicionado Mabe Inverter Tipo C",
+        "specs": [{"volt": "110V", "btu":"9000"}],
+        "refr": "R410A",
+        "price": "1.490.000",
+        "image": ["src/assets/AIRES/MABE/mabeinv.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 9K BTU, voltaje 110V y refrigerante R410A."
+    },
+    {
+        "name": "Aire acondicionado Mabe Inverter Tipo C",
+        "specs": [{"volt": "220V", "btu":"24000"}],
+        "refr": "R410A",
+        "price": "2.799.000",
+        "image": ["src/assets/AIRES/MABE/mabeinv.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 24K BTU y refrigerante R410A."
+    },
+    {
+        "name": "Aire acondicionado Mabe Inverter Tipo B WIFI (Negro Tipo Espejo)",
+        "specs": [{"volt": "220V", "btu":"12000"}],
+        "refr": "R32",
+        "price": "2.090.000",
+        "image": ["src/assets/AIRES/MABE/mabenegro.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 12K BTU, voltaje 220V y refrigerante R32."
+    },
+    {
+        "name": "Aire acondicionado Mabe Inverter Tipo B WIFI (Negro Tipo Espejo)",
+        "specs": [{"volt": "220V", "btu":"18000"}],
+        "refr": "R32",
+        "price": "2.950.000",
+        "image": ["src/assets/AIRES/MABE/mabenegro.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 18K BTU, voltaje 220V y refrigerante R32."
+    },
+    {
+        "name": "Aire acondicionado Mabe Inverter Tipo B WIFI (Negro Tipo Espejo)",
+        "specs": [{"volt": "220V", "btu":"24000"}],
+        "refr": "R32",
+        "price": "3.669.000",
+        "image": ["src/assets/AIRES/MABE/mabenegro.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 24K BTU, voltaje 220V y refrigerante R32."
+    },
+    {
+        "name": "Aire acondicionado Panasonic Inverter Tipo C",
+        "specs": [{"volt": "220V", "btu":"18000"}],
+        "refr": "R410A",
+        "price": "2.599.000",
+        "image": ["src/assets/AIRES/PANASONIC/panasonic.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 18K BTU y refrigerante R410A."
+    },
+    {
+        "name": "Aire acondicionado Panasonic Inverter Tipo C",
+        "specs": [{"volt": "220V", "btu":"24000"}],
+        "refr": "R410A",
+        "price": "3.020.000",
+        "image": ["src/assets/AIRES/PANASONIC/panasonic.webp"],
+        "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 24K BTU y refrigerante R410A."
+    }
+]
