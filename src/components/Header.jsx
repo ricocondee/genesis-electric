@@ -1,5 +1,4 @@
 import HeaderStyles from '../styles/Header.module.css'
-import Button from './Button'
 import Logo from '../assets/logo.png'
 import { TbMenu2 } from 'react-icons/tb'
 
@@ -14,10 +13,10 @@ const Header = () => {
         <nav>
             <ul>
                 <li><a href="/">Inicio</a></li>
-                <li><a href="#about">Nosotros</a></li>
-                <li><a href="#services">Servicios</a></li>
-                <li><a href="https://drive.google.com/file/d/1fahl7SJylkjwbkBqKnk_mKN5T22cVq3a/view?usp=sharing" target='blank'>Productos</a></li>
-                <li><Button text='Contacto' url='#contact'/></li>
+                <li><a href="/#about">Nosotros</a></li>
+                <li><a href="/#services">Servicios</a></li>
+                <li><a href="/products">Productos</a></li>
+                <li><a href="/#contact">Contacto</a></li>
             </ul>
         </nav>
         

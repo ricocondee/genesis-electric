@@ -9,6 +9,7 @@
     align-items: center;
     gap: .5vw;
     padding: .5vw;
+    color: var(--white);
 }
 
 .button:hover {
@@ -21,13 +22,4 @@
 .button .icon {
     font-size: 24px;
     color: white;
-}
-
-.button a {
-    color: var(--white) !important;
-    font-family: var(--font-family-lato);
-    font-weight: var(--font-weight-bold);
-    text-decoration: none;
-    text-transform: capitalize;
-    letter-spacing: .2vw;
 }

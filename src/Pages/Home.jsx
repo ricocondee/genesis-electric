@@ -3,7 +3,7 @@ import Model from "../assets/model.png";
 import About from "./About";
 import Services from "./Services";
 import Contact from "./Contact";
-import Button from "../components/Button";
+import MyLink from "../components/MyLink";
 import CookieCons from "../components/CookieConsent"
 import { TbBrandWhatsapp } from "react-icons/tb";
 
@@ -20,7 +20,7 @@ const Home = () => {
             El calor de Barranquilla ya no ser&aacute; un problema. Brindamos servicio de instalaci&oacute;n, mantenimiento y venta de aires
             acondicionados.
           </p>
-          <div><Button text="Whatsapp" url="https://api.whatsapp.com/send?phone=573005515224" icon={<TbBrandWhatsapp/>}/></div>
+          <div><MyLink text="Whatsapp" url="https://api.whatsapp.com/send?phone=573005515224" icon={<TbBrandWhatsapp/>}/></div>
         </div>
         <div className={HomeStyles.image__container}>
           <div className={HomeStyles.image__background}>
