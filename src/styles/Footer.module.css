@@ -120,12 +120,12 @@
 }
 
 .footer__feed {
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     gap: 1vw;
     justify-content: space-between;
     padding: 3vw;
-    width: 100%
+    width: 100%;
 }
 
 .footer__info {

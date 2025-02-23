@@ -6,6 +6,7 @@ import Contact from "./Contact";
 import MyLink from "../components/MyLink";
 import CookieCons from "../components/CookieConsent"
 import { TbBrandWhatsapp } from "react-icons/tb";
+import Reviews from "../components/Reviews";
 
 const Home = () => {
   return (
@@ -30,6 +31,7 @@ const Home = () => {
       </section>
       <About />
       <Services />
+      <Reviews layout='carousel'/>
       <Contact />
       <CookieCons/>
     </article>

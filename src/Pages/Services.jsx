@@ -1,6 +1,7 @@
 import { TbTool, TbShoppingCart, TbPaint, TbHammer } from "react-icons/tb";
 import ServicesStyles from "../styles/Services.module.css";
 
+
 const Services = () => {
   return (
     <section className={ServicesStyles.container} id="services" >
@@ -29,6 +30,8 @@ const Services = () => {
           necesidades de aire acondicionado. Nuestro equipo de t&eacute;cnicos
           certificados est&aacute; preparado para brindarte el mejor servicio.
         </p>
+      </div>
+      <div className={ServicesStyles.google__reviews}>
       </div>
     </section>
   );

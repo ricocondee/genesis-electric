@@ -8,8 +8,8 @@
         "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 12K BTU, voltaje 110V y refrigerante R410A."
     },
     {
-        "name": "Aire acondicionado Mirage XLife",
-        "specs": [{"volt": "220V", "btu":"12000"}],
+    "name": "Aire acondicionado Mirage XLife",
+    "specs": [{"volt": "220V", "btu":"12000"}],
         "refr": "R410A",
         "price":"1.150.000",
         "image": ["https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIRAGE/mirage4.webp"],

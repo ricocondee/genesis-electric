@@ -9,6 +9,7 @@ import {
   TbClock,
 } from "react-icons/tb";
 import { InstagramEmbed } from "react-social-media-embed";
+import Reviews from "./Reviews";
 
 const today = new Date();
 const year = today.getFullYear();
@@ -87,6 +88,7 @@ const Footer = () => {
                 </a>
               </span>
             </div>
+            <Reviews layout='badge'/>
           </div>
           <div className={FooterStyles.footer__feed}>
             <InstagramEmbed
