@@ -7,9 +7,11 @@ import MyLink from "../components/MyLink";
 import CookieCons from "../components/CookieConsent"
 import { TbBrandWhatsapp } from "react-icons/tb";
 import Reviews from "../components/Reviews";
+import {motion} from "framer-motion";
 
 const Home = () => {
   return (
+    <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{duration: 1.5}}>
     <article id="home">
       <section className={HomeStyles.container}>
         <div className={HomeStyles.text__container}>
@@ -35,6 +37,7 @@ const Home = () => {
       <Contact />
       <CookieCons/>
     </article>
+    </motion.div>
   );
 };
 
