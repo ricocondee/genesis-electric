@@ -1,52 +1,32 @@
 import React from "react";
 import ItemStyles from "../styles/Item.module.css";
-import { ImTab } from "react-icons/im";
-import Button from "./MyLink";
-import { TbBrandWhatsapp } from "react-icons/tb";
+import { Heart, Star } from "lucide-react";
 
-const Item = ({ name, image, price, specs, refr, description }) => {
+const Item = ({ name, image, price, specs, description, score }) => {
+  const handleClick = () => {
+    window.open('https://api.whatsapp.com/send?phone=573005515224&text=Hola%20quiero%20más%20información%20de%20este%20aire', '_blank');
+  }
   return (
     <div className={ItemStyles.container}>
       <div className={ItemStyles.image__container}>
-        {Array.isArray(image) && image.length > 0 ? (
-          image.map((img, index) => (
-            <img
-              key={index}
-              src={img}
-              alt={`${name} ${index + 1}`}
-              width="150"
-            />
-          ))
-        ) : (
-          <p>No images available</p>
-        )}
+        <img src={image} alt={name} />
       </div>
       <div className={ItemStyles.text__container}>
-        <div className={ItemStyles.item__title}>
-          <h2>{name}</h2>
+        <h3>{name}</h3>
+        <p>{description}</p>
+        <p>{specs}</p>
+        <div className={ItemStyles.price__score}>
+          <span className={ItemStyles.price}>{price}</span>{" "}
+          <span className={ItemStyles.score}>
+            <Star size={24} color="yellow" className={ItemStyles.star} />
+          </span>
         </div>
-        <div className={ItemStyles.item__description}>
-          <p>{description}</p>
+        <div>
+          <Heart size={24} color="grey" className={ItemStyles.fav} />
         </div>
-        <ul className={ItemStyles.specs}>
-          {specs?.map((spec, index) => (
-            <li key={index}>
-              <ImTab />
-              {spec.btu}
-            </li>
-          ))}
-        </ul>
-        <div className={ItemStyles.item__price}>
-          <p className={ItemStyles.price}>${price}</p>
-        </div>
-        <div className={ItemStyles.item__button}>
-          <Button
-          text="​¡Pide ya!"
-          url={`https://api.whatsapp.com/send?phone=573005515224&text=Hola%20quiero%20más%20información%20de%20${name}`}
-          icon={<TbBrandWhatsapp />}
-        />
-        </div>
-        
+      </div>
+      <div className={ItemStyles.item__button}>
+        <button onClick={handleClick}>Saber m&aacute;s</button>
       </div>
     </div>
   );
