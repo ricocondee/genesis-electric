@@ -5,9 +5,9 @@ import Home from "../Pages/Home";
 import PrivacyPolicy from "../Pages/PrivacyPolicy";
 import Products from "../Pages/Products";
 import ScrollToSection from "../components/ScrollToSection";
-import Login from "../Pages/Login";
+/* import Login from "../Pages/Login";
 import Register from "../Pages/Register";
-import Dashboard from "../Pages/Dashboard";
+import Dashboard from "../Pages/Dashboard"; */
 import { Navigate } from "react-router-dom";
 import {motion} from "framer-motion";
 
@@ -23,9 +23,9 @@ const App = () => {
           <Route exact path="/privacy-policy" element={<PrivacyPolicy/>} />
           <Route exact path="/products" element={<Products />} />
           <Route path="*" element={<h1>Not Found</h1>} />
-          <Route exact path="/login" element={<Login setToken={setToken}/>} />
+{/*           <Route exact path="/login" element={<Login setToken={setToken}/>} />
           <Route exact path="/register" element={<Register/>} />
-          <Route exact path="/dashboard" element={token ? <Dashboard /> : <Navigate to="/login"/>} />
+          <Route exact path="/dashboard" element={token ? <Dashboard /> : <Navigate to="/login"/>} /> */}
         </Routes>
       </Layout>
     </BrowserRouter>
