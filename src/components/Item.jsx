@@ -6,6 +6,10 @@ const Item = ({ name, image, price, specs, description, score }) => {
   const handleClick = () => {
     window.open('https://api.whatsapp.com/send?phone=573005515224&text=Hola%20quiero%20más%20información%20de%20este%20aire', '_blank');
   }
+
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat("es-CO").format(price); // Formato colombiano
+  };
   return (
     <div className={ItemStyles.container}>
       <div className={ItemStyles.image__container}>
@@ -16,9 +20,9 @@ const Item = ({ name, image, price, specs, description, score }) => {
         <p>{description}</p>
         <p>{specs}</p>
         <div className={ItemStyles.price__score}>
-          <span className={ItemStyles.price}>{price}</span>{" "}
+          <span className={ItemStyles.price}>{formatPrice(price)}</span>
           <span className={ItemStyles.score}>
-            <Star size={24} color="yellow" className={ItemStyles.star} />
+            <Star size={24} color="#f8af0d" className={ItemStyles.star} />
           </span>
         </div>
         <div>

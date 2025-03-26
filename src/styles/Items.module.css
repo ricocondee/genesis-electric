@@ -11,3 +11,22 @@
   padding-bottom: 50px;
   position: relative;
 }
+
+.filters__container {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 100%;
+  place-items: center;
+  width: 95%;
+  height: max-content;
+  place-self: center;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 1440px) {
+  .filters__container {
+    grid-template-columns: 100%;
+    grid-template-rows: 50% 50%;
+    gap: 20px;
+  }
+}

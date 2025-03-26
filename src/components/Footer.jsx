@@ -8,7 +8,6 @@ import {
   TbHome,
   TbClock,
 } from "react-icons/tb";
-import { InstagramEmbed } from "react-social-media-embed";
 import Reviews from "./Reviews";
 
 const today = new Date();
@@ -89,17 +88,6 @@ const Footer = () => {
               </span>
             </div>
             <Reviews layout='badge'/>
-          </div>
-          <div className={FooterStyles.footer__feed}>
-            <InstagramEmbed
-              url="https://www.instagram.com/p/DFs03Crvswn/"
-              maxWidth={320}
-              hideCaption={true}
-              containerTagName="div"
-              injectScript
-            />
-            <InstagramEmbed url="https://www.instagram.com/p/DBukHF7RhRz/" />
-            <InstagramEmbed url="https://www.instagram.com/p/DBwqDclyzsJ/" />
           </div>
           <div className={FooterStyles.footer__info}>
             <p>
