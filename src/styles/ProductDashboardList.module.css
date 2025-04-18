@@ -1,0 +1,139 @@
+.container {
+  max-width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.table th {
+  background-color: #f4f4f4;
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.editButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-right: 5px;
+  border-radius: 3px;
+}
+
+.editButton:hover {
+  background-color: #0056b3;
+}
+
+.deleteButton {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.deleteButton:hover {
+  background-color: #b02a37;
+}
+
+.loading {
+  text-align: center;
+  font-weight: bold;
+  color: #555;
+}
+
+.selectedProducts {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.selectedProducts h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 1vw;
+}
+
+.pagination span {
+  padding: 5px 10px;
+  margin-right: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.pagination button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-right: 5px;
+  border-radius: 3px;
+}
+
+.add__product {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2vw;
+  padding: 1vw;
+  margin-top: 20px;
+}
+.add__product__button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  width: 140px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: .9rem;
+}
+
+.searchBar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+  padding: 1vw;
+  margin-top: 20px;
+}
+
+.searchBar input {
+  width: 100%;
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+}
+
+.searchBar svg {
+  font-size: 24px;
+  color: #007bff;
+  cursor: pointer;
+}

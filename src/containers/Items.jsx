@@ -12,12 +12,14 @@ const Items = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    fetch("https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/db/products.json")
+    fetch(
+      "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/db/products.json"
+    )
       .then((response) => response.json())
       .then((data) => {
         const cleanedData = data.map((product) => ({
           ...product,
-          price: parseFloat(product.price.replace(/\./g, '')) || 0,
+          price: parseFloat(product.price.replace(/\./g, "")) || 0,
           relevance: parseFloat(product.relevance) || 0,
         }));
         setProducts(cleanedData);
@@ -42,7 +44,7 @@ const Items = () => {
             return Number(a.price) - Number(b.price);
           case "priceDesc":
             return Number(b.price) - Number(a.price);
-          case "relevance": 
+          case "relevance":
             return Number(b.relevance || 0) - Number(a.relevance || 0);
           default:
             return 0;
@@ -56,10 +58,10 @@ const Items = () => {
   return (
     <div>
       <div className={ItemsStyles.container}>
-      <div className={ItemsStyles.filters__container}>
-        <SortFilter setSortOption={setSortOption} />
-        <SearchBar setSearchTerm={setSearchTerm} />
-      </div>
+        <div className={ItemsStyles.filters__container}>
+          <SortFilter setSortOption={setSortOption} />
+          <SearchBar setSearchTerm={setSearchTerm} />
+        </div>
         {sortedProducts.length > 0 ? (
           sortedProducts.map((product) => (
             <Item
@@ -68,6 +70,7 @@ const Items = () => {
               image={product.image}
               price={product.price}
               description={product.description}
+              urlID={product.publicId}
               score={product.score}
             />
           ))
