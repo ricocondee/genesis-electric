@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ProductForm from "../components/ProductForm";
-import DashboardStyles from "../Styles/Dashboard.module.css";
+import DashboardStyles from "../styles/Dashboard.module.css";
 import { TbShoppingBagEdit, TbShoppingCartCog, TbUserCog } from "react-icons/tb";
 import ProductDashboardList from "../containers/ProductDashboardList";
 

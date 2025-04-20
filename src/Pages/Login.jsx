@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import LoginStyles from "../Styles/Login.module.css";
+import LoginStyles from "../styles/Login.module.css";
 import AirTech from "../assets/airtech.png";
 import { TbAlertCircle } from "react-icons/tb";
 
