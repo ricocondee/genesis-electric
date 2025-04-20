@@ -5,7 +5,7 @@
   background: #f5f6f8;
   border-radius: 16px;
   flex-wrap: wrap;
-  height: 80vh;
+  height: 80svh;
 }
 
 .productImage img {
@@ -97,20 +97,223 @@
   cursor: pointer;
 }
 
-.buy {
-  background-color: var(--medium-blue);
-  color: white;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 12px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
 .buy a {
+  padding: 12px 24px;
   color: white;
   text-decoration: none;
 }
 .buy:hover {
   background-color: var(--light-blue);
+}
+.buy:active {
+  background-color: var(--dark-blue);
+}
+.buy:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--light-blue);
+}
+.buy:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--light-blue);
+}
+.buy:focus-visible:hover {
+  background-color: var(--light-blue);
+}
+.buy:focus-visible:active {
+  background-color: var(--dark-blue);
+}
+.buy:focus-visible:active:hover {
+  background-color: var(--dark-blue);
+}
+.buy:focus-visible:active:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--light-blue);
+}
+.buy:focus-visible:active:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--light-blue);
+}
+.buy:focus-visible:active:focus-visible:hover {
+  background-color: var(--light-blue);
+}
+.buy:focus-visible:active:focus-visible:active {
+  background-color: var(--dark-blue);
+}
+.buy:focus-visible:active:focus-visible:active:hover {
+  background-color: var(--dark-blue);
+}
+.buy:focus-visible:active:focus-visible:active:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--light-blue);
+}
+.buy:focus-visible:active:focus-visible:active:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--light-blue);
+}
+.buy:focus-visible:active:focus-visible:active:focus-visible:hover {
+  background-color: var(--light-blue);
+}
+.buy:focus-visible:active:focus-visible:active:focus-visible:active {
+  background-color: var(--dark-blue);
+}
+.buy:focus-visible:active:focus-visible:active:focus-visible:hover {
+  background-color: var(--dark-blue);
+}
+.buy:focus-visible:active:focus-visible:active:focus-visible:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--light-blue);
+}
+.buy:focus-visible:active:focus-visible:active:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--light-blue);
+}
+.buy:focus-visible:active:focus-visible:active {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--light-blue);
+}
+.buy:focus-visible:active:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--light-blue);
+}
+
+@media (width <= 768px) {
+  .productContainer {
+    flex-direction: column;
+    height: auto;
+  }
+  .productImage img {
+    max-width: 100%;
+    flex-grow: 1;
+  }
+  .productDetails {
+    width: 100%;
+    padding: 20px;
+    gap: 20px;
+  }
+  .tags span {
+    margin: 4px;
+  }
+  .tags {
+    flex-wrap: wrap;
+  }
+  .quantitySelector {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .buy {
+    width: 100%;
+    text-align: center;
+  }
+  .buy a {
+    width: 100%;
+    display: block;
+  }
+  .buy:hover {
+    background-color: var(--light-blue);
+  }
+  .buy:active {
+    background-color: var(--dark-blue);
+  }
+  .buy:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--light-blue);
+  }
+  .buy:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--light-blue);
+  }
+  .buy:focus-visible:hover {
+    background-color: var(--light-blue);
+  }
+  .buy:focus-visible:active {
+    background-color: var(--dark-blue);
+  }
+  .buy:focus-visible:active:hover {
+    background-color: var(--dark-blue);
+  }
+  .buy:focus-visible:active:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--light-blue);
+  }
+  .buy:focus-visible:active:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--light-blue);
+  }
+  .buy:focus-visible:active:focus-visible:hover {
+    background-color: var(--light-blue);
+  }
+  .buy:focus-visible:active:focus-visible:active {
+    background-color: var(--dark-blue);
+  }
+  .buy:focus-visible:active:focus-visible:active:hover {
+    background-color: var(--dark-blue);
+  }
+  .buy:focus-visible:active:focus-visible:active:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--light-blue);
+  }
+  .buy:focus-visible:active:focus-visible:active:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--light-blue);
+  }
+  .buy:focus-visible:active:focus-visible:active:focus-visible:hover {
+    background-color: var(--light-blue);
+  }
+  .buy:focus-visible:active:focus-visible:active:focus-visible:active {
+    background-color: var(--dark-blue);
+  }
+  .buy:focus-visible:active:focus-visible:active:focus-visible:hover {
+    background-color: var(--dark-blue);
+  }
+  .buy:focus-visible:active:focus-visible:active:focus-visible:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--light-blue);
+  }
+  .buy:focus-visible:active:focus-visible:active:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--light-blue);
+  }
+  .buy:focus-visible:active:focus-visible:active {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--light-blue);
+  }
+  .buy:focus-visible:active:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--light-blue);
+  }
+  
+}
+
+@media (width <= 1024px) {
+  .productContainer {
+    flex-direction: column;
+    height: auto;
+  }
+  .productImage img {
+    max-width: 100%;
+    flex-grow: 1;
+  }
+  .productDetails {
+    width: 100%;
+    padding: 20px;
+    gap: 20px;
+  }
+  .tags span {
+    margin: 4px;
+  }
+  .tags {
+    flex-wrap: wrap;
+  }
+  .quantitySelector {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .actions {
+    flex-direction: column;
+    gap: 12px;
+  }
 }
