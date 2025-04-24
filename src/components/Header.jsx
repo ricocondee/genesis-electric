@@ -1,5 +1,5 @@
 import HeaderStyles from '../styles/Header.module.css'
-import Logo from '../assets/logo.png'
+import Logo from '../assets/GE_SVG_COLOR.svg'
 import { TbMenu2 } from 'react-icons/tb'
 
 const Header = () => {
