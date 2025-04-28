@@ -17,17 +17,17 @@ const Item = ({
   type,
 }) => {
   
-    const handleClick = (air) => {
+const handleClick = ({ name, specs }) => {
   const phoneNumber = "573005515224";
 
   let specsText = "";
-  if (Array.isArray(air.specs) && air.specs.length > 0) {
-    specsText = air.specs
+  if (Array.isArray(specs) && specs.length > 0) {
+    specsText = specs
       .map((spec) => `${spec.volt}V - ${spec.btu} BTU`)
       .join(", ");
   }
 
-  const message = `Hola, quiero más información sobre el ${air.name}${specsText ? `. Especificaciones: ${specsText}` : ""}.`;
+  const message = `Hola, quiero más información sobre el ${name}${specsText ? `. Especificaciones: ${specsText}` : ""}.`;
 
   const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
 
