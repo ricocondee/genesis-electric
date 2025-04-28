@@ -35,6 +35,7 @@
     height: 100%;
     object-fit: contain;
     transition: transform 0.3s ease;
+    filter: drop-shadow(0 20px 100px #09003dfe);
 }
 
 .image__container:hover img {
