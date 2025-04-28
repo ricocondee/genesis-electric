@@ -9,7 +9,7 @@
     "name": "Aire acondicionado Mirage Inverter X32 SEER17.5",
     "specs": [{ "volt": "110V", "btu": "12000 BTU" }],
     "refr": "R32",
-    "price": 1150000,
+    "price": "1.150.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIRAGE/mirage4.webp"
     ],
@@ -25,7 +25,7 @@
     "name": "Aire acondicionado Mirage Inverter X32 SEER17.5",
     "specs": [{ "volt": "220V", "btu": "12000 BTU" }],
     "refr": "R410A",
-    "price": 1150000,
+    "price": "1.150.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIRAGE/mirage4.webp"
     ],
@@ -41,7 +41,7 @@
     "name": "Aire acondicionado Mirage Inverter X32 SEER17.5",
     "specs": [{ "volt": "220V", "btu": "18000 BTU" }],
     "refr": "R410A",
-    "price": 1650000,
+    "price": "1.650.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIRAGE/mirage4.webp"
     ],
@@ -57,7 +57,7 @@
     "name": "Aire acondicionado Mirage Inverter X32 SEER17.5",
     "specs": [{ "volt": "220V", "btu": "24000 BTU" }],
     "refr": "R410A",
-    "price": 2120000,
+    "price": "2.120.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIRAGE/mirage4.webp"
     ],
@@ -73,7 +73,7 @@
     "name": "Aire acondicionado Mirage XLife",
     "specs": [{ "volt": "220V", "btu": "12000 BTU" }],
     "refr": "R410A",
-    "price": 975000,
+    "price": "975.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIRAGE/mirage4.webp"
     ],
@@ -89,7 +89,7 @@
     "name": "Aire acondicionado Mirage Inverter Magnum SEER22",
     "specs": [{ "volt": "220V", "btu": "9000 BTU" }],
     "refr": "R410A",
-    "price": 1640000,
+    "price": "1.640.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIRAGE/miragemagnum22.webp"
     ],
@@ -105,7 +105,7 @@
     "name": " Aire acondicionado Mirage Inverter Magnum SEER22",
     "specs": [{ "volt": "220V", "btu": "12000 BTU" }],
     "refr": "R410A",
-    "price": 1550000,
+    "price": "1.550.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIRAGE/miragemagnum22.webp"
     ],
@@ -121,7 +121,7 @@
     "name": "Mirage Inverter Magnum SEER22",
     "specs": [{ "volt": "220V", "btu": "18000 BTU" }],
     "refr": "R410A",
-    "price": 1990000,
+    "price": "1.990.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIRAGE/miragemagnum22.webp"
     ],
@@ -137,7 +137,7 @@
     "name": "Aire acondicionado Mirage Inverter Magnum SEER22",
     "specs": [{ "volt": "220V", "btu": "24000 BTU" }],
     "refr": "R410A",
-    "price": 2669000,
+    "price": "2.669.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIRAGE/miragemagnum22.webp"
     ],
@@ -153,7 +153,7 @@
     "name": "Aire acondicionado Mirage Inverter Platinum",
     "specs": [{ "volt": "220V", "btu": "12000 BTU" }],
     "refr": "R410A",
-    "price": 1499000,
+    "price": "1.499.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIRAGE/miragemagnumplatinum.webp"
     ],
@@ -169,7 +169,7 @@
     "name": "Aire acondicionado Mirage Inverter Platinum",
     "specs": [{ "volt": "220V", "btu": "18000 BTU" }],
     "refr": "R410A",
-    "price": 1930000,
+    "price": "1.930.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIRAGE/miragemagnumplatinum.webp"
     ],
@@ -185,7 +185,7 @@
     "name": "Aire acondicionado Mirage Inverter Platinum",
     "specs": [{ "volt": "220V", "btu": "24000 BTU" }],
     "refr": "R410A",
-    "price": 2630000,
+    "price": "2.630.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIRAGE/miragemagnumplatinum.webp"
     ],
@@ -201,7 +201,7 @@
     "name": "Aire acondicionado Midea Convencional",
     "specs": [{ "volt": "110V", "btu": "12000 BTU" }],
     "refr": "R410A",
-    "price": 1099000,
+    "price": "1.099.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIDEA/midea.webp"
     ],
@@ -217,7 +217,7 @@
     "name": "Aire acondicionado Midea Convencional",
     "specs": [{ "volt": "220V", "btu": "36000 BTU" }],
     "refr": "R410A",
-    "price": 3799000,
+    "price": "3.799.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIDEA/midea.webp"
     ],
@@ -233,7 +233,7 @@
     "name": "Aire acondicionado Midea Silk Inverter",
     "specs": [{ "volt": "220V", "btu": "12000 BTU" }],
     "refr": "R410",
-    "price": 1279000,
+    "price": "1.279.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIDEA/mideasilk.webp"
     ],
@@ -249,7 +249,7 @@
     "name": "Aire acondicionado Midea Silk Inverter",
     "specs": [{ "volt": "220V", "btu": "12000 BTU" }],
     "refr": "R32",
-    "price": 1823000,
+    "price": "1.823.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIDEA/midealleasypro.webp"
     ],
@@ -265,7 +265,7 @@
     "name": "Aire acondicionado Midea Silk Inverter",
     "specs": [{ "volt": "220V", "btu": "18000 BTU" }],
     "refr": "R32",
-    "price": 2520000,
+    "price": "2.520.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIDEA/midealleasypro.webp"
     ],
@@ -281,7 +281,7 @@
     "name": "Aire acondicionado Midea Silk Inverter",
     "specs": [{ "volt": "220V", "btu": "24000 BTU" }],
     "refr": "R32",
-    "price": 3350000,
+    "price": "3.350.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIDEA/midealleasypro.webp"
     ],
@@ -297,7 +297,7 @@
     "name": "Aire acondicionado Hisense Convencional",
     "specs": [{ "volt": "110V", "btu": "12000 BTU" }],
     "refr": "R410A",
-    "price": 1060000,
+    "price": "1.060.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/HISENSE/hisense.webp"
     ],
@@ -313,7 +313,7 @@
     "name": "Aire acondicionado Hisense Convencional",
     "specs": [{ "volt": "220V", "btu": "12000 BTU" }],
     "refr": "R410A",
-    "price": 1075000,
+    "price": "1.075.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/HISENSE/hisense.webp"
     ],
@@ -329,7 +329,7 @@
     "name": "Aire acondicionado Hisense Convencional",
     "specs": [{ "volt": "220V", "btu": "18000 BTU" }],
     "refr": "R410A",
-    "price": 1520000,
+    "price": "1.520.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/HISENSE/hisense.webp"
     ],
@@ -345,7 +345,7 @@
     "name": "Aire acondicionado Hisense Convencional",
     "specs": [{ "volt": "220V", "btu": "24000 BTU" }],
     "refr": "R410A",
-    "price": 1970000,
+    "price": "1.970.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/HISENSE/hisense.webp"
     ],
@@ -361,7 +361,7 @@
     "name": "Hisense Portatil Convencional",
     "specs": [{ "volt": "110V", "btu": "12000 BTU" }],
     "refr": "R32",
-    "price": 1275000,
+    "price": "1.275.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/HISENSE/hisensep.webp"
     ],
@@ -377,7 +377,7 @@
     "name": "Hisense Portatil Convencional",
     "specs": [{ "volt": "110V", "btu": "12000 BTU" }],
     "refr": "R32",
-    "price": 1420000,
+    "price": "1.420.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/HISENSE/hisensep.webp"
     ],
@@ -393,7 +393,7 @@
     "name": "Aire acondicionado Hisense Inverter",
     "specs": [{ "volt": "220V", "btu": "9000 BTU" }],
     "refr": "R410A",
-    "price": 1199000,
+    "price": "1.199.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/HISENSE/hisensebrissa.webp"
     ],
@@ -409,7 +409,7 @@
     "name": "Hisense Inverter Tipo C",
     "specs": [{ "volt": "220V", "btu": "12000 BTU" }],
     "refr": "R410A",
-    "price": 1249000,
+    "price": "1.249.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/HISENSE/hisensebrissa.webp"
     ],
@@ -425,7 +425,7 @@
     "name": "Aire acondicionado Hisense Inverter",
     "specs": [{ "volt": "110V", "btu": "12000 BTU" }],
     "refr": "R410A",
-    "price": 1199000,
+    "price": "1.199.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/HISENSE/hisensebrissa.webp"
     ],
@@ -441,7 +441,7 @@
     "name": "Aire acondicionado Hisense Inverter",
     "specs": [{ "volt": "220V", "btu": "18000 BTU" }],
     "refr": "R410A",
-    "price": 1190000,
+    "price": "1.190.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/HISENSE/hisense.webp"
     ],
@@ -457,7 +457,7 @@
     "name": "Aire acondicionado Hisense Inverter",
     "specs": [{ "volt": "220V", "btu": "24000 BTU" }],
     "refr": "R410A",
-    "price": 2399000,
+    "price": "2.399.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/HISENSE/hisense.webp"
     ],
@@ -473,7 +473,7 @@
     "name": "Aire acondicionado Hisense Inverter",
     "specs": [{ "volt": "220V", "btu": "36000 BTU" }],
     "refr": "R410A",
-    "price": 4499000,
+    "price": "4.499.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/HISENSE/hisense.webp"
     ],
@@ -489,7 +489,7 @@
     "name": "Aire acondicionado Hisense Inverter",
     "specs": [{ "volt": "220V", "btu": "12000 BTU" }],
     "refr": "R410",
-    "price": 1699000,
+    "price": "1.699.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/HISENSE/hisensenegro.webp"
     ],
@@ -505,7 +505,7 @@
     "name": "Aire acondicionado Hisense Inverter",
     "specs": [{ "volt": "220V", "btu": "12000 BTU" }],
     "refr": "R32",
-    "price": 2599000,
+    "price": "2.599.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/HISENSE/hisensenegro.webp"
     ],
@@ -521,7 +521,7 @@
     "name": "Aire acondicionado Mabe Convencional",
     "specs": [{ "volt": "110V", "btu": "9000 BTU" }],
     "refr": "R410A",
-    "price": 990000,
+    "price": "990.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MABE/mabe.webp"
     ],
@@ -537,7 +537,7 @@
     "name": "Aire acondicionado Mabe Convencional",
     "specs": [{ "volt": "220V", "btu": "9000 BTU" }],
     "refr": "R410A",
-    "price": 990000,
+    "price": "990.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MABE/mabe.webp"
     ],
@@ -553,7 +553,7 @@
     "name": "Aire acondicionado Mabe Convencional",
     "specs": [{ "volt": "220V", "btu": "12000 BTU" }],
     "refr": "R410A",
-    "price": 1075000,
+    "price": "1.075.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MABE/mabe.webp"
     ],
@@ -569,7 +569,7 @@
     "name": "Aire acondicionado Mabe Inverter",
     "specs": [{ "volt": "110V", "btu": "9000 BTU" }],
     "refr": "R410A",
-    "price": 1290000,
+    "price": "1.290.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MABE/mabeinv.webp"
     ],
@@ -585,7 +585,7 @@
     "name": "Aire acondicionado Mabe Inverter",
     "specs": [{ "volt": "220V", "btu": "24000 BTU" }],
     "refr": "R410A",
-    "price": 2599000,
+    "price": "2.599.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MABE/mabeinv.webp"
     ],
@@ -601,7 +601,7 @@
     "name": "Aire acondicionado Mabe Inverter",
     "specs": [{ "volt": "220V", "btu": "12000 BTU" }],
     "refr": "R32",
-    "price": 1890000,
+    "price": "1.890.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MABE/mabenegro.webp"
     ],
@@ -617,7 +617,7 @@
     "name": "Aire acondicionado Mabe Inverter",
     "specs": [{ "volt": "220V", "btu": "18000 BTU" }],
     "refr": "R32",
-    "price": 2815000,
+    "price": "2.815.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MABE/mabenegro.webp"
     ],
@@ -633,7 +633,7 @@
     "name": "Aire acondicionado Mabe Inverter",
     "specs": [{ "volt": "220V", "btu": "24000 BTU" }],
     "refr": "R32",
-    "price": 3490000,
+    "price": "3.490.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MABE/mabenegro.webp"
     ],
@@ -649,7 +649,7 @@
     "name": "Aire acondicionado Panasonic Inverter Tipo C",
     "specs": [{ "volt": "220V", "btu": "18000 BTU" }],
     "refr": "R410A",
-    "price": 2399000,
+    "price": "2.399.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/PANASONIC/panasonic.webp"
     ],
@@ -665,7 +665,7 @@
     "name": "Aire acondicionado Panasonic Inverter Tipo C",
     "specs": [{ "volt": "220V", "btu": "24000 BTU" }],
     "refr": "R410A",
-    "price": 2820000,
+    "price": "2.820.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/PANASONIC/panasonic.webp"
     ],
