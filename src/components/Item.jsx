@@ -1,6 +1,6 @@
 import React from "react";
 import ItemStyles from "../styles/Item.module.css";
-import { Heart, Leaf, Star, Wifi } from "lucide-react";
+import { Heart, Leaf, Star, Wifi, PaintBucket} from "lucide-react";
 import PropTypes from "prop-types";
 
 const Item = ({
@@ -66,7 +66,7 @@ const Item = ({
             {color && (
               <div className={ItemStyles.feature}>
                 <span className={ItemStyles.icon}>
-                  <Leaf size={18} />
+                  <PaintBucket size={18}/>
                 </span>
                 <span>
                   <strong>Color:</strong> {color}
