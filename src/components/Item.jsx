@@ -18,21 +18,26 @@ const Item = ({
 }) => {
   
     const handleClick = (air) => {
-    const phoneNumber = "573005515224";
-    const specsText = air.specs
-      ?.map((spec) => `${spec.volt}V - ${spec.btu} BTU`)
+  const phoneNumber = "573005515224";
+
+  let specsText = "";
+  if (Array.isArray(air.specs) && air.specs.length > 0) {
+    specsText = air.specs
+      .map((spec) => `${spec.volt}V - ${spec.btu} BTU`)
       .join(", ");
-  
-    const message = `Hola, quiero más información sobre el ${air.name}. Especificaciones: ${specsText}.`;
-  
-    const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
-  
-    const newWindow = window.open(url, "_blank");
-  
-    if (!newWindow) {
-      alert("Por favor permite las ventanas emergentes para abrir WhatsApp.");
-    }
-  };
+  }
+
+  const message = `Hola, quiero más información sobre el ${air.name}${specsText ? `. Especificaciones: ${specsText}` : ""}.`;
+
+  const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+
+  const newWindow = window.open(url, "_blank");
+
+  if (!newWindow) {
+    alert("Por favor permite las ventanas emergentes para abrir WhatsApp.");
+  }
+};
+
 
   const formatPrice = (price) => {
     return new Intl.NumberFormat("es-CO").format(price); // Formato colombiano
