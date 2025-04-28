@@ -1,6 +1,6 @@
 import React from "react";
 import ItemStyles from "../styles/Item.module.css";
-import { Heart, Leaf, Star, Wifi } from "lucide-react";
+import { Heart, Leaf, Star, Wifi, Palette, GaugeCircle} from "lucide-react";
 import PropTypes from "prop-types";
 
 const Item = ({
@@ -16,12 +16,28 @@ const Item = ({
   wifi,
   type,
 }) => {
-  const handleClick = () => {
-    window.open(
-      "https://api.whatsapp.com/send?phone=573005515224&text=Hola%20quiero%20más%20información%20de%20este%20aire",
-      "_blank"
-    );
-  };
+  
+const handleClick = ({ name, specs }) => {
+  const phoneNumber = "573005515224";
+
+  let specsText = "";
+  if (Array.isArray(specs) && specs.length > 0) {
+    specsText = specs
+      .map((spec) => `${spec.volt} - ${spec.btu}`)
+      .join(", ");
+  }
+
+  const message = `Hola, quiero más información sobre el ${name}${specsText ? `. Especificaciones: ${specsText}` : ""}.`;
+
+  const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+
+  const newWindow = window.open(url, "_blank");
+
+  if (!newWindow) {
+    alert("Por favor permite las ventanas emergentes para abrir WhatsApp.");
+  }
+};
+
 
   const formatPrice = (price) => {
     return new Intl.NumberFormat("es-CO").format(price); // Formato colombiano
@@ -48,13 +64,6 @@ const Item = ({
               ))}
           </p>
 
-          {/* Mostrar SEER solo si existe */}
-          {seer && (
-            <p>
-              <strong>SEER:</strong> {seer}
-            </p>
-          )}
-
           <div className={ItemStyles.price__score}>
             <span className={ItemStyles.price}>{formatPrice(price)}</span>
             <span className={ItemStyles.score}>
@@ -66,10 +75,21 @@ const Item = ({
             {color && (
               <div className={ItemStyles.feature}>
                 <span className={ItemStyles.icon}>
-                  <Leaf size={18} />
+                  <Palette size={18}/>
                 </span>
                 <span>
                   <strong>Color:</strong> {color}
+                </span>
+              </div>
+            )}
+
+            {seer && (
+              <div className={ItemStyles.feature}>
+                <span className={ItemStyles.icon}>
+                  <GaugeCircle size={18}/>
+                </span>
+                <span>
+                  <strong>Seer:</strong> {seer}
                 </span>
               </div>
             )}
@@ -99,7 +119,7 @@ const Item = ({
         </div>
       </a>
       <div className={ItemStyles.item__button}>
-        <button onClick={handleClick}>Saber más</button>
+        <button onClick={() => handleClick({ name, specs })}>Saber más</button>
       </div>
     </div>
   );
