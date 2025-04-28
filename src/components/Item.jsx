@@ -23,7 +23,7 @@ const handleClick = ({ name, specs }) => {
   let specsText = "";
   if (Array.isArray(specs) && specs.length > 0) {
     specsText = specs
-      .map((spec) => `${spec.volt}V - ${spec.btu} BTU`)
+      .map((spec) => `${spec.volt} - ${spec.btu}`)
       .join(", ");
   }
 
