@@ -17,15 +17,24 @@ const Items = () => {
     )
       .then((response) => response.json())
       .then((data) => {
-        const cleanedData = data.map((product) => ({
-          ...product,
-          price: parseFloat(product.price.replace(/\./g, "")) || 0,
-          relevance: parseFloat(product.relevance) || 0,
-        }));
+        const cleanedData = data.map((product) => {
+          // Primero limpiamos el precio (eliminando puntos y convirtiendo a número)
+          const originalPrice = parseFloat(product.price.replace(/\./g, "")) || 0;
+          
+          // Aplicamos los incrementos del 20% y luego el 19%
+          const priceWithIncrements = originalPrice * 1.2 * 1.19;
+  
+          return {
+            ...product,
+            price: priceWithIncrements, // Actualizamos el precio con el aumento
+            relevance: parseFloat(product.relevance) || 0,
+          };
+        });
         setProducts(cleanedData);
       })
       .catch((error) => console.error("Error loading JSON:", error));
   }, []);
+  
 
   useEffect(() => {
     if (products.length > 0) {
@@ -72,6 +81,10 @@ const Items = () => {
               description={product.description}
               urlID={product.publicId}
               score={product.score}
+              wifi={product.wifi}
+              type={product.type}
+              seer={product.seer}
+              color={product.color}
             />
           ))
         ) : (

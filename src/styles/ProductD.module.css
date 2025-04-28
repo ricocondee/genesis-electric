@@ -19,6 +19,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .productDetails {
   display: flex;
   flex-direction: column;
@@ -47,15 +48,37 @@
 .tags span {
   background-color: transparent;
   color: var(--medium-blue);
-  padding: 12px 24px;
-  border: 2px solid var(--medium-blue);
-  border-radius: 12px;
-  font-weight: 600;
   padding: 6px 12px;
+  border: 2px solid var(--medium-blue);
   border-radius: 6px;
+  font-weight: 600;
   font-size: 0.9rem;
   margin: 8px;
 }
+
+/* NUEVO: Sección de features */
+.features {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  color: #555;
+}
+
+.icon {
+  color: var(--medium-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* FIN NUEVO */
 
 .price {
   font-size: 1.8rem;
@@ -102,17 +125,15 @@
   color: white;
   text-decoration: none;
 }
+
+/* Efectos Hover y Focus del botón */
 .buy:hover {
   background-color: var(--light-blue);
 }
 .buy:active {
   background-color: var(--dark-blue);
 }
-.buy:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--light-blue);
-}
-.buy:focus-visible {
+.buy:focus, .buy:focus-visible {
   outline: none;
   box-shadow: 0 0 0 2px var(--light-blue);
 }
@@ -122,58 +143,48 @@
 .buy:focus-visible:active {
   background-color: var(--dark-blue);
 }
-.buy:focus-visible:active:hover {
-  background-color: var(--dark-blue);
-}
-.buy:focus-visible:active:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--light-blue);
-}
-.buy:focus-visible:active:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--light-blue);
-}
-.buy:focus-visible:active:focus-visible:hover {
-  background-color: var(--light-blue);
-}
-.buy:focus-visible:active:focus-visible:active {
-  background-color: var(--dark-blue);
-}
-.buy:focus-visible:active:focus-visible:active:hover {
-  background-color: var(--dark-blue);
-}
-.buy:focus-visible:active:focus-visible:active:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--light-blue);
-}
-.buy:focus-visible:active:focus-visible:active:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--light-blue);
-}
-.buy:focus-visible:active:focus-visible:active:focus-visible:hover {
-  background-color: var(--light-blue);
-}
-.buy:focus-visible:active:focus-visible:active:focus-visible:active {
-  background-color: var(--dark-blue);
-}
-.buy:focus-visible:active:focus-visible:active:focus-visible:hover {
-  background-color: var(--dark-blue);
-}
-.buy:focus-visible:active:focus-visible:active:focus-visible:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--light-blue);
-}
-.buy:focus-visible:active:focus-visible:active:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--light-blue);
-}
-.buy:focus-visible:active:focus-visible:active {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--light-blue);
-}
-.buy:focus-visible:active:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--light-blue);
+
+/* Responsive */
+@media (width <= 1024px) {
+  .productContainer {
+    flex-direction: column;
+    height: auto;
+  }
+  .productImage img {
+    max-width: 100%;
+    flex-grow: 1;
+  }
+  .productDetails {
+    width: 100%;
+    padding: 20px;
+    gap: 20px;
+  }
+  .tags span {
+    margin: 4px;
+  }
+  .tags {
+    flex-wrap: wrap;
+  }
+  .features {
+    margin-top: 12px;
+    gap: 8px;
+  }
+  .quantitySelector {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .buy {
+    width: 100%;
+    text-align: center;
+  }
+  .buy a {
+    width: 100%;
+    display: block;
+  }
 }
 
 @media (width <= 768px) {
@@ -196,6 +207,10 @@
   .tags {
     flex-wrap: wrap;
   }
+  .features {
+    margin-top: 12px;
+    gap: 8px;
+  }
   .quantitySelector {
     width: 100%;
     justify-content: space-between;
@@ -211,109 +226,5 @@
   .buy a {
     width: 100%;
     display: block;
-  }
-  .buy:hover {
-    background-color: var(--light-blue);
-  }
-  .buy:active {
-    background-color: var(--dark-blue);
-  }
-  .buy:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px var(--light-blue);
-  }
-  .buy:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 2px var(--light-blue);
-  }
-  .buy:focus-visible:hover {
-    background-color: var(--light-blue);
-  }
-  .buy:focus-visible:active {
-    background-color: var(--dark-blue);
-  }
-  .buy:focus-visible:active:hover {
-    background-color: var(--dark-blue);
-  }
-  .buy:focus-visible:active:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px var(--light-blue);
-  }
-  .buy:focus-visible:active:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 2px var(--light-blue);
-  }
-  .buy:focus-visible:active:focus-visible:hover {
-    background-color: var(--light-blue);
-  }
-  .buy:focus-visible:active:focus-visible:active {
-    background-color: var(--dark-blue);
-  }
-  .buy:focus-visible:active:focus-visible:active:hover {
-    background-color: var(--dark-blue);
-  }
-  .buy:focus-visible:active:focus-visible:active:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px var(--light-blue);
-  }
-  .buy:focus-visible:active:focus-visible:active:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 2px var(--light-blue);
-  }
-  .buy:focus-visible:active:focus-visible:active:focus-visible:hover {
-    background-color: var(--light-blue);
-  }
-  .buy:focus-visible:active:focus-visible:active:focus-visible:active {
-    background-color: var(--dark-blue);
-  }
-  .buy:focus-visible:active:focus-visible:active:focus-visible:hover {
-    background-color: var(--dark-blue);
-  }
-  .buy:focus-visible:active:focus-visible:active:focus-visible:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px var(--light-blue);
-  }
-  .buy:focus-visible:active:focus-visible:active:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 2px var(--light-blue);
-  }
-  .buy:focus-visible:active:focus-visible:active {
-    outline: none;
-    box-shadow: 0 0 0 2px var(--light-blue);
-  }
-  .buy:focus-visible:active:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 2px var(--light-blue);
-  }
-  
-}
-
-@media (width <= 1024px) {
-  .productContainer {
-    flex-direction: column;
-    height: auto;
-  }
-  .productImage img {
-    max-width: 100%;
-    flex-grow: 1;
-  }
-  .productDetails {
-    width: 100%;
-    padding: 20px;
-    gap: 20px;
-  }
-  .tags span {
-    margin: 4px;
-  }
-  .tags {
-    flex-wrap: wrap;
-  }
-  .quantitySelector {
-    width: 100%;
-    justify-content: space-between;
-  }
-  .actions {
-    flex-direction: column;
-    gap: 12px;
   }
 }
