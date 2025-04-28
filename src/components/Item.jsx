@@ -1,6 +1,6 @@
 import React from "react";
 import ItemStyles from "../styles/Item.module.css";
-import { Heart, Leaf, Star, Wifi, Palette} from "lucide-react";
+import { Heart, Leaf, Star, Wifi, Palette, GaugeCircle} from "lucide-react";
 import PropTypes from "prop-types";
 
 const Item = ({
@@ -48,13 +48,6 @@ const Item = ({
               ))}
           </p>
 
-          {/* Mostrar SEER solo si existe */}
-          {seer && (
-            <p>
-              <strong>SEER:</strong> {seer}
-            </p>
-          )}
-
           <div className={ItemStyles.price__score}>
             <span className={ItemStyles.price}>{formatPrice(price)}</span>
             <span className={ItemStyles.score}>
@@ -70,6 +63,17 @@ const Item = ({
                 </span>
                 <span>
                   <strong>Color:</strong> {color}
+                </span>
+              </div>
+            )}
+
+            {seer && (
+              <div className={ItemStyles.feature}>
+                <span className={ItemStyles.icon}>
+                  <GaugeCircle size={18}/>
+                </span>
+                <span>
+                  <strong>Seer:</strong> {seer}
                 </span>
               </div>
             )}
