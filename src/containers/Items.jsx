@@ -78,6 +78,7 @@ const Items = () => {
               name={product.name}
               image={product.image}
               price={product.price}
+              specs:={product.specs}
               description={product.description}
               urlID={product.publicId}
               score={product.score}
