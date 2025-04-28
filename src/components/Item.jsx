@@ -16,11 +16,22 @@ const Item = ({
   wifi,
   type,
 }) => {
-  const handleClick = () => {
-    window.open(
-      "https://api.whatsapp.com/send?phone=573005515224&text=Hola%20quiero%20más%20información%20de%20este%20aire",
-      "_blank"
-    );
+  
+    const handleClick = (air) => {
+    const phoneNumber = "573005515224";
+    const specsText = air.specs
+      ?.map((spec) => `${spec.volt}V - ${spec.btu} BTU`)
+      .join(", ");
+  
+    const message = `Hola, quiero más información sobre el ${air.name}. Especificaciones: ${specsText}.`;
+  
+    const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+  
+    const newWindow = window.open(url, "_blank");
+  
+    if (!newWindow) {
+      alert("Por favor permite las ventanas emergentes para abrir WhatsApp.");
+    }
   };
 
   const formatPrice = (price) => {
@@ -103,7 +114,7 @@ const Item = ({
         </div>
       </a>
       <div className={ItemStyles.item__button}>
-        <button onClick={handleClick}>Saber más</button>
+        <button onClick={() => handleClick({ name, specs })}>Saber más</button>
       </div>
     </div>
   );
