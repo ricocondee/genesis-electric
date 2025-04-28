@@ -1,464 +1,674 @@
 [
   {
+    "stock": 4,
+    "seer": null,
+    "color": "Blanco",
+    "wifi": false,
+    "type": null,
     "publicId": "XUeGQCkAUjn81eCRaTVd",
-    "name": "Aire acondicionado Mirage XLife",
+    "name": "Aire acondicionado Mirage Inverter X32 SEER17.5",
     "specs": [{ "volt": "110V", "btu": "12000 BTU" }],
-    "refr": "R410A",
-    "price": "1.170.000",
+    "refr": "R32",
+    "price": "1.150.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIRAGE/mirage4.webp"
     ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 12K BTU, voltaje 110V y refrigerante R410A."
+    "description": "Disfruta del máximo confort con el Aire Acondicionado Mirage Inverter X32 SEER 17.5. Equipado con tecnología inverter de alta eficiencia energética, este equipo ofrece una capacidad de 12,000 BTU, ideal para enfriar espacios de manera rápida y uniforme. Funciona a 110V y utiliza refrigerante ecológico R32, que ayuda a proteger el medio ambiente. Incluye una garantía de 2 años en partes y 6 años en el compresor, brindándote mayor seguridad y respaldo. Diseño elegante en color blanco que se adapta a cualquier ambiente. ¡Una opción eficiente, confiable y moderna para tu hogar o negocio!"
   },
   {
+    "stock": 4,
+    "seer": null,
+    "color": "Blanco",
+    "wifi": false,
+    "type": null,
     "publicId": "qkueM3cx1WFgbn4oKzgr",
-    "name": "Aire acondicionado Mirage XLife",
+    "name": "Aire acondicionado Mirage Inverter X32 SEER17.5",
     "specs": [{ "volt": "220V", "btu": "12000 BTU" }],
     "refr": "R410A",
     "price": "1.150.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIRAGE/mirage4.webp"
     ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 12K BTU, voltaje 220V y refrigerante R410A."
+    "description": "Disfruta del máximo confort con el Aire Acondicionado Mirage Inverter X32 SEER 17.5. Equipado con tecnología inverter de alta eficiencia energética, este equipo ofrece una capacidad de 12,000 BTU, ideal para climatizar espacios de manera rápida y eficiente. Funciona a 220V y utiliza refrigerante ecológico R410A, garantizando un menor impacto ambiental. Cuenta con una garantía de 2 años en partes y 6 años en el compresor para tu tranquilidad. Su diseño elegante en color blanco se adapta perfectamente a cualquier espacio. ¡Eficiencia, calidad y diseño en un solo equipo!"
   },
   {
+    "stock": 4,
+    "seer": null,
+    "color": "Blanco",
+    "wifi": false,
+    "type": null,
     "publicId": "fLHqoqyuoPbJV8QhEeKX",
-    "name": "Aire acondicionado Mirage XLife",
+    "name": "Aire acondicionado Mirage Inverter X32 SEER17.5",
     "specs": [{ "volt": "220V", "btu": "18000 BTU" }],
     "refr": "R410A",
     "price": "1.650.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIRAGE/mirage4.webp"
     ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 18K BTU, voltaje 220V y refrigerante R410A."
+    "description": "Optimiza el confort de tus espacios con el Aire Acondicionado Mirage Inverter X32 SEER 17.5. Diseñado para ofrecer máxima eficiencia energética, este modelo de 18,000 BTU es ideal para áreas más amplias, garantizando un enfriamiento rápido y uniforme. Funciona a 220V y utiliza refrigerante ecológico R410A, cuidando tanto de tu consumo eléctrico como del medio ambiente. Respaldo total con garantía de 2 años en partes y 6 años en el compresor. Con un elegante diseño en color blanco, combina rendimiento, durabilidad y estilo para tu hogar o negocio."
   },
   {
+    "stock": 4,
+    "seer": null,
+    "color": "Blanco",
+    "wifi": false,
+    "type": null,
     "publicId": "L12FBUpyocoCfru1U8uQ",
-    "name": "Aire acondicionado Mirage XLife",
+    "name": "Aire acondicionado Mirage Inverter X32 SEER17.5",
     "specs": [{ "volt": "220V", "btu": "24000 BTU" }],
     "refr": "R410A",
     "price": "2.120.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIRAGE/mirage4.webp"
     ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 24K BTU, voltaje 220V y refrigerante R410A."
+    "description": "Optimiza el confort de tus espacios con el Aire Acondicionado Mirage Inverter X32 SEER 17.5. Diseñado para ofrecer máxima eficiencia energética, este modelo de 24,000 BTU es ideal para áreas grandes, garantizando un enfriamiento rápido y eficiente. Funciona a 220V y utiliza refrigerante ecológico R410A, cuidando tanto de tu consumo eléctrico como del medio ambiente. Respaldo total con garantía de 2 años en partes y 6 años en el compresor. Con un elegante diseño en color blanco, combina rendimiento, durabilidad y estilo para tu hogar o negocio."
   },
   {
+    "stock": 2,
+    "seer": null,
+    "color": "Blanco",
+    "wifi": false,
+    "type": null,
     "publicId": "VFPdtLrRUFm3kULutDz1",
     "name": "Aire acondicionado Mirage XLife",
-    "specs": [{ "volt": "220V", "btu": "36000 BTU" }],
+    "specs": [{ "volt": "220V", "btu": "12000 BTU" }],
     "refr": "R410A",
-    "price": "4.160.000",
+    "price": "975.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIRAGE/mirage4.webp"
     ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 36K BTU, voltaje 220V y refrigerante R410A."
+    "description": "El Aire Acondicionado Mirage XLife es la opción perfecta para quienes buscan un equipo eficiente y de calidad. Con 12,000 BTU de capacidad y voltaje de 220V, ofrece un enfriamiento rápido y consistente. Utiliza refrigerante R410A, respetuoso con el medio ambiente. Incluye garantía de 2 años en partes y 6 años en el compresor. Su diseño blanco y simple se adapta a cualquier espacio. Ideal para hogares pequeños o medianos."
   },
   {
-    "publicId": "pTou1GoF23nU5v8NzhDd",
-    "name": "Aire acondicionado Inverter Mirage X32",
-    "specs": [{ "volt": "110V", "btu": "12000 BTU" }],
-    "refr": "R32",
-    "price": "1.350.000",
-    "image": [
-      "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIRAGE/mirage1.webp"
-    ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 12K BTU, voltaje 110V y refrigerante R32."
-  },
-  {
-    "publicId": "vtVeFGPUXUEPRZoU5mVA",
-    "name": "Aire acondicionado Inverter Mirage X32",
-    "specs": [{ "volt": "220V", "btu": "12000 BTU" }],
-    "refr": "R32",
-    "price": "1.300.000",
-    "image": [
-      "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIRAGE/mirage1.webp"
-    ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 12K BTU, voltaje 220V y refrigerante R32."
-  },
-  {
-    "publicId": "vHLn1hBKgTXKTf0ZfnjG",
-    "name": "Aire acondicionado Inverter Mirage X32",
-    "specs": [{ "volt": "220V", "btu": "18000 BTU" }],
-    "refr": "R32",
-    "price": "2.079.000",
-    "image": [
-      "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIRAGE/mirage1.webp"
-    ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 18K BTU y refrigerante R32."
-  },
-  {
-    "publicId": "BNCTYGjCVqP3jUyrtsvZ",
-    "name": "Aire acondicionado Inverter Mirage X32",
-    "specs": [{ "volt": "220V", "btu": "24000 BTU" }],
-    "refr": "R32",
-    "price": "2.679.000",
-    "image": [
-      "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIRAGE/mirage1.webp"
-    ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 24K BTU y refrigerante R32."
-  },
-  {
+    "stock": 4,
+    "seer": null,
+    "color": "Blanco",
+    "wifi": false,
+    "type": "Tipo B",
     "publicId": "BNCTYGjCVqP3jUyrtsvZk",
-    "name": "Aire acondicionado Mirage Inverter Magnum Tipo B",
-    "specs": [{ "volt": "220V", "btu": "9000 BTU"}],
+    "name": "Aire acondicionado Mirage Inverter Magnum SEER22",
+    "specs": [{ "volt": "220V", "btu": "9000 BTU" }],
     "refr": "R410A",
-    "price": "1.840.000",
+    "price": "1.640.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIRAGE/miragemagnum22.webp"
     ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 9K BTU, voltaje 220V y refrigerante R410A."
+    "description": "El Aire Acondicionado Mirage Inverter Magnum SEER 22 es ideal para quienes necesitan un enfriamiento eficiente y con baja carga energética. Con 9,000 BTU de capacidad y voltaje de 220V, es perfecto para espacios más pequeños. Funciona con refrigerante ecológico R410A y cuenta con una garantía de 2 años en partes y 6 años en el compresor. Su diseño en color blanco aporta elegancia y rendimiento."
   },
   {
+    "stock": 4,
+    "seer": null,
+    "color": "Blanco",
+    "wifi": true,
+    "type": "Tipo C",
     "publicId": "BNCTYGjCVqP3jUyrtsvZm",
-    "name": "Aire acondicionado Mirage Inverter Magnum Tipo C Wi-Fi",
+    "name": " Aire acondicionado Mirage Inverter Magnum SEER22",
     "specs": [{ "volt": "220V", "btu": "12000 BTU" }],
     "refr": "R410A",
-    "price": "1.750.000",
+    "price": "1.550.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIRAGE/miragemagnum22.webp"
     ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Cuenta con conexion WIFI. Capacidad de 12K BTU, voltaje 220V y refrigerante R410A."
+    "description": "Aprovecha la tecnología avanzada del Aire Acondicionado Mirage Inverter Magnum SEER 22 con conexión WIFI. Con 12,000 BTU de capacidad y un voltaje de 220V, este modelo ofrece una eficiencia energética sobresaliente. Funciona con refrigerante R410A, ideal para un enfriamiento efectivo y ecológico. Incluye una garantía de 2 años en partes y 6 años en el compresor. Su diseño blanco y su conectividad WIFI hacen que sea una opción moderna y cómoda para tu hogar o negocio."
   },
   {
+    "stock": 4,
+    "seer": null,
+    "color": "Blanco",
+    "wifi": true,
+    "type": "Tipo C",
     "publicId": "BNCTYGjCVqP3jUyrtsvZc",
-    "name": "Aire acondicionado Mirage Inverter Magnum Tipo C Wi-Fi",
+    "name": "Mirage Inverter Magnum SEER22",
     "specs": [{ "volt": "220V", "btu": "18000 BTU" }],
     "refr": "R410A",
-    "price": "2.190.000",
+    "price": "1.990.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIRAGE/miragemagnum22.webp"
     ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Cuenta con conexion WIFI. Capacidad de 18K BTU, voltaje 220V y refrigerante R410A."
+    "description": "Aprovecha la tecnología avanzada del Aire Acondicionado Mirage Inverter Magnum SEER 22 con conexión WIFI. Con 12,000 BTU de capacidad y un voltaje de 220V, este modelo ofrece una eficiencia energética sobresaliente. Funciona con refrigerante R410A, ideal para un enfriamiento efectivo y ecológico. Incluye una garantía de 2 años en partes y 6 años en el compresor. Su diseño blanco y su conectividad WIFI hacen que sea una opción moderna y cómoda para tu hogar o negocio."
   },
   {
+    "stock": 4,
+    "seer": null,
+    "color": "Blanco",
+    "wifi": true,
+    "type": "Tipo D",
     "publicId": "BNCTYGjCVqP3jUyrtsvZj",
-    "name": "Aire acondicionado Mirage Inverter Magnum Tipo D Wi-Fi",
+    "name": "Aire acondicionado Mirage Inverter Magnum SEER22",
     "specs": [{ "volt": "220V", "btu": "24000 BTU" }],
     "refr": "R410A",
-    "price": "2.869.000",
+    "price": "2.669.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIRAGE/miragemagnum22.webp"
     ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Cuenta con conexion WIFI. Capacidad de 24K BTU, voltaje 220V y refrigerante R410A."
+    "description": "Aprovecha el confort y la eficiencia del Aire Acondicionado Mirage Inverter Magnum SEER22 con WIFI. Con 24,000 BTU de capacidad y voltaje de 220V, este modelo enfría espacios grandes rápidamente. Utiliza refrigerante R410A, ecológico y eficiente, asegurando un bajo impacto ambiental. La garantía de 2 años en partes y 6 años en el compresor te ofrece confianza y durabilidad. Además, su diseño en blanco y la conectividad WIFI lo convierten en una opción moderna y cómoda para tu hogar o negocio."
   },
   {
+    "stock": 3,
+    "seer": "Seer 21",
+    "color": "gray",
+    "wifi": false,
+    "type": "Tipo C",
     "publicId": "BNCTYGjCVqP3jUyrtsvZe",
-    "name": "Aire acondicionado Mirage Inverter Magnum Platinum color GRIS",
+    "name": "Aire acondicionado Mirage Inverter Platinum",
     "specs": [{ "volt": "220V", "btu": "12000 BTU" }],
     "refr": "R410A",
-    "price": "1.699.000",
+    "price": "1.499.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIRAGE/miragemagnumplatinum.webp"
     ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 12K BTU, voltaje 220V y refrigerante R410A."
+    "description": "El Aire Acondicionado Mirage Inverter Platinum SEER 21 ofrece un excelente rendimiento con 12,000 BTU de capacidad y voltaje de 220V. Su refrigerante R410A es amigable con el medio ambiente, y la garantía de 2 años en partes y 6 años en el compresor te da la tranquilidad de un producto duradero. Este modelo en color gris es perfecto para quienes buscan una opción eficiente y de calidad para espacios medianos."
   },
   {
+    "stock": 3,
+    "seer": "Seer 19",
+    "color": "gray",
+    "wifi": false,
+    "type": "Tipo C",
     "publicId": "BNCTsYGjCVqP3jUyrtsvZ",
-    "name": "Aire acondicionado Mirage Inverter Magnum Platinum color Gris",
+    "name": "Aire acondicionado Mirage Inverter Platinum",
     "specs": [{ "volt": "220V", "btu": "18000 BTU" }],
     "refr": "R410A",
-    "price": "2.190.000",
+    "price": "1.930.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIRAGE/miragemagnumplatinum.webp"
     ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 18K BTU y refrigerante R410A."
+    "description": "Con 18,000 BTU de capacidad y un diseño elegante en color gris, el Aire Acondicionado Mirage Inverter Platinum SEER 19 es ideal para grandes espacios. Su voltaje de 220V y el refrigerante R410A aseguran un enfriamiento eficaz y respetuoso con el medio ambiente. Además, incluye una garantía de 2 años en partes y 6 años en el compresor, ofreciendo rendimiento y fiabilidad para tu hogar o negocio."
   },
   {
+    "stock": 3,
+    "seer": "Seer 19",
+    "color": "gray",
+    "wifi": false,
+    "type": "Tipo C",
     "publicId": "BNCTYGjCVqP3jUyrtsvZv",
-    "name": "Aire acondicionado Mirage Inverter Magnum Platinum color Gris",
+    "name": "Aire acondicionado Mirage Inverter Platinum",
     "specs": [{ "volt": "220V", "btu": "24000 BTU" }],
     "refr": "R410A",
-    "price": "2.830.000",
+    "price": "2.630.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIRAGE/miragemagnumplatinum.webp"
     ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 24K BTU y refrigerante R410A."
+    "description": "El Aire Acondicionado Mirage Inverter Platinum SEER 19 con 24,000 BTU de capacidad es la opción definitiva para enfriar espacios grandes. Funciona con refrigerante R410A y cuenta con una garantía de 2 años en partes y 6 años en el compresor. Su diseño en gris y su gran capacidad de enfriamiento hacen que sea perfecto para ambientes comerciales o de gran tamaño, garantizando un rendimiento óptimo y duradero."
   },
   {
+    "stock": 1,
+    "seer": null,
+    "color": "white",
+    "wifi": false,
+    "type": null,
     "publicId": "BNCTYGjCVqP3jUyrtsvZp",
-    "name": "Aire acondicionado Midea Forest",
+    "name": "Aire acondicionado Midea Convencional",
     "specs": [{ "volt": "110V", "btu": "12000 BTU" }],
     "refr": "R410A",
-    "price": "1.275.000",
+    "price": "1.099.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIDEA/midea.webp"
     ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 12K BTU, voltaje 110V y refrigerante R410A."
+    "description": "El Aire Acondicionado Midea Convencional es una opción fiable para aquellos que buscan un modelo sencillo pero eficiente. Con 12,000 BTU y voltaje de 110V, ofrece un enfriamiento adecuado para espacios pequeños a medianos. Utiliza refrigerante R410A y está respaldado por una garantía de 2 años en partes y 6 años en el compresor. Su diseño blanco se adapta fácilmente a cualquier entorno."
   },
   {
+    "stock": 1,
+    "seer": null,
+    "color": "Blanco",
+    "wifi": false,
+    "type": null,
     "publicId": "BNCTYGjCVqPq3jUyrtsvZ",
-    "name": "Aire acondicionado Midea Forest",
+    "name": "Aire acondicionado Midea Convencional",
     "specs": [{ "volt": "220V", "btu": "36000 BTU" }],
     "refr": "R410A",
-    "price": "3.999.000",
+    "price": "3.799.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIDEA/midea.webp"
     ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 36K BTU, voltaje 220V y refrigerante R410A."
+    "description": "El Aire Acondicionado Midea Convencional con 36,000 BTU es perfecto para enfriar grandes espacios. Con un voltaje de 220V y refrigerante R410A, ofrece un rendimiento de alta eficiencia. Viene con una garantía de 2 años en partes y 6 años en el compresor, asegurando durabilidad y fiabilidad. Su diseño blanco y su gran capacidad lo convierten en una opción ideal para ambientes comerciales o residenciales de gran tamaño."
   },
   {
+    "stock": 0,
+    "seer": "Seer 17",
+    "color": "Blanco",
+    "wifi": false,
+    "type": "Tpo C",
     "publicId": "BNCTYGjCVqP3jUyrtsvZaa",
-    "name": "Aire acondicionado Inverter Midea Silk Tipo C",
+    "name": "Aire acondicionado Midea Silk Inverter",
     "specs": [{ "volt": "220V", "btu": "12000 BTU" }],
     "refr": "R410",
-    "price": "1.499.000",
+    "price": "1.279.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIDEA/mideasilk.webp"
     ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 12K BTU, voltaje 220V."
+    "description": "El Aire Acondicionado Midea Silk Inverter SEER 17 es ideal para espacios medianos con 12,000 BTU de capacidad y voltaje de 220V. Su refrigerante R410 asegura un rendimiento eficiente y ecológico. Con una garantía de 2 años en partes y 6 años en el compresor, es una opción confiable y duradera para quienes buscan un sistema de climatización eficiente."
   },
   {
+    "stock": 0,
+    "seer": "Seer 23",
+    "color": "Blanco",
+    "wifi": true,
+    "type": "Tipo A",
     "publicId": "BNCTYGjCVqP3jUyrtsvZ1",
-    "name": "Aire acondicionado Inverter Midea All Easy Pro - WIFI",
+    "name": "Aire acondicionado Midea Silk Inverter",
     "specs": [{ "volt": "220V", "btu": "12000 BTU" }],
     "refr": "R32",
-    "price": "2.023.000",
+    "price": "1.823.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIDEA/midealleasypro.webp"
     ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Cuenta con conexion WIFI. Capacidad de 12K BTU, voltaje 220V y refrigerante R32."
+    "description": "Este modelo Midea Silk Inverter SEER 23 ofrece un excelente rendimiento con 12,000 BTU y una conexión WIFI para un control fácil y conveniente. Con un voltaje de 220V y refrigerante R32, es una opción amigable con el medio ambiente. Además, su diseño en blanco y su garantía de 2 años en partes y 6 años en el compresor lo hacen una elección confiable para hogares y oficinas modernas."
   },
   {
+    "stock": 0,
+    "seer": "Seer 23",
+    "color": "Blanco",
+    "wifi": true,
+    "type": "Tipo A",
     "publicId": "BNCTYGjCVqP3jUyrtsvZx1",
-    "name": "Aire acondicionado Inverter Midea All Easy Pro - WIFI",
+    "name": "Aire acondicionado Midea Silk Inverter",
+    "specs": [{ "volt": "220V", "btu": "18000 BTU" }],
+    "refr": "R32",
+    "price": "2.520.000",
+    "image": [
+      "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIDEA/midealleasypro.webp"
+    ],
+    "description": "El Aire Acondicionado Midea Silk Inverter SEER 23 con 18,000 BTU de capacidad y conexión WIFI es ideal para enfriar espacios grandes con facilidad. Con refrigerante R32 y un voltaje de 220V, ofrece un rendimiento eficiente y ecológico. Su garantía de 2 años en partes y 6 años en el compresor asegura un funcionamiento duradero y fiable. Su diseño blanco y moderno lo convierte en una opción elegante y funcional."
+  },
+  {
+    "stock": 0,
+    "seer": "Seer 23",
+    "color": "Blanco",
+    "wifi": true,
+    "type": "Tipo A",
+    "publicId": "BNCTYGjCVqP3jUyrtsvZx1",
+    "name": "Aire acondicionado Midea Silk Inverter",
     "specs": [{ "volt": "220V", "btu": "24000 BTU" }],
     "refr": "R32",
-    "price": "3.615.000",
+    "price": "3.350.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MIDEA/midealleasypro.webp"
     ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Cuenta con conexion WIFI. Capacidad de 24K BTU, voltaje 220V y refrigerante R32."
+    "description": "Con 24,000 BTU de capacidad, el Aire Acondicionado Midea Silk Inverter SEER 23 con WIFI es perfecto para enfriar áreas grandes. Su refrigerante R32 y voltaje de 220V lo hacen eficiente y ecológico. Viene con una garantía de 2 años en partes y 6 años en el compresor, asegurando durabilidad. Este modelo es ideal para quienes buscan una solución de climatización avanzada y moderna para su hogar o negocio."
   },
   {
+    "stock": 4,
+    "seer": null,
+    "color": "Blanco",
+    "wifi": false,
+    "type": null,
     "publicId": "BNCTYGjCVqP3jUyrtsvZ0",
-    "name": "Aire acondicionado Hisense",
+    "name": "Aire acondicionado Hisense Convencional",
     "specs": [{ "volt": "110V", "btu": "12000 BTU" }],
     "refr": "R410A",
-    "price": "1.260.000",
+    "price": "1.060.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/HISENSE/hisense.webp"
     ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 12K BTU, voltaje 110V y refrigerante R410A."
+    "description": "El Aire Acondicionado Hisense Convencional con 12,000 BTU es ideal para enfriar espacios pequeños o medianos. Con un voltaje de 110V y refrigerante R410A, es una opción confiable y económica para quienes buscan un buen rendimiento. Viene con una garantía de 2 años en partes y 6 años en el compresor, asegurando su durabilidad. Su diseño blanco lo hace adaptable a cualquier entorno."
   },
   {
+    "stock": 0,
+    "seer": null,
+    "color": "Blanco",
+    "wifi": false,
+    "type": null,
     "publicId": "BNCTYGjCVqP3jUyrtsvZn",
-    "name": "Aire acondicionado Hisense",
+    "name": "Aire acondicionado Hisense Convencional",
+    "specs": [{ "volt": "220V", "btu": "12000 BTU" }],
+    "refr": "R410A",
+    "price": "1.075.000",
+    "image": [
+      "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/HISENSE/hisense.webp"
+    ],
+    "description": "El Aire Acondicionado Hisense Convencional con 18,000 BTU es perfecto para enfriar espacios de tamaño medio. Con un voltaje de 220V y refrigerante R410A, ofrece un rendimiento eficiente. Su garantía de 2 años en partes y 6 años en el compresor asegura que podrás disfrutar de su funcionamiento durante muchos años. Su diseño elegante en blanco se adapta perfectamente a cualquier habitación."
+  },
+  {
+    "stock": 0,
+    "seer": null,
+    "color": "Blanco",
+    "wifi": false,
+    "type": null,
+    "publicId": "BNCTYGjCVqP3jUyrtsvZla",
+    "name": "Aire acondicionado Hisense Convencional",
     "specs": [{ "volt": "220V", "btu": "18000 BTU" }],
     "refr": "R410A",
-    "price": "1.650.000",
+    "price": "1.520.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/HISENSE/hisense.webp"
     ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 18K BTU y refrigerante R410A."
+    "description": "Este modelo Hisense Convencional con 24,000 BTU es ideal para espacios grandes. Con un voltaje de 220V y refrigerante R410A, asegura un rendimiento eficiente y potente. Su garantía de 2 años en partes y 6 años en el compresor proporciona tranquilidad a largo plazo. El diseño blanco y su capacidad lo convierten en una opción excelente para necesidades de climatización en oficinas o viviendas amplias."
   },
   {
+    "stock": 0,
+    "seer": null,
+    "color": "Blanco",
+    "wifi": false,
+    "type": null,
     "publicId": "BNCTYGjCVqP3jUyrtsvZla",
-    "name": "Aire acondicionado Hisense",
+    "name": "Aire acondicionado Hisense Convencional",
     "specs": [{ "volt": "220V", "btu": "24000 BTU" }],
     "refr": "R410A",
-    "price": "2.150.000",
+    "price": "1.970.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/HISENSE/hisense.webp"
     ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 24K BTU y refrigerante R410A."
+    "description": "Con una capacidad de 24,000 BTU, este Aire Acondicionado Hisense Convencional es perfecto para grandes espacios. Con refrigerante R410A y voltaje de 220V, ofrece un enfriamiento eficiente. Además, su garantía de 2 años en partes y 6 años en el compresor asegura su fiabilidad a largo plazo. El diseño blanco y su potente rendimiento lo convierten en una opción destacada para instalaciones comerciales o residenciales."
   },
   {
+    "stock": 0,
+    "seer": null,
+    "color": "Blanco",
+    "wifi": true,
+    "type": null,
     "publicId": "BNCTYGjCVqP3jUyrtsvZds",
-    "name": "Hisense Portatil On-Off WIFI",
+    "name": "Hisense Portatil Convencional",
     "specs": [{ "volt": "110V", "btu": "12000 BTU" }],
     "refr": "R32",
-    "price": "1.475.000",
+    "price": "1.275.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/HISENSE/hisensep.webp"
     ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Cuenta con conexion WIFI. Capacidad de 12K BTU y refrigerante R32."
+    "description": "El Aire Acondicionado Portátil Hisense con conexión WIFI y 12,000 BTU es ideal para quienes buscan flexibilidad en la climatización de diferentes áreas. Con refrigerante R32 y un voltaje de 110V, es eficiente y ecológico. Su diseño portátil y su garantía de 2 años en partes y 6 años en el compresor lo hacen una excelente opción para quienes necesitan una solución práctica y confiable para el hogar o la oficina."
   },
   {
+    "stock": 0,
+    "seer": null,
+    "color": "Negro",
+    "wifi": true,
+    "type": null,
+    "publicId": "BNCTYGjCVqP3jUyrtsvZds",
+    "name": "Hisense Portatil Convencional",
+    "specs": [{ "volt": "110V", "btu": "12000 BTU" }],
+    "refr": "R32",
+    "price": "1.420.000",
+    "image": [
+      "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/HISENSE/hisensep.webp"
+    ],
+    "description": "Este Aire Acondicionado Portátil Hisense en color negro ofrece una potente capacidad de 12,000 BTU con refrigerante R32. Con conexión WIFI, puedes controlar la temperatura desde tu dispositivo móvil para mayor comodidad. Con garantía de 2 años en partes y 6 años en el compresor, es una opción práctica y confiable para enfriar espacios sin la necesidad de instalación fija."
+  },
+  {
+    "stock": 0,
+    "seer": "Seer 19",
+    "color": "Blanco",
+    "wifi": false,
+    "type": "Tipo C",
     "publicId": "BNCTYGjCVqP3jUyrtsvZfg",
-    "name": "Hisense Inverter Seer 19 Tipo C",
-    "specs": [{ "volt": "220V", "btu": "9000 BTU"}],
+    "name": "Aire acondicionado Hisense Inverter",
+    "specs": [{ "volt": "220V", "btu": "9000 BTU" }],
     "refr": "R410A",
-    "price": "1.399.000",
+    "price": "1.199.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/HISENSE/hisensebrissa.webp"
     ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 9K BTU, voltaje 220V y refrigerante R410A."
+    "description": "El Aire Acondicionado Hisense Inverter de 9,000 BTU es una opción eficiente para espacios pequeños o medianos. Con voltaje de 220V y refrigerante R410A, ofrece un enfriamiento efectivo y ahorra energía gracias a su tecnología inverter. Su garantía de 2 años en partes y 6 años en el compresor asegura su durabilidad. Ideal para quienes buscan un rendimiento confiable y económico."
   },
   {
+    "stock": 0,
+    "seer": "Seer 21",
+    "color": "Blanco",
+    "wifi": false,
+    "type": "Tipo C",
     "publicId": "BNCTYGjCVqP3jUyrtsvZhv",
     "name": "Hisense Inverter Tipo C",
     "specs": [{ "volt": "220V", "btu": "12000 BTU" }],
     "refr": "R410A",
-    "price": "1.435.000",
+    "price": "1.249.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/HISENSE/hisensebrissa.webp"
     ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 12K BTU, voltaje 220V y refrigerante R410A."
+    "description": "Este modelo Hisense Inverter de 12,000 BTU es perfecto para habitaciones medianas. Con tecnología inverter, garantiza un enfriamiento constante y eficiente. Su refrigerante R410A y el voltaje de 220V lo hacen una opción energética eficiente, mientras que su garantía de 2 años en partes y 6 años en el compresor refuerza la confianza en su durabilidad."
   },
   {
+    "stock": 0,
+    "seer": "Seer 21",
+    "color": "Blanco",
+    "wifi": false,
+    "type": "Tipo C",
     "publicId": "BNCTYGjCVqP3jUyrtsvZmk",
-    "name": "Hisense Inverter Tipo C",
+    "name": "Aire acondicionado Hisense Inverter",
     "specs": [{ "volt": "110V", "btu": "12000 BTU" }],
     "refr": "R410A",
-    "price": "1.450.000",
+    "price": "1.199.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/HISENSE/hisensebrissa.webp"
     ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 12K BTU, voltaje 110V y refrigerante R410A."
+    "description": "El Aire Acondicionado Hisense Inverter de 12,000 BTU es una excelente opción para enfriar espacios medianos. Con un voltaje de 110V y refrigerante R410A, ofrece un enfriamiento eficiente. Gracias a su tecnología inverter, optimiza el consumo energético. Con 2 años de garantía en partes y 6 años en el compresor, ofrece un rendimiento confiable y duradero."
   },
   {
+    "stock": 0,
+    "seer": "Seer 21",
+    "color": "Blanco",
+    "wifi": false,
+    "type": "Tipo C",
     "publicId": "BNCTYGjCVqP3jUyrtsvZlms",
-    "name": "Hisense Inverter Tipo C",
+    "name": "Aire acondicionado Hisense Inverter",
     "specs": [{ "volt": "220V", "btu": "18000 BTU" }],
-    "refr": "R410A",
-    "price": "2.100.000",
-    "image": [
-      "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/HISENSE/hisense.webp"
-    ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 18K BTU, voltaje 220V y refrigerante R410A."
-  },
-  {
-    "publicId": "BNCTYGjCVqP3jUyrtsvZcdi",
-    "name": "Hisense Inverter Tipo C",
-    "specs": [{ "volt": "220V", "btu": "24000 BTU" }],
-    "refr": "R410A",
-    "price": "2.430.000",
-    "image": [
-      "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/HISENSE/hisense.webp"
-    ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 24K BTU, voltaje 220V y refrigerante R410A."
-  },
-  {
-    "publicId": "BNCTYGjCVqP3jUycbccvZ",
-    "name": "Hisense Inverter Seer 17",
-    "specs": [{ "volt": "220V", "btu": "36000 BTU" }],
-    "refr": "R410A",
-    "price": "4.699.000",
-    "image": [
-      "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/HISENSE/hisense.webp"
-    ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 36K BTU y refrigerante R410A."
-  },
-  {
-    "publicId": "BNCTYGjCVdmijUyrtsvZ",
-    "name": "Hisense Inverter Tipo A Wi-Fi Energy Pro (Negro)",
-    "specs": [{ "volt": "220V", "btu": "12000 BTU" }],
-    "refr": "R32",
-    "price": "2.799.000",
-    "image": [
-      "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/HISENSE/hisensenegro.webp"
-    ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 12K BTU, voltaje 220V y refrigerante R32."
-  },
-  {
-    "publicId": "BNCTYGjCVqP3jUyrtsvZ23",
-    "name": "Aire acondicionado Mabe ON-OFF",
-    "specs": [{ "volt": "110V", "btu": "9000 BTU"}],
     "refr": "R410A",
     "price": "1.190.000",
     "image": [
-      "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MABE/mabe.webp"
+      "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/HISENSE/hisense.webp"
     ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 9K BTU, voltaje 110V y refrigerante R410A."
+    "description": "Este Aire Acondicionado Hisense Inverter de 18,000 BTU es perfecto para enfriar grandes espacios. Con un voltaje de 220V y refrigerante R410A, ofrece un alto rendimiento y eficiencia energética. Su tecnología inverter ajusta la potencia para mantener la temperatura ideal de manera constante. Con garantía de 2 años en partes y 6 años en el compresor, asegura fiabilidad a largo plazo."
   },
   {
-    "publicId": "BNCTYGjCVqP3jUyrtsvZsdf",
-    "name": "Aire acondicionado Mabe ON-OFF",
-    "specs": [{ "volt": "110V", "btu": "12000 BTU" }],
-    "refr": "R410A",
-    "price": "1.275.000",
-    "image": [
-      "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MABE/mabe.webp"
-    ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 12K BTU, voltaje 110V y refrigerante R410A."
-  },
-  {
-    "publicId": "BNCTYGjCVqP3jUyrtsvZkjs",
-    "name": "Aire acondicionado Mabe ON-OFF",
-    "specs": [{ "volt": "220V", "btu": "12000 BTU" }],
-    "refr": "R410A",
-    "price": "1.320.000",
-    "image": [
-      "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MABE/mabe.webp"
-    ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 12K BTU, voltaje 220V y refrigerante R410A."
-  },
-  {
-    "publicId": "BNCTYGjCVqP3jUyrtsvZbvcn",
-    "name": "Aire acondicionado Mabe Inverter Tipo C",
-    "specs": [{ "volt": "110V", "btu": "9000 BTU"}],
-    "refr": "R410A",
-    "price": "1.490.000",
-    "image": [
-      "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MABE/mabeinv.webp"
-    ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 9K BTU, voltaje 110V y refrigerante R410A."
-  },
-  {
-    "publicId": "BNCTYGjCVqP3jUyrtsvZmasd",
-    "name": "Aire acondicionado Mabe Inverter Tipo C",
+    "stock": 0,
+    "seer": "Seer 17",
+    "color": "Blanco",
+    "wifi": false,
+    "type": null,
+    "publicId": "BNCTYGjCVqP3jUyrtsvZcdi",
+    "name": "Aire acondicionado Hisense Inverter",
     "specs": [{ "volt": "220V", "btu": "24000 BTU" }],
     "refr": "R410A",
-    "price": "2.799.000",
+    "price": "2.399.000",
+    "image": [
+      "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/HISENSE/hisense.webp"
+    ],
+    "description": "El Aire Acondicionado Hisense Inverter de 24,000 BTU en color blanco es ideal para enfriar grandes espacios. Con refrigerante R410A y voltaje de 220V, este modelo ofrece un alto rendimiento y eficiencia energética. Con 2 años de garantía en partes y 6 años en el compresor, garantiza fiabilidad y durabilidad en su uso a largo plazo."
+  },
+  {
+    "stock": 0,
+    "seer": "Seer 17",
+    "color": "Blanco",
+    "wifi": false,
+    "type": null,
+    "publicId": "BNCTYGjCVqP3jUycbccvZ",
+    "name": "Aire acondicionado Hisense Inverter",
+    "specs": [{ "volt": "220V", "btu": "36000 BTU" }],
+    "refr": "R410A",
+    "price": "4.499.000",
+    "image": [
+      "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/HISENSE/hisense.webp"
+    ],
+    "description": "Este Aire Acondicionado Hisense Inverter de 36,000 BTU es perfecto para espacios amplios o comerciales. Con refrigerante R410A y voltaje de 220V, proporciona un enfriamiento eficiente incluso en las condiciones más exigentes. Con 2 años de garantía en partes y 6 años en el compresor, asegura un funcionamiento confiable durante años."
+  },
+  {
+    "stock": 0,
+    "seer": "Seer 21",
+    "color": "Negro",
+    "wifi": true,
+    "type": "Tipo C",
+    "publicId": "BNCTYGjCVdmijUyrtsvZ",
+    "name": "Aire acondicionado Hisense Inverter",
+    "specs": [{ "volt": "220V", "btu": "12000 BTU" }],
+    "refr": "R410",
+    "price": "1.699.000",
+    "image": [
+      "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/HISENSE/hisensenegro.webp"
+    ],
+    "description": "Este modelo de Aire Acondicionado Hisense Inverter de 12,000 BTU, con refrigerante R32 y tecnología avanzada, ofrece un rendimiento eficiente. Con voltaje de 220V y conectividad Wi-Fi, puedes controlarlo de forma remota. Su garantía de 2 años en partes y 6 años en el compresor te asegura tranquilidad en su uso a largo plazo."
+  },
+  {
+    "stock": 0,
+    "seer": "Seer 23",
+    "color": "Negro",
+    "wifi": true,
+    "type": "Tipo A",
+    "publicId": "BNCTYGjCVdmijUyrtsvZ",
+    "name": "Aire acondicionado Hisense Inverter",
+    "specs": [{ "volt": "220V", "btu": "12000 BTU" }],
+    "refr": "R32",
+    "price": "2.599.000",
+    "image": [
+      "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/HISENSE/hisensenegro.webp"
+    ],
+    "description": "El Aire Acondicionado Hisense Inverter de 12,000 BTU en color negro es una opción moderna y eficiente para enfriar espacios. Con refrigerante R32 y voltaje de 220V, proporciona un enfriamiento preciso y confiable. Con garantía de 2 años en partes y 6 años en el compresor, es una inversión duradera y eficiente."
+  },
+  {
+    "stock": 0,
+    "seer": null,
+    "color": "Blanco",
+    "wifi": false,
+    "type": null,
+    "publicId": "BNCTYGjCVqP3jUyrtsvZ23",
+    "name": "Aire acondicionado Mabe Convencional",
+    "specs": [{ "volt": "110V", "btu": "9000 BTU" }],
+    "refr": "R410A",
+    "price": "990.000",
+    "image": [
+      "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MABE/mabe.webp"
+    ],
+    "description": "Este Aire Acondicionado Mabe Convencional de 9,000 BTU es una excelente opción para espacios pequeños. Con voltaje de 110V y refrigerante R410A, proporciona un enfriamiento adecuado y eficiente. Con 2 años de garantía en partes y 6 años en el compresor, es una opción económica y confiable para mantener tu ambiente fresco."
+  },
+  {
+    "stock": 0,
+    "seer": null,
+    "color": "Blanco",
+    "wifi": false,
+    "type": null,
+    "publicId": "BNCTYGjCVqP3jUyrtsvZsdf",
+    "name": "Aire acondicionado Mabe Convencional",
+    "specs": [{ "volt": "220V", "btu": "9000 BTU" }],
+    "refr": "R410A",
+    "price": "990.000",
+    "image": [
+      "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MABE/mabe.webp"
+    ],
+    "description": "El Aire Acondicionado Mabe Convencional de 9,000 BTU es ideal para enfriar habitaciones medianas. Con voltaje de 220V y refrigerante R410A, ofrece un enfriamiento efectivo. Su garantía de 2 años en partes y 6 años en el compresor asegura su durabilidad y confiabilidad."
+  },
+  {
+    "stock": 0,
+    "seer": null,
+    "color": "Blanco",
+    "wifi": false,
+    "type": null,
+    "publicId": "BNCTYGjCVqP3jUyrtsvZkjs",
+    "name": "Aire acondicionado Mabe Convencional",
+    "specs": [{ "volt": "220V", "btu": "12000 BTU" }],
+    "refr": "R410A",
+    "price": "1.075.000",
+    "image": [
+      "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MABE/mabe.webp"
+    ],
+    "description": "El Aire Acondicionado Mabe Convencional de 12,000 BTU es perfecto para mantener frescos espacios medianos. Con refrigerante R410A y voltaje de 220V, ofrece un rendimiento fiable y eficiente. Con 2 años de garantía en partes y 6 años en el compresor, garantiza un buen desempeño a largo plazo."
+  },
+  {
+    "stock": 0,
+    "seer": null,
+    "color": "Blanco",
+    "wifi": false,
+    "type": "Tipo C",
+    "publicId": "BNCTYGjCVqP3jUyrtsvZbvcn",
+    "name": "Aire acondicionado Mabe Inverter",
+    "specs": [{ "volt": "110V", "btu": "9000 BTU" }],
+    "refr": "R410A",
+    "price": "1.290.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MABE/mabeinv.webp"
     ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 24K BTU y refrigerante R410A."
+    "description": "Este Aire Acondicionado Mabe Inverter de 9,000 BTU, con tecnología inverter, es una opción eficiente para quienes buscan un enfriamiento constante y ahorro energético. Con voltaje de 110V y refrigerante R410A, ofrece una solución moderna para tu hogar. Con 2 años de garantía en partes y 6 años en el compresor, es una opción confiable y económica."
   },
   {
+    "stock": 0,
+    "seer": null,
+    "color": "Blanco",
+    "wifi": false,
+    "type": "Tipo C",
+    "publicId": "BNCTYGjCVqP3jUyrtsvZmasd",
+    "name": "Aire acondicionado Mabe Inverter",
+    "specs": [{ "volt": "220V", "btu": "24000 BTU" }],
+    "refr": "R410A",
+    "price": "2.599.000",
+    "image": [
+      "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MABE/mabeinv.webp"
+    ],
+    "description": "El Aire Acondicionado Mabe Inverter de 24,000 BTU es ideal para enfriar espacios grandes o comerciales. Con voltaje de 220V y refrigerante R410A, ofrece un alto rendimiento y eficiencia energética. Su tecnología inverter ajusta el consumo de energía según la temperatura deseada. Con 2 años de garantía en partes y 6 años en el compresor, asegura un enfriamiento duradero y eficiente."
+  },
+  {
+    "stock": 0,
+    "seer": null,
+    "color": "Negro",
+    "wifi": true,
+    "type": "Tipo B",
     "publicId": "BNCTYGjCVqP3jUyrtsvZtre",
-    "name": "Aire acondicionado Mabe Inverter Tipo B WIFI (Negro Tipo Espejo)",
+    "name": "Aire acondicionado Mabe Inverter",
     "specs": [{ "volt": "220V", "btu": "12000 BTU" }],
     "refr": "R32",
-    "price": "2.090.000",
+    "price": "1.890.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MABE/mabenegro.webp"
     ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 12K BTU, voltaje 220V y refrigerante R32."
+    "description": "Este Aire Acondicionado Mabe Inverter de 12,000 BTU en color negro ofrece un enfriamiento eficiente y una tecnología avanzada con refrigerante R32. Con 220V de voltaje y conectividad Wi-Fi, puedes controlar la temperatura de forma remota. Con 2 años de garantía en partes y 6 años en el compresor, es una excelente opción para quienes buscan calidad y conveniencia."
   },
   {
+    "stock": 0,
+    "seer": null,
+    "color": "Negro",
+    "wifi": true,
+    "type": "Tipo B",
     "publicId": "BNCTYGjCVqP3jUyrtsvZlop",
-    "name": "Aire acondicionado Mabe Inverter Tipo B WIFI (Negro Tipo Espejo)",
+    "name": "Aire acondicionado Mabe Inverter",
     "specs": [{ "volt": "220V", "btu": "18000 BTU" }],
     "refr": "R32",
-    "price": "2.950.000",
+    "price": "2.815.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MABE/mabenegro.webp"
     ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 18K BTU, voltaje 220V y refrigerante R32."
+    "description": "Este Aire Acondicionado Mabe Inverter de 18,000 BTU en color negro es ideal para aquellos que buscan eficiencia energética y confort. Con tecnología inverter, refrigerante R32 y voltaje de 220V, ofrece un enfriamiento constante y eficiente. Su garantía de 2 años en partes y 6 años en el compresor asegura su fiabilidad y durabilidad."
   },
   {
+    "stock": 0,
+    "seer": null,
+    "color": "Negro",
+    "wifi": true,
+    "type": "Tipo B",
     "publicId": "BNCTYGjCVqP3jUyrtsvZopl",
-    "name": "Aire acondicionado Mabe Inverter Tipo B WIFI (Negro Tipo Espejo)",
+    "name": "Aire acondicionado Mabe Inverter",
     "specs": [{ "volt": "220V", "btu": "24000 BTU" }],
     "refr": "R32",
-    "price": "3.669.000",
+    "price": "3.490.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/MABE/mabenegro.webp"
     ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 24K BTU, voltaje 220V y refrigerante R32."
+    "description": "El Aire Acondicionado Mabe Inverter de 24,000 BTU en color negro es perfecto para grandes espacios. Con refrigerante R32 y tecnología inverter, proporciona un enfriamiento preciso y ahorro energético. Su voltaje de 220V y garantía de 2 años en partes y 6 años en el compresor hacen de este modelo una opción confiable y duradera."
   },
   {
+    "stock": 0,
+    "seer": null,
+    "color": "Blanco",
+    "wifi": false,
+    "type": "Tipo C",
     "publicId": "BNCTYGjCVqP3jUyrtsZsdm",
     "name": "Aire acondicionado Panasonic Inverter Tipo C",
     "specs": [{ "volt": "220V", "btu": "18000 BTU" }],
     "refr": "R410A",
-    "price": "2.599.000",
+    "price": "2.399.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/PANASONIC/panasonic.webp"
     ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 18K BTU y refrigerante R410A."
+    "description": "Este Aire Acondicionado Panasonic Inverter Tipo C de 18,000 BTU es ideal para mantener frescos espacios medianos. Con refrigerante R410A y voltaje de 220V, ofrece un enfriamiento eficiente y de bajo consumo. Con una garantía de 2 años en partes y 6 años en el compresor, es una opción confiable y eficiente para tu hogar."
   },
   {
+    "stock": 0,
+    "seer": null,
+    "color": "Blanco",
+    "wifi": false,
+    "type": null,
     "publicId": "BNCTYGjCVqP3jUyrtsvZqws3",
     "name": "Aire acondicionado Panasonic Inverter Tipo C",
     "specs": [{ "volt": "220V", "btu": "24000 BTU" }],
     "refr": "R410A",
-    "price": "3.020.000",
+    "price": "2.820.000",
     "image": [
       "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/assets/AIRES/PANASONIC/panasonic.webp"
     ],
-    "description": "Garantía de 2 años en partes y 6 años en compressor. Capacidad de 24K BTU y refrigerante R410A."
+    "description": "El Aire Acondicionado Panasonic Inverter Tipo C de 24,000 BTU es perfecto para espacios grandes. Con refrigerante R410A y voltaje de 220V, garantiza un enfriamiento eficiente y rápido. Con 2 años de garantía en partes y 6 años en el compresor, este modelo ofrece un rendimiento duradero y confiable."
   }
 ]
