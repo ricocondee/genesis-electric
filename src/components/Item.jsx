@@ -1,4 +1,3 @@
-import React from "react";
 import ItemStyles from "../styles/Item.module.css";
 import { Heart, Leaf, Star, Wifi, Palette, GaugeCircle} from "lucide-react";
 import PropTypes from "prop-types";

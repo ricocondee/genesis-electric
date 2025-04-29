@@ -1,8 +1,8 @@
-import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import styles from '../styles/ProductD.module.css';
-import Loader from './Loader';
-import { Wifi, WifiOff, Leaf, Palette, GaugeCircle } from 'lucide-react'; // Importamos íconos
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import styles from "../styles/ProductD.module.css";
+import Loader from "./Loader";
+import { Wifi, WifiOff, Leaf, Palette, GaugeCircle } from "lucide-react"; // Importamos íconos
 
 function Product() {
   const { id } = useParams();
@@ -12,11 +12,14 @@ function Product() {
   const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
-    fetch("https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/db/products.json")
+    fetch(
+      "https://raw.githubusercontent.com/ricocondee/genesis-electric/main/src/db/products.json"
+    )
       .then((response) => response.json())
       .then((data) => {
         const cleanedData = data.map((product) => {
-          const originalPrice = parseFloat(product.price.replace(/\./g, "")) || 0;
+          const originalPrice =
+            parseFloat(product.price.replace(/\./g, "")) || 0;
           const priceWithIncrements = originalPrice * 1.2 * 1.19;
 
           return {
@@ -26,7 +29,7 @@ function Product() {
           };
         });
 
-        const foundProduct = cleanedData.find(p => p.publicId === id);
+        const foundProduct = cleanedData.find((p) => p.publicId === id);
         if (!foundProduct) throw new Error("Producto no encontrado");
 
         setProduct(foundProduct);
@@ -38,8 +41,8 @@ function Product() {
       });
   }, [id]);
 
-  const increaseQty = () => setQuantity(q => q + 1);
-  const decreaseQty = () => setQuantity(q => (q > 1 ? q - 1 : 1));
+  const increaseQty = () => setQuantity((q) => q + 1);
+  const decreaseQty = () => setQuantity((q) => (q > 1 ? q - 1 : 1));
 
   if (loading) return <Loader />;
   if (error) return <p>Error: {error}</p>;
@@ -52,7 +55,7 @@ function Product() {
       <div className={styles.productDetails}>
         <h2>{product.name}</h2>
         <p className={styles.description}>
-          {product.description || 'No description available.'}
+          {product.description || "No description available."}
         </p>
 
         <div className={styles.tags}>
@@ -69,7 +72,9 @@ function Product() {
           {product.color && (
             <div className={styles.feature}>
               <Palette size={18} className={styles.icon} />
-              <span><strong>Color:</strong> {product.color}</span>
+              <span>
+                <strong>Color:</strong> {product.color}
+              </span>
             </div>
           )}
 
@@ -80,21 +85,27 @@ function Product() {
               ) : (
                 <WifiOff size={18} className={styles.icon} />
               )}
-              <span><strong>WiFi:</strong> {product.wifi ? "Sí" : "No"}</span>
+              <span>
+                <strong>WiFi:</strong> {product.wifi ? "Sí" : "No"}
+              </span>
             </div>
           )}
 
           {product.type && (
             <div className={styles.feature}>
               <Leaf size={18} className={styles.icon} />
-              <span><strong>Tipo:</strong> {product.type}</span>
+              <span>
+                <strong>Tipo:</strong> {product.type}
+              </span>
             </div>
           )}
 
           {product.seer && (
             <div className={styles.feature}>
               <GaugeCircle size={18} className={styles.icon} />
-              <span><strong>SEER:</strong> {product.seer}</span>
+              <span>
+                <strong>SEER:</strong> {product.seer}
+              </span>
             </div>
           )}
         </div>
@@ -109,7 +120,18 @@ function Product() {
 
         <div className={styles.actions}>
           <button className={styles.buy}>
-            <a href={`https://api.whatsapp.com/send?phone=573005515224`} target='_blank' rel="noopener noreferrer">
+            <a
+              href={`https://api.whatsapp.com/send?phone=573005515224&text=${encodeURIComponent(
+                `Hola, estoy interesado en el producto: ${product.name}\n\n` +
+                  `Especificaciones:\n` +
+                  product.specs
+                    .map((spec) => `• Volt: ${spec.volt}, BTU: ${spec.btu}`)
+                    .join("\n") +
+                  `\n\nCantidad: ${quantity}`
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Saber más
             </a>
           </button>
