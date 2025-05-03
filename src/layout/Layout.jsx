@@ -1,4 +1,6 @@
 import React from 'react';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import { useLocation } from 'react-router-dom'; // Importa el hook para obtener la ubicación actual
 
 const Layout = ({ children }) => {
