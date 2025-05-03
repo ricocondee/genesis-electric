@@ -1,7 +1,6 @@
 import { useState } from "react";
-import ProductForm from "../components/ProductForm";
 import DashboardStyles from "../styles/Dashboard.module.css";
-import { TbShoppingBagEdit, TbShoppingCartCog, TbUserCog } from "react-icons/tb";
+import { ShoppingBasket, ShoppingCart, Users } from "lucide-react";
 import ProductDashboardList from "../containers/ProductDashboardList";
 
 const Dashboard = () => {
@@ -15,26 +14,23 @@ const Dashboard = () => {
 
   return (
     <main className={DashboardStyles.container}>
-      <div className={DashboardStyles.content}>
-        <div className={DashboardStyles.panel__container}>
+      <div className={DashboardStyles.panel__container}>
         <h2>Dashboard</h2>
-            <ul className={DashboardStyles.panel__options}>
-                <li><TbShoppingBagEdit/><a href="/dashboard" onClick={handleClick}>Productos</a></li>
-                <li><TbShoppingCartCog/><a href="/dashboard/orders">Pedidos</a></li>
-                <li><TbUserCog/><a href="/dashboard/users" >Usuarios</a></li>
-            </ul>
-        </div>
-        <div className={DashboardStyles.form__container}>
+        <ul className={DashboardStyles.panel__options}>
+          <li><ShoppingBasket/><a href="/dashboard" onClick={handleClick}>Productos</a></li>
+          <li><ShoppingCart /><a href="/dashboard/orders">Pedidos</a></li>
+          <li><Users/><a href="/dashboard/users" >Usuarios</a></li>
+        </ul>
+      </div>
+      <div className={DashboardStyles.content__container}>
         {products ? (
-          <ProductDashboardList/>
+          <ProductDashboardList />
         ) : (
           <div>
             <h3>Productos</h3>
             <button onClick={handleClick}>Agregar Producto</button>
           </div>
         )}
-        </div>
-        
       </div>
     </main>
   );

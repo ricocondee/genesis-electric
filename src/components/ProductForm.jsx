@@ -1,25 +1,22 @@
-import { useState, useRef } from "react";
-import { Save, Upload, X } from "lucide-react";
-import styles from "../styles/ProductForm.module.css"; // Importa el CSS Module
-import DataSheetForm from "./DataSheetForm";
+import { useRef, useState, useEffect } from "react";
+import { Upload } from "lucide-react";
+import styles from "../styles/ProductForm.module.css";
+import PropTypes from "prop-types";
 
-const ProductForm = ({func}) => {
-  const [formData, setFormData] = useState({
-    name: "",
-    category: "",
-    code: "",
-    price: "",
-    description: "",
-  });
-  const [change, setChange] = useState(false)
-
-  const [imagePreview, setImagePreview] = useState(null);
+const ProductForm = ({ formData, setFormData, onNext, onClose }) => {
   const fileInputRef = useRef(null);
+  const [imagePreview, setImagePreview] = useState(null);
+
+  useEffect(() => {
+    if (formData.image && typeof formData.image !== "string") {
+      setImagePreview(URL.createObjectURL(formData.image));
+    }
+  }, [formData.image]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
+    setFormData((prev) => ({
+      ...prev,
       [name]: value,
     }));
   };
@@ -27,40 +24,29 @@ const ProductForm = ({func}) => {
   const handleImageChange = (e) => {
     const file = e.target.files?.[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImagePreview(reader.result);
-      };
-      reader.readAsDataURL(file);
+      setFormData((prev) => ({
+        ...prev,
+        image: file,
+      }));
+      setImagePreview(URL.createObjectURL(file));
     }
   };
 
-  const handleClick = (e) => {
-    e.preventDefault()
-    setChange(!change)
-  }
-
-  const handleSubmit = (e) => {
+  const handleNext = (e) => {
     e.preventDefault();
-    console.log("Form data:", formData);
-    console.log("Image file:", fileInputRef.current?.files?.[0]);
+    onNext(formData);
   };
 
   return (
     <div className={styles.container}>
-      {change && <DataSheetForm/>}
       <div className={styles.formWrapper}>
-        <X size={24} className={styles.closeButton} onClick={func} />
+        <button onClick={onClose} className={styles.closeButton}>X</button>
         <h1 className={styles.title}>Product Details</h1>
-        <form onSubmit={handleSubmit}>
-          {/* Nombre */}
+        <form onSubmit={handleNext}>
           <div>
-            <label htmlFor="name" className={styles.label}>
-              Name
-            </label>
+            <label className={styles.label}>Name</label>
             <input
               type="text"
-              id="name"
               name="name"
               value={formData.name}
               onChange={handleChange}
@@ -69,23 +55,12 @@ const ProductForm = ({func}) => {
             />
           </div>
 
-          {/* Imagen */}
           <div>
-            <label htmlFor="image" className={styles.label}>
-              Image
-            </label>
+            <label className={styles.label}>Image</label>
             <div>
-              {imagePreview && (
-                <img
-                  src={imagePreview}
-                  alt="Preview"
-                  className={styles.imagePreview}
-                />
-              )}
+              {imagePreview && <img src={imagePreview} alt="Preview" className={styles.imagePreview} />}
               <input
                 type="file"
-                id="image"
-                name="image"
                 ref={fileInputRef}
                 onChange={handleImageChange}
                 accept="image/*"
@@ -102,14 +77,10 @@ const ProductForm = ({func}) => {
             </div>
           </div>
 
-          {/* Categoría */}
           <div>
-            <label htmlFor="category" className={styles.label}>
-              Category
-            </label>
+            <label className={styles.label}>Category</label>
             <input
               type="text"
-              id="category"
               name="category"
               value={formData.category}
               onChange={handleChange}
@@ -118,14 +89,10 @@ const ProductForm = ({func}) => {
             />
           </div>
 
-          {/* Código */}
           <div>
-            <label htmlFor="code" className={styles.label}>
-              Code
-            </label>
+            <label className={styles.label}>Code</label>
             <input
               type="text"
-              id="code"
               name="code"
               value={formData.code}
               onChange={handleChange}
@@ -134,50 +101,52 @@ const ProductForm = ({func}) => {
             />
           </div>
 
-          {/* Precio */}
           <div>
-            <label htmlFor="price" className={styles.label}>
-              Price
-            </label>
+            <label className={styles.label}>Price</label>
             <input
               type="number"
-              id="price"
               name="price"
               value={formData.price}
               onChange={handleChange}
               className={styles.inputField}
+              required
               step="0.01"
               min="0"
-              required
             />
           </div>
 
-          {/* Descripción */}
           <div>
-            <label htmlFor="description" className={styles.label}>
-              Description
-            </label>
+            <label className={styles.label}>Description</label>
             <textarea
-              id="description"
               name="description"
               value={formData.description}
               onChange={handleChange}
-              rows={4}
               className={styles.inputField}
+              rows={4}
               required
             />
           </div>
 
-          {/* Botón de Enviar */}
-          <a href="" className={styles.submitButton} onClick={handleClick}>Siguiente</a>
-          <button type="submit" className={`${styles.submitButton} ${styles.hidden}`}>
-            <Save size={20} style={{ marginRight: 8 }} />
-            Save Product
+          <button type="submit" className={styles.submitButton}>
+            Siguiente
           </button>
         </form>
       </div>
     </div>
   );
-}
+};
+ProductForm.propTypes = {
+  formData: PropTypes.shape({
+    image: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(File)]),
+    name: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+    code: PropTypes.string.isRequired,
+    price: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    description: PropTypes.string.isRequired,
+  }).isRequired,
+  setFormData: PropTypes.func.isRequired,
+  onNext: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
+};
 
 export default ProductForm;

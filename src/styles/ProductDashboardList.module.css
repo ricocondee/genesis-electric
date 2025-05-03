@@ -1,10 +1,13 @@
 .container {
   max-width: 100%;
-  height: 100%;
+  height: 100vh;
   margin: 0 auto;
   position: relative;
+  background-color: #2d3748; /* Fondo oscuro */
+  color: #c2c2c2; /* Texto claro */
 }
 
+/* Tabla */
 .table {
   width: 100%;
   border-collapse: collapse;
@@ -12,13 +15,13 @@
 
 .table th,
 .table td {
-  border: 1px solid #ddd;
+  border: 1px solid #4a5568; /* Bordes más suaves */
   padding: 10px;
   text-align: left;
 }
 
 .table th {
-  background-color: #f4f4f4;
+  background-color: #4a5568; /* Fondo gris oscuro para las cabeceras */
 }
 
 .checkbox {
@@ -27,9 +30,10 @@
   cursor: pointer;
 }
 
+/* Botones de acción */
 .editButton {
-  background-color: #007bff;
-  color: white;
+  background-color: #3b82f6;
+  color: #e2e8f0;
   border: none;
   padding: 5px 10px;
   cursor: pointer;
@@ -38,12 +42,12 @@
 }
 
 .editButton:hover {
-  background-color: #0056b3;
+  background-color: #2563eb;
 }
 
 .deleteButton {
-  background-color: #dc3545;
-  color: white;
+  background-color: #ef4444;
+  color: #e2e8f0;
   border: none;
   padding: 5px 10px;
   cursor: pointer;
@@ -51,27 +55,31 @@
 }
 
 .deleteButton:hover {
-  background-color: #b02a37;
+  background-color: #dc2626;
 }
 
+/* Mensaje de carga */
 .loading {
   text-align: center;
   font-weight: bold;
-  color: #555;
+  color: #e2e8f0;
 }
 
+/* Productos seleccionados */
 .selectedProducts {
   margin-top: 20px;
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #4a5568;
   border-radius: 5px;
+  background-color: #1a202c; /* Fondo más oscuro */
 }
 
 .selectedProducts h3 {
   margin-bottom: 10px;
-  color: #333;
+  color: #e2e8f0;
 }
 
+/* Paginación */
 .pagination {
   display: flex;
   justify-content: center;
@@ -84,11 +92,12 @@
   margin-right: 5px;
   border-radius: 3px;
   cursor: pointer;
+  color: #e2e8f0;
 }
 
 .pagination button {
-  background-color: #007bff;
-  color: white;
+  background-color: #38a169;
+  color: #e2e8f0;
   border: none;
   padding: 5px 10px;
   cursor: pointer;
@@ -96,6 +105,16 @@
   border-radius: 3px;
 }
 
+.pagination button:hover:not(:disabled) {
+  background-color: #2f855a;
+}
+
+.pagination button:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* Botón agregar producto */
 .add__product {
   width: 100%;
   display: flex;
@@ -105,9 +124,10 @@
   padding: 1vw;
   margin-top: 20px;
 }
+
 .add__product__button {
-  background-color: #28a745;
-  color: white;
+  background-color: #38a169;
+  color: #e2e8f0;
   border: none;
   width: 140px;
   height: 40px;
@@ -116,6 +136,11 @@
   font-size: .9rem;
 }
 
+.add__product__button:hover {
+  background-color: #2f855a;
+}
+
+/* Barra de búsqueda */
 .searchBar {
   width: 100%;
   display: flex;
@@ -129,11 +154,13 @@
   width: 100%;
   padding: 5px;
   border-radius: 3px;
-  border: 1px solid #ddd;
+  border: 1px solid #4a5568;
+  background-color: #2d3748; /* Fondo oscuro */
+  color: #e2e8f0;
 }
 
 .searchBar svg {
   font-size: 24px;
-  color: #007bff;
+  color: #38a169;
   cursor: pointer;
 }
