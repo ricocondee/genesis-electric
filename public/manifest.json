@@ -8,21 +8,22 @@
   "scope": "/",
   "start_url": "/",
   "icons": [
-  {
-    "src": "/assets/icons/apple-touch-icon.png",
-    "sizes": "180x180",
-    "type": "image/png"
-  },
-  {
-    "src": "/assets/icons/icon-192x192.png",
-    "sizes": "192x192",
-    "type": "image/png"
-  },
-  {
-    "src": "/assets/icons/icon-512x512.png",
-    "sizes": "512x512",
-    "type": "image/png"
-  }
-]
+    {
+      "src": "/assets/icons/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
 }
-// This manifest file is used to define the web app's appearance and behavior when installed on a device. It includes information such as the app's name, icons, theme color, and start URL.
