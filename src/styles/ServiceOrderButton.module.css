@@ -72,7 +72,8 @@
         width: 90%;
         padding: 1rem;
         margin: 1rem auto;
-        height: 100dvh;
+        height: 95dvh;
+        overflow-y: auto;
       }
 
     .actions {
