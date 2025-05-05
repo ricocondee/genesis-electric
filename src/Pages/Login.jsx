@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import LoginStyles from "../styles/Login.module.css";
-import AirTech from "../assets/airtech.png";
 import { TbAlertCircle } from "react-icons/tb";
+import loginIllustration from "../assets/loginIllustration.svg";
+import styles from "../styles/Login.module.css";
 
 const Login = ({ setToken }) => {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -27,43 +27,45 @@ const Login = ({ setToken }) => {
       if (!res.data.token) {
         throw new Error("No token received");
       }
+
       localStorage.setItem("token", res.data.token);
       setToken(res.data.token);
       navigate("/dashboard");
     } catch (err) {
-        setError(err.response?.data?.message || err.message || "Login failed");
-      }
+      setError(err.response?.data?.message || err.message || "Login failed");
+    }
   };
 
   return (
-    <div className={LoginStyles.container}>
-      <div className={LoginStyles.form__container}>
-        <div className={LoginStyles.background__container}>
-          <img src={AirTech} alt="Background" />
-        </div>
-        <form className={LoginStyles.form} onSubmit={handleSubmit}>
-          <h2>Login</h2>
-          <label htmlFor="email">Email</label>
+    <div className={styles.container}>
+      <div className={styles.card}>
+        <img src={loginIllustration} alt="Login" className={styles.illustration} />
+        <form onSubmit={handleSubmit} className={styles.form}>
           <input
             type="email"
             name="email"
-            id="email"
+            placeholder="Email"
             onChange={handleChange}
             required
+            className={styles.input}
           />
-          <label htmlFor="password">Password</label>
           <input
             type="password"
             name="password"
-            id="password"
+            placeholder="Password"
             onChange={handleChange}
             required
+            className={styles.input}
           />
-          <div className={LoginStyles.alert__message}>
-            {error && <TbAlertCircle />}
-            {error && <p>{error}</p>}
-          </div>
-          <button type="submit">Login</button>
+          {error && (
+            <div className={styles.errorMessage}>
+              <TbAlertCircle className={styles.errorIcon} />
+              <p>{error}</p>
+            </div>
+          )}
+          <button type="submit" className={styles.button}>
+            Login
+          </button>
         </form>
       </div>
     </div>
