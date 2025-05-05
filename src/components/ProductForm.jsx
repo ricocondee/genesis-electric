@@ -8,10 +8,21 @@ const ProductForm = ({ formData, setFormData, onNext, onClose }) => {
   const [imagePreview, setImagePreview] = useState(null);
 
   useEffect(() => {
-    if (formData.image && typeof formData.image !== "string") {
-      setImagePreview(URL.createObjectURL(formData.image));
+    let previewUrl;
+
+    if (typeof formData?.image === "string") {
+      setImagePreview(formData.image);
+    } else if (formData?.image instanceof File) {
+      previewUrl = URL.createObjectURL(formData.image);
+      setImagePreview(previewUrl);
     }
-  }, [formData.image]);
+
+    return () => {
+      if (previewUrl) {
+        URL.revokeObjectURL(previewUrl);
+      }
+    };
+  }, [formData?.image]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,7 +39,7 @@ const ProductForm = ({ formData, setFormData, onNext, onClose }) => {
         ...prev,
         image: file,
       }));
-      setImagePreview(URL.createObjectURL(file));
+      // La preview se manejará automáticamente por el useEffect
     }
   };
 
@@ -48,7 +59,7 @@ const ProductForm = ({ formData, setFormData, onNext, onClose }) => {
             <input
               type="text"
               name="name"
-              value={formData.name}
+              value={formData?.name}
               onChange={handleChange}
               className={styles.inputField}
               required
@@ -82,7 +93,7 @@ const ProductForm = ({ formData, setFormData, onNext, onClose }) => {
             <input
               type="text"
               name="category"
-              value={formData.category}
+              value={formData?.category}
               onChange={handleChange}
               className={styles.inputField}
               required
@@ -94,7 +105,7 @@ const ProductForm = ({ formData, setFormData, onNext, onClose }) => {
             <input
               type="text"
               name="code"
-              value={formData.code}
+              value={formData?.code}
               onChange={handleChange}
               className={styles.inputField}
               required
@@ -106,7 +117,7 @@ const ProductForm = ({ formData, setFormData, onNext, onClose }) => {
             <input
               type="number"
               name="price"
-              value={formData.price}
+              value={formData?.price}
               onChange={handleChange}
               className={styles.inputField}
               required
@@ -119,7 +130,7 @@ const ProductForm = ({ formData, setFormData, onNext, onClose }) => {
             <label className={styles.label}>Description</label>
             <textarea
               name="description"
-              value={formData.description}
+              value={formData?.description}
               onChange={handleChange}
               className={styles.inputField}
               rows={4}
@@ -135,6 +146,7 @@ const ProductForm = ({ formData, setFormData, onNext, onClose }) => {
     </div>
   );
 };
+
 ProductForm.propTypes = {
   formData: PropTypes.shape({
     image: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(File)]),

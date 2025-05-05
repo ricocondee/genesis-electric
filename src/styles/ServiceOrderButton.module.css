@@ -1,0 +1,177 @@
+.floatingButton {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: var(--medium-blue);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 999;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.notice {
+    font-size: 0.875rem; /* 14px */
+    color: #4b5563; /* gray-700 */
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 1rem;
+    line-height: 1.5;
+  }
+  
+  .notice a {
+    color: #2563eb; /* blue-600 */
+    text-decoration: underline;
+    font-weight: 500;
+  }
+  
+  .notice a:hover {
+    color: #1e40af; /* blue-800 */
+  }
+  
+
+.icon {
+    margin-right: 0.5rem;
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: #00000080;
+    z-index: 1050;
+}
+
+.modal {
+    position: relative;
+    background: white;
+    box-shadow: 0 5px 15px #0000004d;
+    width: 600px;
+    max-width: 95%;
+    border-radius: 1rem;
+    margin: 2rem auto;
+    padding: 1rem;
+    z-index: 1060;
+    height: 100vh;
+  }
+
+@media (max-width: 768px) {
+    .modal {
+        width: 90%;
+        padding: 1rem;
+        margin: 1rem auto;
+        height: 100dvh;
+      }
+
+    .actions {
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #2563eb;
+    text-align: center;
+}
+
+.form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.input,
+.select,
+.textarea {
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+    border-color: var(--medium-blue);
+    outline: none;
+}
+
+.textarea {
+    grid-column: 1/-1;
+    min-height: 100px;
+    resize: vertical;
+}
+
+.signatureContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    grid-column: 1/-1;
+}
+
+.signaturePad {
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    width: 100%;
+    height: 150px;
+}
+
+.clearButton {
+    align-self: flex-end;
+    padding: 0.5rem 1rem;
+    background: #f87171;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    grid-column: 1/-1;
+}
+
+.cancelButton,
+.submitButton {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.cancelButton {
+    background: #d1d5db;
+}
+
+.cancelButton:hover {
+    background: #babbc2;
+}
+
+.submitButton {
+    background: var(--medium-blue);
+    color: white;
+}
+
+.submitButton:hover {
+    background: var(--medium-blue);
+}

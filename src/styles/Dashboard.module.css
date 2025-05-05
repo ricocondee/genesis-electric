@@ -1,16 +1,31 @@
-/* Contenedor principal */
 .container {
   display: flex;
   height: 100vh;
-  background-color: #2d3748; /* Color oscuro para el fondo */
+  background-color: #2d3748;
   overflow: hidden;
+  flex-direction: row;
+}
+
+/* Botón hamburguesa */
+.menuToggle {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background-color: #38a169;
+  color: white;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 4px;
+  z-index: 2000;
+  cursor: pointer;
+  display: none;
 }
 
 /* Panel lateral */
 .panel__container {
   width: 250px;
-  background-color: #1a202c; /* Fondo más oscuro para el panel */
-  color: #e2e8f0; /* Color claro para el texto */
+  background-color: #1a202c;
+  color: #e2e8f0;
   padding: 20px;
   position: fixed;
   top: 0;
@@ -19,6 +34,7 @@
   display: flex;
   flex-direction: column;
   z-index: 1000;
+  transition: left 0.3s ease-in-out;
 }
 
 .panel__container h2 {
@@ -65,7 +81,6 @@
   color: #fff;
 }
 
-/* Área de contenido */
 .content__container {
   margin-left: 250px;
   padding: 20px;
@@ -73,183 +88,26 @@
   overflow-y: auto;
 }
 
-/* Barra de búsqueda y botones */
-.searchBar,
-.add__product {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 20px;
-}
-
-.searchBar input,
-.add__product__button {
-  padding: 8px;
-  font-size: 16px;
-  border-radius: 4px;
-  border: 1px solid #4a5568;
-  background-color: #2d3748;
-  color: #e2e8f0;
-}
-
-.add__product__button {
-  background-color: #38a169;
-  color: #e2e8f0;
-  cursor: pointer;
-  border: none;
-  transition: background-color 0.2s ease-in-out;
-}
-
-.add__product__button:hover {
-  background-color: #2f855a;
-}
-
-.add__product__button:focus {
-  outline: 2px solid #2f855a;
-  outline-offset: 2px;
-}
-
-/* Tabla de productos */
-.table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.table th,
-.table td {
-  padding: 10px;
-  text-align: left;
-  border: 1px solid #4a5568;
-}
-
-.table th {
-  background-color: #4a5568;
-}
-
-.table tr:nth-child(even) {
-  background-color: #2d3748;
-}
-
-.checkbox {
-  width: 18px;
-  height: 18px;
-  cursor: pointer;
-}
-
-/* Botones de acción */
-.editButton,
-.deleteButton {
-  padding: 6px 12px;
-  font-size: 13px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: background-color 0.2s ease-in-out;
-}
-
-.editButton {
-  background-color: #3b82f6;
-  color: #e2e8f0;
-}
-
-.editButton:hover {
-  background-color: #2563eb;
-}
-
-.editButton:focus {
-  outline: 2px solid #2563eb;
-  outline-offset: 2px;
-}
-
-.deleteButton {
-  background-color: #ef4444;
-  color: #e2e8f0;
-}
-
-.deleteButton:hover {
-  background-color: #dc2626;
-}
-
-.deleteButton:focus {
-  outline: 2px solid #dc2626;
-  outline-offset: 2px;
-}
-
-/* Paginación */
-.pagination {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.pagination button {
-  background-color: #38a169;
-  color: #e2e8f0;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 4px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-}
-
-.pagination button:hover:not(:disabled) {
-  background-color: #2f855a;
-}
-
-.pagination button:disabled {
-  background-color: #9ca3af;
-  cursor: not-allowed;
-}
-
-.pagination span {
-  font-weight: 500;
-  color: #e2e8f0;
-}
-
-/* Responsive (Mobile) */
+/* Responsive */
 @media (max-width: 768px) {
+  .menuToggle {
+    display: block;
+  }
+
   .panel__container {
-    position: relative;
-    width: 100%;
-    height: auto;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
+    left: -100%;
+    width: 250px;
+    top: 0;
+    height: 100%;
   }
 
-  .panel__container h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-
-  .panel__options {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px;
-    width: 100%;
-  }
-
-  .panel__options li {
-    border-bottom: none;
-    padding: 10px;
-    flex: 1;
-    justify-content: center;
+  .panel__container.open {
+    left: 0;
   }
 
   .content__container {
     margin-left: 0;
     width: 100%;
-  }
-
-  .searchBar,
-  .add__product {
-    flex-direction: column;
+    padding-top: 60px;
   }
 }

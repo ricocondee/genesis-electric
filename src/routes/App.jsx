@@ -11,6 +11,7 @@ import Dashboard from "../Pages/Dashboard";
 import { Navigate } from "react-router-dom";
 import {motion} from "framer-motion";
 import Product from "../components/Product";
+import TermsAndConditions from "../Pages/TermsAndConditions";
 
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
@@ -22,6 +23,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route exact path="/privacy-policy" element={<PrivacyPolicy/>} />
+          <Route exact path="/terms-and-conditions" element={<TermsAndConditions/>} />
           <Route exact path="/products" element={<Products />} />
           <Route exact path="/products/:id" element={<Product />} />
           <Route path="*" element={<h1>Not Found</h1>} />
