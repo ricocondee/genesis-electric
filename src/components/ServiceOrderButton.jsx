@@ -16,6 +16,7 @@ const servicios = ["Instalación", "Mantenimiento", "Reparación", "Inspección"
 
 export default function ServiceOrderButton() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [orderNumber, setOrderNumber] = useState(0);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     nombre: "",
@@ -28,7 +29,6 @@ export default function ServiceOrderButton() {
     descripcion: "",
   });
   const sigCanvas = useRef(null);
-  const lastThree = (formData.cedula || "").toString().slice(-3) || "000";
 
   const handleChange = ({ target: { name, value } }) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -51,6 +51,9 @@ export default function ServiceOrderButton() {
     const canvasSig = sigCanvas.current;
     const signatureData = canvasSig?.toDataURL("image/png");
 
+    //Numero de orden
+    setOrderNumber((prevOrderNumber) => prevOrderNumber + 1);
+
     // Preparar container para html2canvas
     const container = document.createElement("div");
     Object.assign(container.style, {
@@ -71,7 +74,7 @@ export default function ServiceOrderButton() {
           </div>
         </div>
         <hr style="border:none;height:2px;background:#0a2472;margin:12px 0;"/>
-        <h1 style="text-align:center;margin-bottom:20px;">Orden de servicio #00${lastThree}</h1>
+        <h1 style="text-align:center;margin-bottom:20px;">Orden de servicio #00${orderNumber}</h1>
         <table style="width:100%;border-collapse:collapse;font-size:14px;">
           <tbody>
             ${Object.entries(formData)
@@ -125,7 +128,7 @@ export default function ServiceOrderButton() {
     // Subir PDF a Cloudinary
     const pdfBlob = pdf.output("blob");
     const formDataCloud = new FormData();
-    formDataCloud.append('file', pdfBlob, `orden_00${lastThree}.pdf`);
+    formDataCloud.append('file', pdfBlob, `orden_00${orderNumber}.pdf`);
     formDataCloud.append("upload_preset", "service_order_pdf");
     formDataCloud.append("resource_type", "raw");
 
