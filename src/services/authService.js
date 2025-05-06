@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://api.genesiselectricsas.com/api/auth";
+const API_URL = "/api/auth";
 
 // Registro de usuario
 export const register = async (userData, token) => {
