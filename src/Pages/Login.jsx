@@ -20,7 +20,7 @@ const Login = ({ setToken }) => {
 
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/auth/login`,
+        `https//api.genesiselectricsas.com/api/auth/login`,
         formData
       );
 
