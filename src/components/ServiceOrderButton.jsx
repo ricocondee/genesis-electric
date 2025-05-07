@@ -1,5 +1,5 @@
 // ServiceOrderModal.js
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Modal from "react-modal";
 import SignatureCanvas from "react-signature-canvas";
 import { jsPDF } from "jspdf";
@@ -12,7 +12,7 @@ import styles from "../styles/ServiceOrderButton.module.css";
 // npm install react-modal jspdf react-signature-canvas lucide-react html2canvas
 
 Modal.setAppElement("#root");
-const servicios = ["Instalación", "Mantenimiento", "Reparación", "Inspección"];
+const servicios = ["Instalación", "Desinstalación", "Mantenimiento", "Reparación", "Revisión"];
 
 export default function ServiceOrderButton() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -28,6 +28,21 @@ export default function ServiceOrderButton() {
     servicio: servicios[0],
     descripcion: "",
   });
+
+  useEffect(() => {
+    const fetchOrderNumber = async () => {
+      try {
+        const res = await fetch("/api/auth/clients/orders/next");
+        const data = await res.json();
+        console.log("Número de orden obtenido:", data.orderNumber);
+        setOrderNumber(data.orderNumber);
+      } catch (err) {
+        console.error("Error obteniendo número de orden:", err);
+      }
+    };
+
+    if (modalIsOpen) fetchOrderNumber(); // Solo al abrir el modal
+  }, [modalIsOpen]);
   const sigCanvas = useRef(null);
 
   const handleChange = ({ target: { name, value } }) => {
@@ -37,7 +52,11 @@ export default function ServiceOrderButton() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-
+    if (sigCanvas.current.isEmpty()) {
+      alert("Por favor, firma antes de enviar.");
+      setLoading(false);
+      return;
+    }
     // Obtener IP pública
     let ip = "Desconocida";
     try {
@@ -50,9 +69,6 @@ export default function ServiceOrderButton() {
     // Capturar firma
     const canvasSig = sigCanvas.current;
     const signatureData = canvasSig?.toDataURL("image/png");
-
-    //Numero de orden
-    setOrderNumber((prevOrderNumber) => prevOrderNumber + 1);
 
     // Preparar container para html2canvas
     const container = document.createElement("div");
@@ -74,7 +90,7 @@ export default function ServiceOrderButton() {
           </div>
         </div>
         <hr style="border:none;height:2px;background:#0a2472;margin:12px 0;"/>
-        <h1 style="text-align:center;margin-bottom:20px;">Orden de servicio #00${orderNumber}</h1>
+        <h1 style="text-align:center;margin-bottom:20px;">Orden de servicio #${orderNumber}</h1>
         <table style="width:100%;border-collapse:collapse;font-size:14px;">
           <tbody>
             ${Object.entries(formData)
@@ -128,7 +144,7 @@ export default function ServiceOrderButton() {
     // Subir PDF a Cloudinary
     const pdfBlob = pdf.output("blob");
     const formDataCloud = new FormData();
-    formDataCloud.append('file', pdfBlob, `orden_00${orderNumber}.pdf`);
+    formDataCloud.append("file", pdfBlob, `orden_${orderNumber}.pdf`);
     formDataCloud.append("upload_preset", "service_order_pdf");
     formDataCloud.append("resource_type", "raw");
 
@@ -153,18 +169,11 @@ export default function ServiceOrderButton() {
 
     // Preparar parámetros para EmailJS
     const templateParams = {
-        nombre: e.target.nombre.value,
-        apellido: e.target.apellido.value,
-        cedula: e.target.apellido.value,
-        email: e.target.email.value,
-        telefono: e.target.telefono.value,
-        direccion: e.target.direccion.value,
-        descripcion: e.target.descripcion.value,
-        servicio: e.target.servicio.value,
-        ip: ip,
-        timestamp: new Date().toLocaleString(),
-        pdfLink: cloudinaryUrl,
-      };
+      ...formData,
+      ip: ip,
+      timestamp: new Date().toLocaleString(),
+      pdfLink: cloudinaryUrl,
+    };
 
     // DEBUG: revisar que to_email no esté vacío
     if (!formData.email) {
@@ -172,6 +181,29 @@ export default function ServiceOrderButton() {
       alert("Por favor, ingresa un correo válido.");
       setLoading(false);
       return;
+    }
+
+    try {
+      const saveRes = await fetch("/api/auth/clients/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          nombre: formData.nombre,
+          apellido: formData.apellido,
+          cedula: formData.cedula,
+          direccion: formData.direccion,
+          telefono: formData.telefono,
+          email: formData.email,
+        }),
+      });
+
+      if (!saveRes.ok) {
+        const errData = await saveRes.json();
+        console.error("Error guardando cliente:", errData);
+        alert("Error guardando la orden en la base de datos.");
+      }
+    } catch (err) {
+      console.error("Error conectando con backend:", err);
     }
 
     // Enviar email
@@ -214,6 +246,7 @@ export default function ServiceOrderButton() {
         onClick={() => setModalIsOpen(true)}
         className={styles.floatingButton}
         disabled={loading}
+        aria-label="Crear nueva orden de servicio"
       >
         <Plus className={styles.icon} /> Crear Orden
       </button>
