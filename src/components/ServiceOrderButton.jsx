@@ -169,17 +169,6 @@ export default function ServiceOrderButton() {
         pdf.text(`Nombre: ${formData.nombre} ${formData.apellido}`, 40, y0);
         pdf.text(`Cédula: ${formData.cedula}`, 40, y0 + 15);
         pdf.text(`IP: ${ip}`, 40, y0 + 30);
-
-        // Aquí agregamos los nuevos datos:
-        pdf.text(`Dirección: ${formData.direccion}`, 40, y0 + 45);
-        pdf.text(`Teléfono: ${formData.telefono}`, 40, y0 + 60);
-        pdf.text(`Correo: ${formData.email}`, 40, y0 + 75);
-        pdf.text(`Servicio: ${formData.servicio}`, 40, y0 + 90);
-        pdf.text(`Equipo: ${formData.equipo}`, 40, y0 + 105);
-        pdf.text(`Capacidad: ${formData.capacidad}`, 40, y0 + 120);
-        pdf.text(`Voltaje: ${formData.voltaje}`, 40, y0 + 135);
-        pdf.text(`Descripción: ${formData.descripcion}`, 40, y0 + 150);
-        pdf.text(`Valor: ${formData.valor}`, 40, y0 + 165);
       }
     } catch (err) {
       console.error("Error generando PDF:", err);
