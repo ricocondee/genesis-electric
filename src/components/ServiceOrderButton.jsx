@@ -12,7 +12,43 @@ import styles from "../styles/ServiceOrderButton.module.css";
 // npm install react-modal jspdf react-signature-canvas lucide-react html2canvas
 
 Modal.setAppElement("#root");
-const servicios = ["Instalación", "Desinstalación", "Mantenimiento", "Reparación", "Revisión"];
+const servicios = [
+  "Seleccionar tipo de servicio",
+  "Instalación",
+  "Desinstalación",
+  "Mantenimiento",
+  "Reparación",
+  "Revisión",
+];
+const capacidades = [
+  "Seleccionar capacidad",
+  "9000BTU",
+  "12000BTU",
+  "18000BTU",
+  "24000BTU",
+  "36000BTU",
+  "48000BTU",
+  "5 toneladas",
+  "1/10",
+  "1/8",
+  "1/6",
+  "1/5",
+  "1/4",
+  "1/3",
+];
+const voltajes = ["Seleccione el voltaje", "110V", "220V"];
+
+const equipos = [
+  "Seleccionar Equipo",
+  "Mini-Split",
+  "Central",
+  "Piso Techo",
+  "Casette",
+  "Fan Coil Desnudo",
+  "Cuarto Frío",
+  "Nevera",
+  "Congelador",
+];
 
 export default function ServiceOrderButton() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -26,7 +62,11 @@ export default function ServiceOrderButton() {
     telefono: "",
     email: "",
     servicio: servicios[0],
+    equipo: equipos[0],
+    capacidad: capacidades[0],
+    voltaje: voltajes[0],
     descripcion: "",
+    valor: "",
   });
 
   useEffect(() => {
@@ -34,7 +74,6 @@ export default function ServiceOrderButton() {
       try {
         const res = await fetch("/api/auth/clients/orders/next");
         const data = await res.json();
-        console.log("Número de orden obtenido:", data.orderNumber);
         setOrderNumber(data.orderNumber);
       } catch (err) {
         console.error("Error obteniendo número de orden:", err);
@@ -231,7 +270,11 @@ export default function ServiceOrderButton() {
       telefono: "",
       email: "",
       servicio: servicios[0],
+      equipo: equipos[0],
+      capacidad: capacidades[0],
+      voltaje: voltajes[0],
       descripcion: "",
+      valor: "",
     });
     sigCanvas.current.clear();
     setModalIsOpen(false);
@@ -239,6 +282,22 @@ export default function ServiceOrderButton() {
   };
 
   const clearSignature = () => sigCanvas.current.clear();
+
+  const formatCurrency = (e) => {
+    let raw = e.target.value.replace(/\D/g, "");
+    if (!raw) {
+      setFormData((prev) => ({ ...prev, valor: "" }));
+      return;
+    }
+
+    const formatted = new Intl.NumberFormat("es-CO", {
+      style: "currency",
+      currency: "COP",
+      minimumFractionDigits: 0,
+    }).format(parseInt(raw));
+
+    setFormData((prev) => ({ ...prev, valor: formatted }));
+  };
 
   return (
     <>
@@ -325,6 +384,45 @@ export default function ServiceOrderButton() {
               </option>
             ))}
           </select>
+          <select
+            name="equipo"
+            value={formData.equipo}
+            onChange={handleChange}
+            required
+            className={styles.select}
+          >
+            {equipos.map((e, i) => (
+              <option key={i} value={e}>
+                {e}
+              </option>
+            ))}
+          </select>
+          <select
+            name="capacidad"
+            value={formData.capacidad}
+            onChange={handleChange}
+            required
+            className={styles.select}
+          >
+            {capacidades.map((c, i) => (
+              <option key={i} value={c}>
+                {c}
+              </option>
+            ))}
+          </select>
+          <select
+            name="voltaje"
+            value={formData.voltaje}
+            onChange={handleChange}
+            required
+            className={styles.select}
+          >
+            {voltajes.map((v, i) => (
+              <option key={i} value={v}>
+                {v}
+              </option>
+            ))}
+          </select>
           <textarea
             name="descripcion"
             placeholder="Descripción"
@@ -333,7 +431,21 @@ export default function ServiceOrderButton() {
             required
             className={styles.textarea}
           />
+          <input
+            name="valor"
+            type="text"
+            placeholder="Valor del servicio $"
+            value={formData.valor}
+            onChange={(e) => {
+              handleChange(e);
+              formatCurrency(e);
+            }}
+            required
+            className={`${styles.input} ${styles.valorInput}`}
+          />
+
           <div className={styles.signatureContainer}>
+            <p>Firma del cliente.</p>
             <SignatureCanvas
               ref={sigCanvas}
               penColor="black"

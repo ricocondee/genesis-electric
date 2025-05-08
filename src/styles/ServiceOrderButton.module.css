@@ -59,12 +59,13 @@
     background: white;
     box-shadow: 0 5px 15px #0000004d;
     width: 600px;
-    max-width: 95%;
+    max-width: 100%;
     border-radius: 1rem;
     margin: 2rem auto;
     padding: 1rem;
     z-index: 1060;
     height: 100vh;
+    overflow-y: auto;
   }
 
 @media (max-width: 768px) {
