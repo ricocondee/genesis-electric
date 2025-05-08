@@ -50,6 +50,7 @@ function Product() {
   return (
     <div className={styles.productContainer}>
       <div className={styles.productImage}>
+      <div className={styles.discountStamp}>5% OFF</div>
         <img src={product.image} alt={product.name} />
       </div>
       <div className={styles.productDetails}>
