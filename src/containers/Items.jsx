@@ -22,7 +22,7 @@ const Items = () => {
           const originalPrice = parseFloat(product.price.replace(/\./g, "")) || 0;
           
           // Aplicamos los incrementos del 20% y luego el 19%
-          const priceWithIncrements = originalPrice * 1.2 * 1.19;
+          const priceWithIncrements = originalPrice * 1.15 * 1.19;
   
           return {
             ...product,
