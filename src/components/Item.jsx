@@ -45,6 +45,7 @@ const handleClick = ({ name, specs }) => {
   return (
     <div className={ItemStyles.container}>
       <div className={ItemStyles.image__container}>
+      <div className={styles.discountStamp}>5% OFF</div>
         <img src={image} alt={name} />
       </div>
       <a href={`/products/${urlID}`}>

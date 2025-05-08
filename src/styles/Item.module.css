@@ -28,7 +28,22 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     background-color: #f9f9f9;
+    position: relative;
 }
+
+.discountStamp {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    z-index: 2;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
 
 .image__container img {
     width: 100%;
