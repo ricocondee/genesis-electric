@@ -20,7 +20,7 @@ function Product() {
         const cleanedData = data.map((product) => {
           const originalPrice =
             parseFloat(product.price.replace(/\./g, "")) || 0;
-          const priceWithIncrements = originalPrice * 1.2 * 1.19;
+          const priceWithIncrements = originalPrice * 1.15 * 1.19;
 
           return {
             ...product,
