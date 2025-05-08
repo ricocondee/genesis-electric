@@ -35,7 +35,7 @@ const Form = () => {
         setAddress("");
         setMessage("");
       }, (error) => {
-        console.log(error.text);
+        console.error(error.text);
       });
       setSuccess(true);
       setTimeout(() => {

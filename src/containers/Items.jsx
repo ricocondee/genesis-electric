@@ -49,7 +49,6 @@ const Items = () => {
       const sorted = [...filteredProducts].sort((a, b) => {
         switch (sortOption) {
           case "priceAsc":
-            console.log(Number(a.price));
             return Number(a.price) - Number(b.price);
           case "priceDesc":
             return Number(b.price) - Number(a.price);

@@ -6,7 +6,6 @@ const SortFilter = ({ setSortOption }) => {
 
   const handleSortChange = (event) => {
     const value = event.target.value;
-    console.log("Nueva opción de orden:", value);
     setSelectedOption(value);
     setSortOption(value);
   };
