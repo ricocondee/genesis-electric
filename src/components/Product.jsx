@@ -10,6 +10,8 @@ function Product() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [quantity, setQuantity] = useState(1);
+  const currentMonth = new Date().getMonth();
+  const showDiscount = currentMonth === 4;
 
   useEffect(() => {
     fetch(
@@ -20,11 +22,12 @@ function Product() {
         const cleanedData = data.map((product) => {
           const originalPrice =
             parseFloat(product.price.replace(/\./g, "")) || 0;
-          const priceWithIncrements = originalPrice * 1.15 * 1.19;
+          const priceWithIncrements = originalPrice * 1.2 * 1.19;
+          const priceWithDiscount = originalPrice * 1.15 * 1.19;
 
           return {
             ...product,
-            price: priceWithIncrements,
+            price: showDiscount ? priceWithDiscount : priceWithIncrements,
             relevance: parseFloat(product.relevance) || 0,
           };
         });
@@ -50,7 +53,7 @@ function Product() {
   return (
     <div className={styles.productContainer}>
       <div className={styles.productImage}>
-      <div className={styles.discountStamp}>5% OFF</div>
+      {showDiscount && (<div className={styles.discountStamp}>5% OFF</div>)}
         <img src={product.image} alt={product.name} />
       </div>
       <div className={styles.productDetails}>

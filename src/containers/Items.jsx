@@ -10,6 +10,8 @@ const Items = () => {
   const [sortedProducts, setSortedProducts] = useState([]);
   const [sortOption, setSortOption] = useState("priceAsc");
   const [searchTerm, setSearchTerm] = useState("");
+  const currentMonth = new Date().getMonth();
+  const showDiscount = currentMonth === 4;
 
   useEffect(() => {
     fetch(
@@ -22,11 +24,12 @@ const Items = () => {
           const originalPrice = parseFloat(product.price.replace(/\./g, "")) || 0;
           
           // Aplicamos los incrementos del 20% y luego el 19%
-          const priceWithIncrements = originalPrice * 1.15 * 1.19;
+          const priceWithIncrements = originalPrice * 1.2 * 1.19;
+          const priceWithDiscount = originalPrice * 1.15 * 1.19;
   
           return {
             ...product,
-            price: priceWithIncrements, // Actualizamos el precio con el aumento
+            price: showDiscount ? priceWithDiscount : priceWithIncrements, // Actualizamos el precio con el aumento
             relevance: parseFloat(product.relevance) || 0,
           };
         });

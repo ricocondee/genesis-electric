@@ -15,7 +15,7 @@ const Item = ({
   wifi,
   type,
 }) => {
-  
+    
 const handleClick = ({ name, specs }) => {
   const phoneNumber = "573005515224";
 
@@ -42,10 +42,13 @@ const handleClick = ({ name, specs }) => {
     return new Intl.NumberFormat("es-CO").format(price); // Formato colombiano
   };
 
+  const currentMonth = new Date().getMonth();
+  const showDiscount = currentMonth === 4;
+
   return (
     <div className={ItemStyles.container}>
       <div className={ItemStyles.image__container}>
-      <div className={ItemStyles.discountStamp}>5% OFF</div>
+      {showDiscount && (<div className={ItemStyles.discountStamp}>5% OFF</div>)}
         <img src={image} alt={name} />
       </div>
       <a href={`/products/${urlID}`}>
