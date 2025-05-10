@@ -9,34 +9,35 @@ const Item = ({
   specs,
   description,
   urlID,
+  originalPrice,
   score,
   seer,
   color,
   wifi,
   type,
 }) => {
-    
-const handleClick = ({ name, specs }) => {
-  const phoneNumber = "573005515224";
+  const handleClick = ({ name, specs }) => {
+    const phoneNumber = "573005515224";
 
-  let specsText = "";
-  if (Array.isArray(specs) && specs.length > 0) {
-    specsText = specs
-      .map((spec) => `${spec.volt} - ${spec.btu}`)
-      .join(", ");
-  }
+    let specsText = "";
+    if (Array.isArray(specs) && specs.length > 0) {
+      specsText = specs.map((spec) => `${spec.volt} - ${spec.btu}`).join(", ");
+    }
 
-  const message = `Hola, quiero más información sobre el ${name}${specsText ? `. Especificaciones: ${specsText}` : ""}.`;
+    const message = `Hola, quiero más información sobre el ${name}${
+      specsText ? `. Especificaciones: ${specsText}` : ""
+    }.`;
 
-  const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+    const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
+      message
+    )}`;
 
-  const newWindow = window.open(url, "_blank");
+    const newWindow = window.open(url, "_blank");
 
-  if (!newWindow) {
-    alert("Por favor permite las ventanas emergentes para abrir WhatsApp.");
-  }
-};
-
+    if (!newWindow) {
+      alert("Por favor permite las ventanas emergentes para abrir WhatsApp.");
+    }
+  };
 
   const formatPrice = (price) => {
     return new Intl.NumberFormat("es-CO").format(price); // Formato colombiano
@@ -48,7 +49,7 @@ const handleClick = ({ name, specs }) => {
   return (
     <div className={ItemStyles.container}>
       <div className={ItemStyles.image__container}>
-      {showDiscount && (<div className={ItemStyles.discountStamp}>5% OFF</div>)}
+        {showDiscount && <div className={ItemStyles.discountStamp}>5% OFF</div>}
         <img src={image} alt={name} />
       </div>
       <a href={`/products/${urlID}`}>
@@ -68,7 +69,14 @@ const handleClick = ({ name, specs }) => {
           </p>
 
           <div className={ItemStyles.price__score}>
-            <span className={ItemStyles.price}>{formatPrice(price)}</span>
+            <div className={ItemStyles.priceBlock}>
+              {showDiscount && originalPrice && (
+                <span className={ItemStyles.oldPrice}>
+                  ${formatPrice(originalPrice)}
+                </span>
+              )}
+              <span className={ItemStyles.price}>${formatPrice(price)}</span>
+            </div>
             <span className={ItemStyles.score}>
               <Star size={24} color="#f8af0d" className={ItemStyles.star} />
             </span>
@@ -78,7 +86,7 @@ const handleClick = ({ name, specs }) => {
             {color && (
               <div className={ItemStyles.feature}>
                 <span className={ItemStyles.icon}>
-                  <Palette size={18}/>
+                  <Palette size={18} />
                 </span>
                 <span>
                   <strong>Color:</strong> {color}
@@ -89,7 +97,7 @@ const handleClick = ({ name, specs }) => {
             {seer && (
               <div className={ItemStyles.feature}>
                 <span className={ItemStyles.icon}>
-                  <GaugeCircle size={18}/>
+                  <GaugeCircle size={18} />
                 </span>
                 <span>
                   <strong>Seer:</strong> {seer}

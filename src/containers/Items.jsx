@@ -30,6 +30,7 @@ const Items = () => {
           return {
             ...product,
             price: showDiscount ? priceWithDiscount : priceWithIncrements, // Actualizamos el precio con el aumento
+            originalPrice: priceWithIncrements, // Guardamos el precio original
             relevance: parseFloat(product.relevance) || 0,
           };
         });
@@ -79,6 +80,7 @@ const Items = () => {
               key={product.id}
               name={product.name}
               image={product.image}
+              originalPrice={product.originalPrice}
               price={product.price}
               specs={product.specs}
               description={product.description}

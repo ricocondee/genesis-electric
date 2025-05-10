@@ -28,6 +28,7 @@ function Product() {
           return {
             ...product,
             price: showDiscount ? priceWithDiscount : priceWithIncrements,
+            originalPrice: priceWithIncrements,
             relevance: parseFloat(product.relevance) || 0,
           };
         });
@@ -53,7 +54,7 @@ function Product() {
   return (
     <div className={styles.productContainer}>
       <div className={styles.productImage}>
-      {showDiscount && (<div className={styles.discountStamp}>5% OFF</div>)}
+        {showDiscount && <div className={styles.discountStamp}>5% OFF</div>}
         <img src={product.image} alt={product.name} />
       </div>
       <div className={styles.productDetails}>
@@ -113,8 +114,16 @@ function Product() {
             </div>
           )}
         </div>
-
-        <p className={styles.price}>${product.price.toLocaleString()}</p>
+        <div className={styles.priceContainer}>
+          {showDiscount && (
+            <span className={styles.oldPrice}>
+              ${product.originalPrice.toLocaleString()}
+            </span>
+          )}
+          <span className={styles.price}>
+            ${product.price.toLocaleString()}
+          </span>
+        </div>
 
         <div className={styles.quantitySelector}>
           <button onClick={decreaseQty}>-</button>

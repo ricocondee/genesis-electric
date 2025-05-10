@@ -34,7 +34,27 @@
   border-radius: 5px;
   z-index: 2;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}.oldPrice {
+  text-decoration: line-through;
+  color: #888;
+  margin-right: 0.5rem;
+  font-size: 1rem;
 }
+
+.price {
+  color: #000;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.priceContainer {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+
+
 
 .productDetails {
   display: flex;
