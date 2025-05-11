@@ -76,7 +76,7 @@ const Footer = () => {
             <h3>Ubicaci&oacute;n</h3>
             <div className={FooterStyles.address}>
               <TbHome />
-              <a href="https://maps.app.goo.gl/WFEkHxTJoMzssAVK6">
+              <a href="https://maps.app.goo.gl/WFEkHxTJoMzssAVK6" target="blank">
                 <span>Carrera 7H #48 120. Barranquilla, Atlántico.</span>
               </a>
             </div>
