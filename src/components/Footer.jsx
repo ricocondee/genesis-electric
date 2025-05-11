@@ -21,16 +21,28 @@ const Footer = () => {
           <div className={FooterStyles.footer__items}>
             <img src={Logo} alt="Logo" />
             <div className={FooterStyles.social__media}>
-              <a href="https://www.facebook.com/profile.php?id=100089745155648" target="blank">
+              <a
+                href="https://www.facebook.com/profile.php?id=100089745155648"
+                target="blank"
+              >
                 <TbBrandFacebook />
               </a>
-              <a href="https://www.instagram.com/genesiselectricsas/" target="blank">
+              <a
+                href="https://www.instagram.com/genesiselectricsas/"
+                target="blank"
+              >
                 <TbBrandInstagram />
               </a>
-              <a href="https://api.whatsapp.com/send?phone=573005515224" target="blank">
+              <a
+                href="https://api.whatsapp.com/send?phone=573005515224"
+                target="blank"
+              >
                 <TbBrandWhatsapp />
               </a>
-              <a href="https://www.linkedin.com/company/genesiselectricsas/" target="blank">
+              <a
+                href="https://www.linkedin.com/company/genesiselectricsas/"
+                target="blank"
+              >
                 <TbBrandLinkedin />
               </a>
             </div>
@@ -64,7 +76,9 @@ const Footer = () => {
             <h3>Ubicaci&oacute;n</h3>
             <div className={FooterStyles.address}>
               <TbHome />
-              <span>Carrera 7H #48 120. Barranquilla, Atlántico.</span>
+              <a href="https://maps.app.goo.gl/WFEkHxTJoMzssAVK6">
+                <span>Carrera 7H #48 120. Barranquilla, Atlántico.</span>
+              </a>
             </div>
             <div className={FooterStyles.service__hours}>
               <TbClock />
@@ -87,12 +101,16 @@ const Footer = () => {
                 </a>
               </span>
             </div>
-            <Reviews layout='badge'/>
+            <Reviews layout="badge" />
           </div>
           <div className={FooterStyles.footer__info}>
             <p>
               &copy; {year} Génesis Electric SAS. Developed by
-              <a href="https://www.ricocondee.dev/" target="_blank"> @ricocondee</a>.
+              <a href="https://www.ricocondee.dev/" target="_blank">
+                {" "}
+                @ricocondee
+              </a>
+              .
             </p>
           </div>
         </div>
