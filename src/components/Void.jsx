@@ -5,7 +5,7 @@ const Void = () => {
   return (
     <div className={styles.container}>
       <h2>No se encontraron productos</h2>
-      <img src={VOIDSVG} />
+      <img src={VOIDSVG} alt="Illustration of an empty space"/>
     </div>
   );
 };
