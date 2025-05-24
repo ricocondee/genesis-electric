@@ -50,6 +50,16 @@ const equipos = [
   "Congelador",
 ];
 
+const refrigerante = [
+  "Seleccionar refrigerante",
+  "R410A",
+  "R32",
+  "R22",
+  "R134A",
+  "R404A",
+  "R600A",
+];
+
 export default function ServiceOrderButton() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [orderNumber, setOrderNumber] = useState(0);
@@ -65,8 +75,14 @@ export default function ServiceOrderButton() {
     equipo: equipos[0],
     capacidad: capacidades[0],
     voltaje: voltajes[0],
+    refrigerante: refrigerante[0],
     descripcion: "",
     valor: "",
+    ubicacion: "",
+    amperaje: "",
+    marca: "",
+    temperatura: "",
+    psi: "",
   });
 
   useEffect(() => {
@@ -117,35 +133,43 @@ export default function ServiceOrderButton() {
       width: "595px",
     });
     container.innerHTML = `
-      <div style="font-family:Arial,sans-serif;padding:20px;color:#00072d;">
-        <div style="display:flex;justify-content:space-between;align-items:center;">
-          <div>
-            <h2 style="margin:0;color:#0a2472;">Génesis Electric S.A.S.</h2>
-            <small>NIT: 901802144</small><br/><small>Barranquilla, Atlántico</small>
-          </div>
-          <div style="text-align:right;font-size:12px;">
-            <div>Fecha: ${new Date().toLocaleDateString()}</div>
-            <div>Hora: ${new Date().toLocaleTimeString()}</div>
-          </div>
-        </div>
-        <hr style="border:none;height:2px;background:#0a2472;margin:12px 0;"/>
-        <h1 style="text-align:center;margin-bottom:20px;">Orden de servicio #${orderNumber}</h1>
-        <table style="width:100%;border-collapse:collapse;font-size:14px;">
-          <tbody>
-            ${Object.entries(formData)
-              .map(
-                ([key, value]) => `
-              <tr>
-                <td style="padding:8px;border:1px solid #e0e0e0;background:#f9f9f9;text-transform:capitalize;font-weight:bold;">${key}</td>
-                <td style="padding:8px;border:1px solid #e0e0e0;">${value}</td>
-              </tr>
-            `
-              )
-              .join("")}
-          </tbody>
-        </table>
+  <div style="font-family:Arial,sans-serif;padding:16px;max-width:595px;color:#00072d;">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <div>
+        <h2 style="margin:0;color:#0a2472;">Génesis Electric S.A.S.</h2>
+        <small>NIT: 901802144</small><br/>
+        <small>Barranquilla, Atlántico</small>
       </div>
-    `;
+      <div style="text-align:right;font-size:11px;">
+        <div>Fecha: ${new Date().toLocaleDateString()}</div>
+        <div>Hora: ${new Date().toLocaleTimeString()}</div>
+      </div>
+    </div>
+    <hr style="border:none;height:1px;background:#0a2472;margin:8px 0;"/>
+    <h2 style="text-align:center;margin:10px 0;">Orden de Servicio #${orderNumber}</h2>
+    <table style="width:100%;border-collapse:collapse;font-size:11px;">
+      <tbody>
+        ${Object.entries(formData)
+        .map(([key, value], i, arr) => {
+          if (i % 2 === 0) {
+            const next = arr[i + 1];
+            const nextKey = next ? next[0] : "";
+            const nextValue = next ? next[1] : "";
+            return `
+                <tr>
+                  <td style="padding:4px;border:1px solid #ccc;background:#f2f2f2;font-weight:bold;text-transform:capitalize;width:20%;">${key}</td>
+                  <td style="padding:4px;border:1px solid #ccc;width:30%;">${value}</td>
+                  <td style="padding:4px;border:1px solid #ccc;background:#f2f2f2;font-weight:bold;text-transform:capitalize;width:20%;">${nextKey}</td>
+                  <td style="padding:4px;border:1px solid #ccc;width:30%;">${nextValue}</td>
+                </tr>`;
+          }
+          return "";
+        })
+        .join("")}
+      </tbody>
+    </table>
+  </div>
+`;
     document.body.appendChild(container);
 
     // Generar PDF
@@ -166,8 +190,8 @@ export default function ServiceOrderButton() {
         pdf.addImage(signatureData, "PNG", 40, sigY, sigW, sigH);
         const y0 = sigY + sigH + 15;
         pdf.setFontSize(12);
-        pdf.text(`Nombre: ${formData.nombre} ${formData.apellido}`, 40, y0);
-        pdf.text(`Cédula: ${formData.cedula}`, 40, y0 + 15);
+        pdf.text(`${formData.nombre} ${formData.apellido}`, 40, y0);
+        pdf.text(`CC: ${formData.cedula}`, 40, y0 + 15);
         pdf.text(`IP: ${ip}`, 40, y0 + 30);
       }
     } catch (err) {
@@ -273,8 +297,14 @@ export default function ServiceOrderButton() {
       equipo: equipos[0],
       capacidad: capacidades[0],
       voltaje: voltajes[0],
+      refrigerante: refrigerante[0],
       descripcion: "",
       valor: "",
+      ubicacion: "",
+      amperaje: "",
+      marca: "",
+      temperatura: "",
+      psi: "",
     });
     sigCanvas.current.clear();
     setModalIsOpen(false);
@@ -423,6 +453,64 @@ export default function ServiceOrderButton() {
               </option>
             ))}
           </select>
+          <select
+            name="refrigerante"
+            value={formData.refrigerante}
+            onChange={handleChange}
+            required
+            className={styles.select}
+          >
+            {refrigerante.map((s, i) => (
+              <option key={i} value={s}>
+                {s}
+              </option>
+            ))}
+          </select>
+          <input
+            type="text"
+            name="ubicacion"
+            placeholder="Ubicación"
+            value={formData.ubicacion}
+            onChange={handleChange}
+            required
+            className={styles.input}
+          />
+          <input
+            type="text"
+            name="amperaje"
+            placeholder="Amperaje"
+            value={formData.amperaje}
+            onChange={handleChange}
+            required
+            className={styles.input}
+          />
+          <input
+            type="text"
+            name="marca"
+            placeholder="Marca"
+            value={formData.marca}
+            onChange={handleChange}
+            required
+            className={styles.input}
+          />
+          <input
+            type="text"
+            name="temperatura"
+            placeholder="Temperatura"
+            value={formData.temperatura}
+            onChange={handleChange}
+            required
+            className={styles.input}
+          />
+          <input
+            type="text"
+            name="psi"
+            placeholder="Presión en PSI"
+            value={formData.psi}
+            onChange={handleChange}
+            required
+            className={styles.input}
+          />
           <textarea
             name="descripcion"
             placeholder="Descripción"
