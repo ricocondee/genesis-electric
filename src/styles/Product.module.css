@@ -1,15 +1,78 @@
 .container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  max-width: 1400px;
   margin: 0 auto;
-  max-width: 1200px;
-  padding: 2vw;
+  padding: 2rem;
+  background-color: #f8fafc;
 }
 
-.container h1 {
-  font-size: 2rem;
-  margin: 50px auto;
-  text-align: center;
+.mainLayout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 3rem;
+}
+
+.leftSidebar {
+  /* Styles for the filter sidebar */
+}
+
+.mainContent {
+  /* Styles for the main content area */
+}
+
+.filterDrawer {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 300px;
+  height: 100%;
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  transition: left 0.3s ease-in-out;
+  z-index: 1000;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.filterDrawer.open {
+  left: 0;
+}
+
+.drawerHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.drawerHeader h3 {
+  margin: 0;
+}
+
+.drawerHeader button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+
+
+@media (max-width: 768px) {
+  .mainLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .leftSidebar {
+    display: none; /* Will be handled by a collapsible drawer */
+  }
 }
