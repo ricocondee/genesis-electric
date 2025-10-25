@@ -70,6 +70,9 @@ const Products = () => {
       try {
         const cleanFilters = Object.entries({...filters, page: pagination.currentPage})
           .filter(([key, value]) => {
+            if (key === 'page') {
+              return true;
+            }
             if (key === 'brand') {
               return value.length > 0;
             }
@@ -124,7 +127,7 @@ const Products = () => {
     };
 
     fetchProducts();
-  }, [filters, pagination.currentPage, sortOption]);
+  }, [JSON.stringify(filters), pagination.currentPage, sortOption]);
 
   if (loading) return <Loader />;
 
