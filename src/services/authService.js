@@ -1,16 +1,13 @@
-import axios from "axios";
+import axiosInstance from "../api/axios";
 
-const API_URL = "/api/auth";
+const API_URL = "/auth";
 
 // Registro de usuario
-export const register = async (userData, token) => {
+export const register = async (userData) => {
     try {
-      const res = await axios.post(
+      const res = await axiosInstance.post(
         `${API_URL}/register`,
-        userData,
-        {
-          headers: { Authorization: `Bearer ${token}` }
-        }
+        userData
       );
       return res.data;
     } catch (error) {
@@ -22,7 +19,7 @@ export const register = async (userData, token) => {
 // Login de usuario
 export const login = async (userData) => {
   try {
-    const res = await axios.post(`${API_URL}/login`, userData);
+    const res = await axiosInstance.post(`${API_URL}/login`, userData);
     return res.data;
   } catch (error) {
     throw error.response?.data || { message: "Error de conexión" };
@@ -30,13 +27,20 @@ export const login = async (userData) => {
 };
 
 // Obtener perfil (requiere autenticación)
-export const getProfile = async (token) => {
+export const getProfile = async () => {
   try {
-    const res = await axios.get(`${API_URL}/profile`, {
-      headers: { Authorization: `Bearer ${token}` },
-    });
+    const res = await axiosInstance.get(`${API_URL}/profile`);
     return res.data;
   } catch (error) {
     throw error.response?.data || { message: "Error de conexión" };
   }
+};
+
+export const refreshToken = async () => {
+  const response = await axiosInstance.post('/auth/refresh-token');
+  return response.data.accessToken;
+};
+
+export const logout = async () => {
+  await axiosInstance.post('/auth/logout');
 };

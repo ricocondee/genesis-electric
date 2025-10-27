@@ -1,0 +1,83 @@
+.container {
+    padding: 3rem 40px;
+    position: relative;
+    background: #a6e1fa;
+    background: linear-gradient(-10deg, #a6e1fa, #fdfdfd 66%, #fff);
+}
+
+.container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    z-index: -1;
+}
+
+.sliderWrapper {
+    position: relative;
+}
+
+.container h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.slide {
+    padding: 0 1rem;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.arrow:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.skeletonGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+@media (max-width: 1200px) {
+    .skeletonGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .skeletonGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .skeletonGrid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.next {
+    right: 10px;
+}
+
+.prev {
+    left: 10px;
+}

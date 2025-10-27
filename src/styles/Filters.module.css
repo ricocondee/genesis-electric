@@ -1,0 +1,226 @@
+.container {
+  padding: 1rem;
+  background-color: #f8fafc;
+  border-radius: 1rem;
+}
+
+.filterSection {
+  margin-bottom: 1.5rem;
+}
+
+.filterTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: capitalize;
+}
+
+.filterContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.filterContent.open {
+  max-height: 1000px; /* Adjust as needed */
+}
+
+.filterList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filterList li button {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  text-transform: capitalize;
+}
+
+.filterList li button:hover {
+  background-color: #e2e8f0;
+}
+
+.filterList li button.active {
+  font-weight: 600;
+  color: var(--light-blue);
+  background-color: #e0f2fe;
+}
+
+.checkboxGroup, .radioGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.priceSlider {
+  padding: 1rem 0;
+}
+
+.priceInputs {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.priceInputs input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+}
+
+
+/* Custom Checkbox */
+.customCheckbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    text-transform: capitalize;
+}
+
+.customCheckbox input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+.checkmark {
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 3px;
+    margin-right: 10px;
+    display: inline-block;
+    position: relative;
+}
+
+.customCheckbox:hover .checkmark {
+    background-color: #ccc;
+}
+
+.customCheckbox input:checked + .checkmark {
+    background-color: var(--light-blue);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.customCheckbox input:checked + .checkmark:after {
+    display: block;
+}
+
+.customCheckbox .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+/* Custom Radio Button */
+.customRadio {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    text-transform: capitalize;
+}
+
+.customRadio input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+.radiomark {
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: inline-block;
+    position: relative;
+}
+
+.customRadio:hover .radiomark {
+    background-color: #ccc;
+}
+
+.customRadio input:checked + .radiomark {
+    background-color: var(--light-blue);
+}
+
+.radiomark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.customRadio input:checked + .radiomark:after {
+    display: block;
+}
+
+.customRadio .radiomark:after {
+    top: 6px;
+    left: 6px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+/* Custom Range Slider */
+.priceSlider input[type='range'] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    background: #ddd;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    border-radius: 5px;
+}
+
+.priceSlider input[type='range']:hover {
+    opacity: 1;
+}
+
+.priceSlider input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--light-blue);
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.priceSlider input[type='range']::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--light-blue);
+    cursor: pointer;
+    border-radius: 50%;
+}

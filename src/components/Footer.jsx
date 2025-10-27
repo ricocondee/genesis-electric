@@ -10,6 +10,8 @@ import {
 } from "react-icons/tb";
 import Reviews from "./Reviews";
 
+import airlife from "../assets/airlife.png";
+
 const today = new Date();
 const year = today.getFullYear();
 
@@ -102,6 +104,9 @@ const Footer = () => {
               </span>
             </div>
             <Reviews layout="badge" />
+          </div>
+          <div className={FooterStyles.providers}>
+            <img src={airlife} alt="Distribuidor autorizado Airlife" />
           </div>
           <div className={FooterStyles.footer__info}>
             <p>

@@ -1,0 +1,81 @@
+.tableWrapper {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+.table th, .table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.table th {
+    font-weight: 600;
+}
+
+.productImage {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.specs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.spec {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.icon {
+    color: var(--light-blue);
+}
+
+.buyButton {
+    background-color: var(--light-blue);
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.buyButton:hover {
+    background-color: var(--medium-blue);
+}
+
+.outOfStockLabel {
+    color: var(--danger-color);
+    font-weight: 700;
+}
+
+.buyButton:disabled {
+    background-color: var(--medium-gray);
+    border-color: var(--medium-gray);
+    color: var(--dark-gray);
+    cursor: not-allowed;
+}
+
+.removeButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--dark-gray);
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: color 0.2s;
+}
+
+.removeButton:hover {
+    color: var(--light-blue);
+}

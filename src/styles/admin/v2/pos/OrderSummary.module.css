@@ -1,0 +1,135 @@
+.container {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    color: #2d3748;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.container h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 1rem;
+}
+
+.cartItems {
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: 300px;
+}
+
+.emptyCart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #a0aec0;
+}
+
+.emptyCart p {
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+.cartItem {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.itemImage {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.itemInfo {
+    flex-grow: 1;
+}
+
+.quantityControls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.quantityControls button {
+    background-color: #edf2f7;
+    color: #4a5568;
+    border: 1px solid #e2e8f0;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.itemPrice {
+    text-align: right;
+}
+
+.itemPrice button {
+    background: none;
+    border: none;
+    color: #a0aec0;
+    cursor: pointer;
+    margin-top: 0.5rem;
+}
+
+.summaryDetails {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+.summaryRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.summaryInput {
+    width: 100px;
+    padding: 0.5rem;
+    text-align: right;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+}
+
+.total {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-top: 1rem;
+}
+
+.processPaymentButton {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1.5rem;
+    background-color: var(--light-blue);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.processPaymentButton:hover {
+    background-color: var(--medium-blue);
+}
+
+.processPaymentButton:disabled {
+    background-color: #a0aec0;
+    cursor: not-allowed;
+}

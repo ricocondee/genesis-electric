@@ -1,0 +1,57 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: #f8fafc;
+  border-radius: 1rem;
+}
+
+.leftControls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.rightControls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.viewToggleBtn, .filterBtn {
+  background: none;
+  border: 1px solid #e2e8f0;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  color: #64748b;
+}
+
+.viewToggleBtn.active {
+  background-color: var(--light-blue);
+  color: white;
+  border-color: var(--light-blue);
+}
+
+.viewToggleBtn:hover, .filterBtn:hover {
+  background-color: #f1f5f9;
+}
+
+.viewToggleBtn.active:hover {
+  background-color: var(--medium-blue);
+}
+
+.filterBtn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .leftControls {
+    display: none;
+  }
+
+  .filterBtn {
+    display: block;
+  }
+}

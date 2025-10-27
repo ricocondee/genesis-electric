@@ -1,0 +1,48 @@
+.floatingButton {
+  position: fixed;
+  bottom: 60px;
+  right: 20px;
+  background-color: #25d366; /* WhatsApp green */
+  color: white;
+  width: 60px; /* circle dimensions */
+  height: 60px; /* circle dimensions */
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.floatingButton:hover {
+  width: 380px; /* expanded width */
+  border-radius: 30px;
+}
+
+.avatar {
+  width: 60px; /* fill the circle */
+  height: 60px; /* fill the circle */
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  flex-shrink: 0; /* prevent shrinking */
+}
+
+.floatingButton:hover .avatar {
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+}
+
+.text {
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s ease 0.1s;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-right: 20px; /* add margin to the right */
+}
+
+.floatingButton:hover .text {
+  opacity: 1;
+}

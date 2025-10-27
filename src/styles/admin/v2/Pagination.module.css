@@ -1,0 +1,49 @@
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  color: #4a5568;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.itemsPerPage {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.itemsPerPage select {
+  background-color: #ffffff;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  border: 1px solid #e2e8f0;
+}
+
+.pageControls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pageButton {
+  background: none;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.375rem;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.pageButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pageInfo {
+  font-weight: 500;
+}

@@ -1,13 +1,12 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import { TbAlertCircle } from "react-icons/tb";
-import loginIllustration from "../assets/loginIllustration.svg";
+import { useNavigate, Link } from "react-router-dom";
+import axiosInstance from "../api/axios";
+import { showToast } from "../utils/toast";
+import logo from "../assets/logo.png";
 import styles from "../styles/Login.module.css";
 
-const Login = ({ setToken }) => {
+const Login = ({ login }) => {
   const [formData, setFormData] = useState({ email: "", password: "" });
-  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -16,30 +15,32 @@ const Login = ({ setToken }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
 
     try {
-      const res = await axios.post(
-        `/api/auth/login`,
+      const res = await axiosInstance.post(
+        `/auth/login`,
         formData
       );
 
-      if (!res.data.token) {
+      if (!res.data.accessToken) {
         throw new Error("No token received");
       }
 
-      localStorage.setItem("token", res.data.token);
-      setToken(res.data.token);
-      navigate("/dashboard");
+      login(res.data.accessToken);
+      navigate("/admin");
     } catch (err) {
-      setError(err.response?.data?.message || err.message || "Login failed");
+      showToast(err.response?.data?.message || err.message || "Login failed", "error");
     }
   };
 
   return (
     <div className={styles.container}>
       <div className={styles.card}>
-        <img src={loginIllustration} alt="Login" className={styles.illustration} />
+        <img src={logo} alt="Logo" className={styles.logo} />
+        <div className={styles.textContainer}>
+          <h2>¡Bienvenido de nuevo!</h2>
+          <p>Inicia sesión para continuar</p>
+        </div>
         <form onSubmit={handleSubmit} className={styles.form}>
           <input
             type="email"
@@ -57,17 +58,17 @@ const Login = ({ setToken }) => {
             required
             className={styles.input}
           />
-          {error && (
-            <div className={styles.errorMessage}>
-              <TbAlertCircle className={styles.errorIcon} />
-              <p>{error}</p>
-            </div>
-          )}
           <button type="submit" className={styles.button}>
             Login
           </button>
+          <div className={styles.linksContainer}>
+            <Link to="/forgot-password">¿Olvidaste tu contraseña?</Link>
+          </div>
         </form>
       </div>
+      <footer className={styles.footer}>
+        <p>&copy; 2025 Genesis Electric S.A.S</p>
+      </footer>
     </div>
   );
 };

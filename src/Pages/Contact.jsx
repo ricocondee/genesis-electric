@@ -1,7 +1,6 @@
 import ContactStyles from "../styles/Contact.module.css";
 import Model from "../assets/model2.png"; 
 import Form from "../components/Form";
-import ServiceOrderButton from "../components/ServiceOrderButton";
 
 const Contact = () => {
 
@@ -14,7 +13,6 @@ const Contact = () => {
       </div>
       <img src={Model} alt="T&eacute;cnico apuntando a tu derecha" />
       <Form />
-      <ServiceOrderButton/>
     </section>
   );
 };

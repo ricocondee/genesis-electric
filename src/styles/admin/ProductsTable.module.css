@@ -1,0 +1,137 @@
+
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+  vertical-align: middle;
+}
+
+.table th {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #a0aec0;
+  text-transform: uppercase;
+  background-color: #f7fafc;
+}
+
+.table tbody tr:hover {
+  background-color: #edf2f7;
+}
+
+.productCell {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.productImage {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.statusLabel {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.statusPublished {
+  background-color: #c6f6d5;
+  color: #2f855a;
+}
+
+.statusDraft {
+  background-color: #e2e8f0;
+  color: #4a5568;
+}
+
+.statusInactive {
+  background-color: #fed7d7;
+  color: #c53030;
+}
+
+.statusStockOut {
+  background-color: #feebc8;
+  color: #975a16;
+}
+
+.inStock {
+  color: #4a5568;
+}
+
+.lowStock {
+  color: #dd6b20;
+  font-weight: 600;
+}
+
+.stockOut {
+  color: #c53030;
+  font-weight: 600;
+}
+
+.actionsCell {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.actionButton {
+  background: none;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: #718096;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.actionButton:hover {
+  background-color: #edf2f7;
+  color: #2d3748;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.pageTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  gap: 1rem;
+}
+
+.specsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.specsList li {
+  font-size: 0.875rem;
+  color: #4a5568;
+}
+

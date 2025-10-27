@@ -2,11 +2,10 @@ import { useState } from "react";
 import { register } from "../services/authService";
 import RegisterStyles from "../styles/Register.module.css";
 import AirUnit from "../assets/airunit.png";
-import { TbAlertCircle } from "react-icons/tb";
+import { showToast } from "../utils/toast";
 
 const Register = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
-  const [message, setMessage] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -17,9 +16,9 @@ const Register = () => {
     e.preventDefault();
     try {
       const res = await register(formData, tokeni);
-      setMessage(res.message);
+      showToast(res.message, "success");
     } catch (error) {
-      setMessage(error.message || "Error registering");
+      showToast(error.message || "Error registering", "error");
     }
   };
 
@@ -45,7 +44,6 @@ const Register = () => {
             onChange={handleChange}
             required
           />
-          <div className={RegisterStyles.alert__message}>{message &&<TbAlertCircle/>}{message && <p>{message}</p>}</div>
           <button type="submit">Register</button>
         </form>
       </div>

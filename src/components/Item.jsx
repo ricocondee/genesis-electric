@@ -1,157 +1,164 @@
+import { useCart } from "../context/CartContext";
+import { useFavorites } from "../context/FavoritesContext";
+import { useState } from "react";
 import ItemStyles from "../styles/Item.module.css";
-import { Heart, Leaf, Star, Wifi, Palette, GaugeCircle} from "lucide-react";
+import { Snowflake, Zap, Leaf, Heart, Star, Wifi, ChevronDown, ChevronUp } from "lucide-react";
 import PropTypes from "prop-types";
+import { Link, useNavigate } from "react-router-dom";
+
+const specTranslations = {
+  btu: "BTU",
+  voltage: "Voltaje",
+  color: "Color",
+  seer: "SEER",
+  energyType: "Eficiencia",
+  refrigerant: "Refrigerante",
+  system: "Sistema",
+  brand: "Marca",
+};
 
 const Item = ({
   name,
   image,
   price,
-  specs,
+  iva,
+  netPrice,
   description,
   urlID,
-  originalPrice,
-  score,
-  seer,
-  color,
-  wifi,
-  type,
+  score = 4.5, // Default score
+  status,
+  stockQuantity,
+  specs, 
 }) => {
-  const handleClick = ({ name, specs }) => {
-    const phoneNumber = "573005515224";
+  const { addItem } = useCart();
+  const { addFavorite, removeFavorite, isFavorite } = useFavorites();
+  const [isAdding, setIsAdding] = useState(false);
+  const [isSpecsCollapsed, setIsSpecsCollapsed] = useState(true);
+  const navigate = useNavigate();
 
-    let specsText = "";
-    if (Array.isArray(specs) && specs.length > 0) {
-      specsText = specs.map((spec) => `${spec.volt} - ${spec.btu}`).join(", ");
+  const isFav = isFavorite(urlID);
+
+  const handleFavoriteClick = () => {
+    if (isFav) {
+      removeFavorite(urlID);
+    } else {
+      const product = { _id: urlID, name, imageUrl: image, price, description, quantity: stockQuantity, status, specs };
+      addFavorite(product);
     }
+  };
 
-    const message = `Hola, quiero más información sobre el ${name}${
-      specsText ? `. Especificaciones: ${specsText}` : ""
-    }.`;
+  const isOutOfStock = status === 'agotado';
 
-    const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
-      message
-    )}`;
+  const handleAddToCart = () => {
+    const product = { _id: urlID, name, imageUrl: image, price, iva, netPrice, description, quantity: stockQuantity, specs };
+    addItem(product);
+    setIsAdding(true);
+    setTimeout(() => setIsAdding(false), 500);
+  };
 
-    const newWindow = window.open(url, "_blank");
+  const handleBuyNow = () => {
+    const product = { _id: urlID, name, imageUrl: image, price, iva, netPrice, description, quantity: stockQuantity, specs };
+    addItem(product);
 
-    if (!newWindow) {
-      alert("Por favor permite las ventanas emergentes para abrir WhatsApp.");
+    const token = localStorage.getItem('token');
+    if (token && token !== "undefined") {
+      navigate('/checkout');
+    } else {
+      navigate('/login', { state: { from: '/checkout' } });
     }
   };
 
   const formatPrice = (price) => {
-    return new Intl.NumberFormat("es-CO").format(price); // Formato colombiano
+    const formatted = new Intl.NumberFormat("es-CO", {
+      style: "currency",
+      currency: "COP",
+    }).format(price);
+    const parts = formatted.split(',');
+    if (parts.length > 1) {
+      return <>{parts[0]}<span className="decimal-part">,{parts[1]}</span></>;
+    } else {
+      return formatted;
+    }
   };
 
-  const currentMonth = new Date().getMonth();
-  const showDiscount = currentMonth === 4;
+  const renderStars = () => {    const stars = [];
+    for (let i = 1; i <= 5; i++) {
+      stars.push(
+        <Star
+          key={i}
+          size={16}
+          fill={i <= score ? "#f8af0d" : "#e2e8f0"}
+          stroke="none"
+        />
+      );
+    }
+    return stars;
+  };
 
   return (
-    <div className={ItemStyles.container}>
-      <div className={ItemStyles.image__container}>
-        {showDiscount && <div className={ItemStyles.discountStamp}>5% OFF</div>}
-        <img src={image} alt={name} />
+    <div className={`${ItemStyles.container} ${isAdding ? ItemStyles.addedToCart : ''}`}>
+      <div className={ItemStyles.favorite__icon} onClick={handleFavoriteClick} aria-label={isFav ? "Remove from favorites" : "Add to favorites"}>
+        <Heart fill={isFav ? "red" : "none"} color={isFav ? "red" : "currentColor"} />
       </div>
-      <a href={`/products/${urlID}`}>
-        <div className={ItemStyles.text__container}>
+      <Link to={`/products/${urlID}`} className={ItemStyles.image__container}>
+        <img src={image} alt={name} />
+      </Link>
+      <div className={ItemStyles.text__container}>
+        <Link to={`/products/${urlID}`} className={ItemStyles.titleLink}>
           <h3>{name}</h3>
-          <p>{description}</p>
+        </Link>
+        <div className={ItemStyles.score__container}>{renderStars()}</div>
+        <p className={ItemStyles.description}>{description}</p>
 
-          {/* Mapeo de specs */}
-          <p>
-            {specs &&
-              specs.map((spec, index) => (
-                <span key={index}>
-                  {spec.volt}, {spec.btu}
-                  {index < specs.length - 1 && ", "}
-                </span>
+        {specs && Object.keys(specs).length > 0 && (
+          <div className={ItemStyles.specsToggle} onClick={() => setIsSpecsCollapsed(!isSpecsCollapsed)}>
+            <h4>Especificaciones {isSpecsCollapsed ? <ChevronDown size={16} /> : <ChevronUp size={16} />}</h4>
+          </div>
+        )}
+
+        {!isSpecsCollapsed && specs && Object.keys(specs).length > 0 && (
+          <div className={`${ItemStyles.specs} ${!isSpecsCollapsed ? ItemStyles.specsExpanded : ''}`}>
+            {Object.entries(specs)
+              .filter(([_, value]) => value)
+              .map(([key, value]) => (
+                <div className={ItemStyles.spec} key={key}>
+                  <span>{specTranslations[key] || key}: {value}</span>
+                </div>
               ))}
-          </p>
-
-          <div className={ItemStyles.price__score}>
-            <div className={ItemStyles.priceBlock}>
-              {showDiscount && originalPrice && (
-                <span className={ItemStyles.oldPrice}>
-                  ${formatPrice(originalPrice)}
-                </span>
-              )}
-              <span className={ItemStyles.price}>${formatPrice(price)}</span>
-            </div>
-            <span className={ItemStyles.score}>
-              <Star size={24} color="#f8af0d" className={ItemStyles.star} />
-            </span>
           </div>
+        )}
 
-          <div className={ItemStyles.features}>
-            {color && (
-              <div className={ItemStyles.feature}>
-                <span className={ItemStyles.icon}>
-                  <Palette size={18} />
-                </span>
-                <span>
-                  <strong>Color:</strong> {color}
-                </span>
-              </div>
-            )}
-
-            {seer && (
-              <div className={ItemStyles.feature}>
-                <span className={ItemStyles.icon}>
-                  <GaugeCircle size={18} />
-                </span>
-                <span>
-                  <strong>Seer:</strong> {seer}
-                </span>
-              </div>
-            )}
-
-            {wifi !== null && (
-              <div className={ItemStyles.feature}>
-                <span className={ItemStyles.icon}>
-                  <Wifi size={18} />
-                </span>
-                <span>
-                  <strong>Wifi:</strong> {wifi ? "Sí" : "No"}
-                </span>
-              </div>
-            )}
-
-            {type && (
-              <div className={ItemStyles.feature}>
-                <span className={ItemStyles.icon}>
-                  <Leaf size={18} />
-                </span>
-                <span>
-                  <strong>Tipo:</strong> {type}
-                </span>
-              </div>
-            )}
-          </div>
+        <div className={ItemStyles.price__container}>
+          {isOutOfStock ? (
+            <span className={ItemStyles.outOfStockLabel}>Agotado</span>
+          ) : (
+            <span className={ItemStyles.price}>{formatPrice(price)}</span>
+          )}
         </div>
-      </a>
-      <div className={ItemStyles.item__button}>
-        <button onClick={() => handleClick({ name, specs })}>Saber más</button>
+
+        <div className={ItemStyles.button__container}>
+          <button className={ItemStyles.cart__button} onClick={handleAddToCart} disabled={isOutOfStock}>
+            Añadir al carrito
+          </button>
+          <button className={ItemStyles.buy__button} onClick={handleBuyNow} disabled={isOutOfStock}>
+            Comprar ahora
+          </button>
+        </div>
       </div>
     </div>
   );
 };
+
 Item.propTypes = {
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-  specs: PropTypes.arrayOf(
-    PropTypes.shape({
-      volt: PropTypes.string,
-      btu: PropTypes.string,
-    })
-  ),
   description: PropTypes.string.isRequired,
   urlID: PropTypes.string.isRequired,
   score: PropTypes.number,
-  seer: PropTypes.number,
-  color: PropTypes.string,
-  wifi: PropTypes.bool,
-  type: PropTypes.string,
+  status: PropTypes.string,
+  stockQuantity: PropTypes.number,
+  specs: PropTypes.object,
 };
 
 export default Item;

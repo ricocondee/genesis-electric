@@ -1,0 +1,84 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 1000;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 400px;
+    width: 90%;
+}
+
+.receiptContainer {
+    /* Styles for the printable receipt area */
+}
+
+.itemsTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.itemsTable td {
+    padding: 0.5rem 0;
+}
+
+.totalSection {
+    text-align: right;
+    margin-top: 1rem;
+}
+
+.buttonGroup {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.closeButton, .printButton {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.closeButton {
+    background-color: #edf2f7;
+    border: 1px solid #e2e8f0;
+}
+
+.printButton {
+    background-color: var(--light-blue);
+    color: white;
+    border: none;
+}
+
+@media print {
+    .buttonGroup {
+        display: none;
+    }
+    .overlay {
+        position: static;
+    }
+    .modal {
+        position: static;
+        width: 100%;
+        max-width: 100%;
+        border-radius: 0;
+        padding: 0;
+        transform: none;
+    }
+}

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ProductForm from "./ProductForm";
 import DataSheetForm from "./DataSheetForm";
+import axiosInstance from "../api/axios";
 
 const MultiStepForm = ({ onClose }) => {
   const [step, setStep] = useState(1);
@@ -53,20 +54,18 @@ const MultiStepForm = ({ onClose }) => {
     });
 
     try {
-      const response = await fetch("/api/products", {
-        method: "POST",
-        body: fullData,
-      });
+      const response = await axiosInstance.post("/products", fullData);
 
-      if (response.ok) {
-        alert("Producto guardado correctamente.");
+      if (response.status === 201) {
+        showToast("Producto guardado correctamente.", "success");
         onClose?.();
       } else {
-        alert("Error al guardar el producto.");
+        showToast("Error al guardar el producto.", "error");
       }
     } catch (error) {
-      console.error("Error al enviar:", error);
+      showToast("Error al enviar:" + error.message, "error");
     }
+// ... (rest of the component)
   };
 
   return step === 1 ? (

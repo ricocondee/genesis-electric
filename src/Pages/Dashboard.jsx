@@ -1,7 +1,7 @@
 import { useState } from "react";
 import DashboardStyles from "../styles/Dashboard.module.css";
 import { ShoppingBasket, ShoppingCart, Users } from "lucide-react";
-import ProductDashboardList from "../containers/ProductDashboardList";
+import ProductDashboard from "../components/admin/ProductDashboard";
 
 const Dashboard = () => {
   const [products, setProducts] = useState(true);
@@ -34,7 +34,7 @@ const Dashboard = () => {
 
       <div className={DashboardStyles.content__container}>
         {products ? (
-          <ProductDashboardList />
+          <ProductDashboard />
         ) : (
           <div>
             <h3>Productos</h3>

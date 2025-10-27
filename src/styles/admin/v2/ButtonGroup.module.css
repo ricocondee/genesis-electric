@@ -1,0 +1,29 @@
+.container {
+  margin-bottom: 1rem;
+}
+
+.title {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.options {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.option {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.option.selected {
+  background-color: var(--medium-blue);
+  color: white;
+  border-color: var(--medium-blue);
+}

@@ -4,12 +4,13 @@ import ItemsStyles from "../styles/Items.module.css";
 import SortFilter from "../components/SortFilter";
 import SearchBar from "../components/SearchBar";
 import Void from "../components/Void";
+import { showToast } from "../utils/toast";
 
 const Items = () => {
   const [products, setProducts] = useState([]);
   const [sortedProducts, setSortedProducts] = useState([]);
   const [sortOption, setSortOption] = useState("priceAsc");
-  const [searchTerm, setSearchTerm] = useState("");
+  const [filters, setFilters] = useState({ q: "" });
   const currentMonth = new Date().getMonth();
   const showDiscount = currentMonth === 4;
 
@@ -36,7 +37,7 @@ const Items = () => {
         });
         setProducts(cleanedData);
       })
-      .catch((error) => console.error("Error loading JSON:", error));
+      .catch((error) => showToast("Error loading JSON:" + error.message, "error"));
   }, []);
   
 
@@ -44,10 +45,10 @@ const Items = () => {
     if (products.length > 0) {
       const filteredProducts = products.filter(
         (product) =>
-          product.name.toLowerCase().includes(searchTerm) ||
-          product.description.toLowerCase().includes(searchTerm) ||
-          product.refr.toLowerCase().includes(searchTerm) ||
-          (product.brand && product.brand.toLowerCase().includes(searchTerm)) // Evita error si brand es undefined
+          product.name.toLowerCase().includes(filters.q.toLowerCase()) ||
+          product.description.toLowerCase().includes(filters.q.toLowerCase()) ||
+          product.refr.toLowerCase().includes(filters.q.toLowerCase()) ||
+          (product.brand && product.brand.toLowerCase().includes(filters.q.toLowerCase())) // Evita error si brand es undefined
       );
 
       const sorted = [...filteredProducts].sort((a, b) => {
@@ -65,14 +66,14 @@ const Items = () => {
 
       setSortedProducts(sorted);
     }
-  }, [sortOption, products, searchTerm]);
+  }, [sortOption, products, filters]);
 
   return (
     <div>
       <div className={ItemsStyles.container}>
         <div className={ItemsStyles.filters__container}>
           <SortFilter setSortOption={setSortOption} />
-          <SearchBar setSearchTerm={setSearchTerm} />
+          <SearchBar filters={filters} setFilters={setFilters} />
         </div>
         {sortedProducts.length > 0 ? (
           sortedProducts.map((product) => (
@@ -81,7 +82,8 @@ const Items = () => {
               name={product.name}
               image={product.image}
               originalPrice={product.originalPrice}
-              price={product.price}
+              price={product.clientPrice}
+              iva={product.iva}
               specs={product.specs}
               description={product.description}
               urlID={product.publicId}
@@ -93,7 +95,10 @@ const Items = () => {
             />
           ))
         ) : (
-          <Void />
+          <Void
+            message="No encontramos productos con estos filtros"
+            suggestion="Intenta con una búsqueda diferente o ajusta los filtros."
+          />
         )}
       </div>
     </div>

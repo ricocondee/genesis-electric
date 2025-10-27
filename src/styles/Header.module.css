@@ -1,1 +1,158 @@
-.container{background:#d5f0fc;background:linear-gradient(315deg,#d5f0fc,#fdfdfd 85%,#fff);width:100%}.container,.logo__container{align-items:center;display:flex;justify-content:center;padding:.5vw}.logo__container{height:max-content;width:max-content}.logo__container img{width:150px}.container .menu,.container input[type=checkbox]{display:none}.container nav{justify-content:end;width:80%}.container nav,.container nav ul{align-items:center;display:flex;padding:.5vw}.container nav ul{justify-content:space-around;list-style:none;width:90%}.container nav ul li{padding:.5vw}.container nav ul li a{color:var(--dark-blue);font-family:var(--font-family-lato);font-weight:var(--font-weight-bold)}.hidden{display:none}@media (width <= 768px){.container{background:var(--white);background:linear-gradient(var(--white));justify-content:space-between;padding:1rem;position:relative;width:100%}.container .menu{color:var(--light-blue);display:block}.container .menu svg{font-size:2rem}.container nav{background-color:var(--white);height:90lvh;left:0;opacity:0;pointer-events:none;position:absolute;top:100%;transform:translateY(-10px);transition:opacity .5s ease-in-out,transform .5s ease-in-out;width:100%;z-index:1}.container input:checked~nav{opacity:1;pointer-events:auto;transform:translateY(0)}.container nav img{display:block;left:80%;margin:1rem;position:absolute;top:0;width:2rem}.container nav ul{align-items:center;flex:1;flex-direction:column;height:100%;justify-content:space-around;width:100%}.container nav ul li{flex:1;margin-right:0}.container nav ul li a{font-size:1.2rem}.container .button{font-size:1rem;padding:.75rem 1.5rem}}
+.container {
+    background: #d5f0fc;
+    background: linear-gradient(315deg, #d5f0fc, #fdfdfd 85%, #fff);
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
+}
+
+.logo__container {
+    height: max-content;
+    width: max-content
+}
+
+.logo__container img {
+    width: 150px
+}
+
+.container .menu,
+.container input[type=checkbox] {
+    display: none
+}
+
+.container nav {
+    justify-content: end;
+}
+
+.container nav,
+.container nav ul {
+    align-items: center;
+    display: flex;
+}
+
+.container nav ul {
+    justify-content: space-around;
+    list-style: none;
+    gap: 2rem;
+}
+
+.container nav ul li {
+    padding: .5vw
+}
+
+.container nav ul li a {
+    color: var(--dark-blue);
+    font-family: var(--font-family-lato);
+    font-weight: var(--font-weight-bold)
+}
+
+.icons__container {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.icons__container a {
+    color: var(--dark-blue);
+    transition: color 0.3s;
+}
+
+.icons__container a:hover {
+    color: var(--light-blue);
+}
+
+.cart__icon {
+    position: relative;
+}
+
+.cart__badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: var(--light-blue);
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none
+}
+
+@media (width <=768px) {
+    .container {
+        background: var(--white);
+        background: linear-gradient(var(--white));
+        justify-content: space-between;
+        position: relative;
+        width: 100%
+    }
+
+    .container .menu {
+        color: var(--light-blue);
+        display: block
+    }
+
+    .container .menu svg {
+        font-size: 2rem
+    }
+
+    .container nav {
+        background-color: var(--white);
+        height: 90lvh;
+        left: 0;
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        top: 100%;
+        transform: translateY(-10px);
+        transition: opacity .5s ease-in-out, transform .5s ease-in-out;
+        width: 100%;
+        z-index: 1
+    }
+
+    .container input:checked~nav {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0)
+    }
+
+    .container nav img {
+        display: block;
+        left: 80%;
+        margin: 1rem;
+        position: absolute;
+        top: 0;
+        width: 2rem
+    }
+
+    .container nav ul {
+        align-items: center;
+        flex: 1;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-around;
+        width: 100%
+    }
+
+    .container nav ul li {
+        flex: 1;
+        margin-right: 0
+    }
+
+    .container nav ul li a {
+        font-size: 1.2rem
+    }
+
+    .container .button {
+        font-size: 1rem;
+        padding: .75rem 1.5rem
+    }
+}

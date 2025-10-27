@@ -1,0 +1,18 @@
+
+.dashboardLayout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f7fafc;
+}
+
+.mainContent {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  .mainContent {
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.pill {
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    background-color: #edf2f7;
+    color: #4a5568;
+    border: 1px solid #e2e8f0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.pill:hover {
+    background-color: #e2e8f0;
+}
+
+.active {
+    background-color: var(--light-blue);
+    color: white;
+    border-color: var(--light-blue);
+}
+
+.active:hover {
+    background-color: var(--light-blue);
+    opacity: 0.9;
+}
+
+.count {
+    color: #718096;
+    margin-left: 0.5rem;
+}

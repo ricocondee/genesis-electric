@@ -1,0 +1,49 @@
+.pageContainer {
+    padding: 2rem;
+    background-color: #f7f9fc;
+  }
+  
+  .pageTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+  }
+  
+  .container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+  }
+  
+  .leftColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    overflow-y: auto; /* For scrolling if content overflows */
+  }
+  
+  .rightColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+
+  @media (max-width: 1200px) {
+    .container {
+      grid-template-columns: 1.5fr 1fr;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .container {
+      grid-template-columns: 1fr;
+      height: auto;
+    }
+    .rightColumn {
+      order: -1; /* Move order summary to the top on mobile */
+    }
+  }

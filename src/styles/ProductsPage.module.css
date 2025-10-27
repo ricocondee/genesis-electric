@@ -1,0 +1,19 @@
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.mainLayout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 2rem;
+}
+
+.leftSidebar {
+  /* Styles for the filter sidebar */
+}
+
+.mainContent {
+  /* Styles for the main content area */
+}

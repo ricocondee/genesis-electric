@@ -1,0 +1,87 @@
+.sliderContainer {
+    width: 100%;
+    height: 400px; /* Adjust as needed */
+    position: relative;
+}
+
+.slide {
+    position: relative;
+    width: 100%;
+    height: 400px; /* Should match sliderContainer height */
+}
+
+.slideBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.6);
+}
+
+.slideContent {
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 2rem;
+}
+
+.slideContent h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--dark-blue);
+}
+
+.slideContent p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.ctaButton {
+    background-color: var(--light-blue);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.ctaButton:hover {
+    background-color: var(--medium-blue);
+}
+
+/* Slick slider overrides */
+.sliderContainer :global(.slick-dots) {
+    bottom: 20px;
+}
+
+.sliderContainer :global(.slick-dots li button:before) {
+    font-size: 12px;
+    color: white;
+    opacity: 0.5;
+}
+
+.sliderContainer :global(.slick-dots li.slick-active button:before) {
+    opacity: 1;
+}
+
+.sliderContainer :global(.slick-prev),
+.sliderContainer :global(.slick-next) {
+    z-index: 3;
+}
+
+.sliderContainer :global(.slick-prev:before),
+.sliderContainer :global(.slick-next:before) {
+    font-size: 30px;
+}

@@ -1,10 +1,10 @@
-import React from "react";
-import styles from "../styles/Loader.module.css"; // Suponiendo que creas un archivo CSS para el loader
+import { Snowflake } from "lucide-react";
+import styles from "../styles/Loader.module.css";
 
 const Loader = () => {
   return (
     <div className={styles.loaderContainer}>
-      <div className={styles.loader}></div>
+      <Snowflake className={styles.snowflake} size={64} />
     </div>
   );
 };

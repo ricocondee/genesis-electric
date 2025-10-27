@@ -1,0 +1,107 @@
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #ffffff;
+  padding: 0.75rem 1rem;
+  border-radius: 0.375rem;
+  border: 1px solid #e2e8f0;
+  height: 42px;
+}
+
+.searchBar input {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  font-size: 1rem;
+}
+
+.searchIcon {
+  color: #a0aec0;
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.datePicker {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #ffffff;
+  padding: 0.75rem 1rem;
+  border-radius: 0.375rem;
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+  height: 42px;
+  text-transform: capitalize;
+}
+
+.dropdownFilter select {
+  background-color: #ffffff;
+  padding: 0.75rem 1rem;
+  border-radius: 0.375rem;
+  border: 1px solid #e2e8f0;
+  -webkit-appearance: none;
+  appearance: none;
+  font-size: 1rem;
+  height: 42px;
+  text-transform: capitalize;
+}
+
+.filterButton {
+  padding: 0.75rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.375rem;
+  background-color: #ffffff;
+  cursor: pointer;
+  height: 42px;
+  text-transform: capitalize;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.importButton,
+.exportButton {
+  padding: 0.75rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.375rem;
+  background-color: #ffffff;
+  cursor: pointer;
+  height: 42px;
+}
+
+.addProductButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 0.375rem;
+  background-color: #2d3748;
+  color: #ffffff;
+  cursor: pointer;
+  height: 42px;
+}

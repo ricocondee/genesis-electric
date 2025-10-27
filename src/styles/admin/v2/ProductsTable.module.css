@@ -1,0 +1,185 @@
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+  vertical-align: middle;
+  font-size: 0.875rem;
+}
+
+.table th {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #a0aec0;
+  text-transform: uppercase;
+  background-color: #f7fafc;
+}
+
+.productCell {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.productImage {
+  width: 32px;
+  height: 32px;
+  border-radius: 0.375rem;
+  object-fit: cover;
+}
+
+.statusLabel {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  font-size: 0.75rem;
+  text-transform: capitalize;
+}
+
+.statusPublished {
+  background-color: #c6f6d5;
+  color: #2f855a;
+}
+
+.statusDraft {
+  background-color: #e2e8f0;
+  color: #4a5568;
+}
+
+.statusInactive {
+  background-color: #fed7d7;
+  color: #c53030;
+}
+
+.statusStockOut {
+  background-color: #feebc8;
+  color: #975a16;
+}
+
+.inStock {
+  color: #4a5568;
+}
+
+.lowStock {
+  color: #dd6b20;
+  font-weight: 600;
+}
+
+.stockOut {
+  color: #c53030;
+  font-weight: 600;
+}
+
+.actionsCell {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.actionButton {
+  background-color: var(--light-blue);
+  color: #ffffff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.actionButton:hover {
+  background-color: var(--medium-blue);
+}
+
+.specsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.specsList li {
+  background-color: #e2e8f0;
+  color: #4a5568;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.checkbox {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: #a0aec0;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid #e2e8f0;
+  border-radius: 0.375rem;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+}
+
+.checkbox::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--light-blue);
+}
+
+.checkbox:checked::before {
+  transform: scale(1);
+}
+
+@media (max-width: 768px) {
+  .table thead {
+    display: none;
+  }
+
+  .table, .table tbody, .table tr, .table td {
+    display: block;
+    width: 100%;
+  }
+
+  .table tr {
+    margin-bottom: 1rem;
+  }
+
+  .table td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+
+  .table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 1rem;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .actionsCell {
+    justify-content: flex-end;
+  }
+}

@@ -1,19 +1,20 @@
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { useLocation } from 'react-router-dom'; // Importa el hook para obtener la ubicación actual
+import HelpButton from '../components/HelpButton';
+import { useLocation } from 'react-router-dom';
 
 const Layout = ({ children }) => {
   const location = useLocation();
 
-  // Compara la ruta actual con las rutas en las que quieres ocultar el header y footer
-  const hideHeaderAndFooter = location.pathname === '/dashboard';
+  const hideHeaderAndFooter = location.pathname.startsWith('/admin'); // updated to hide on all admin pages
 
   return (
     <div>
-      {!hideHeaderAndFooter && <Header />} {/* Solo muestra el Header si no es la página indicada */}
+      {!hideHeaderAndFooter && <Header />}
       <main>{children}</main>
-      {!hideHeaderAndFooter && <Footer />} {/* Solo muestra el Footer si no es la página indicada */}
+      {!hideHeaderAndFooter && <Footer />}
+      {!hideHeaderAndFooter && <HelpButton />}
     </div>
   );
 };

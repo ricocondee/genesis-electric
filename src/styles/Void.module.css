@@ -1,20 +1,49 @@
 .container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100%;
   flex-direction: column;
-  gap: 20px;
-  padding: 3vw;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 1rem;
+  min-height: 400px;
+  background-color: #f8fafc;
+  border-radius: 1rem;
 }
 
-.container h2 {
-  font-size: 2rem;
+.image {
+  width: 100%;
+  max-width: 300px;
   margin-bottom: 2rem;
 }
 
-.container img {
-  width: 80%;
-  height: 80%;
+.title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 0.5rem 0;
+}
+
+.suggestion {
+  font-size: 1rem;
+  color: #64748b;
+  margin: 0 0 1.5rem 0;
+  max-width: 400px;
+}
+
+.homeButton {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--light-blue);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.homeButton:hover {
+  background-color: var(--medium-blue);
+  transform: scale(1.05);
 }

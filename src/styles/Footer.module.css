@@ -1,5 +1,10 @@
 .footer {
     background-color: var(--dark-blue);
+    background: 
+  radial-gradient(circle at 0% 0%, #A6E1FA80, transparent 40%),
+  radial-gradient(circle at 100% 100%, #A6E1FA80, transparent 40%),
+  radial-gradient(circle at 50% 50%, var(--dark-blue), var(--dark-blue) 100%);
+
     color: var(--pale-blue);
     font-family: var(--font-family-lato);
     padding: 3vw 0 0
@@ -135,14 +140,26 @@
     width: 100%;
 }
 
-.footer__info {
-    background-color: var(--dark-blue);
-    padding: 3vw;
-    text-align: center;
-    width: 100%
+.providers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
-.footer__info,
+.providers img {
+    width: 30%;
+    height: 100px;
+    object-fit: contain;
+}
+
+.footer__info {
+    padding: 3vw;
+    text-align: center;
+    width: 100%;
+    height: max-content;
+}
+
 .footer__info a {
     color: var(--pale-blue)
 }

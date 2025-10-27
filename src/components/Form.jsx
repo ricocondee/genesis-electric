@@ -1,7 +1,7 @@
 import {useState} from "react";
-import emailjs from "emailjs-com";
-import Success from "./Success"
+import { showToast } from "../utils/toast";
 import ContactStyles from "../styles/Contact.module.css"
+import axiosInstance from "../api/axios";
 
 const Form = () => {
 
@@ -9,50 +9,43 @@ const Form = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
-  const [message, setMessage] = useState("");
-  const [success, setSuccess] = useState(false);
+  const [inquiry, setInquiry] = useState("");
 
-  const send = (e) => { 
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const serviceID = import.meta.env.VITE_SERVICE_ID;
-    const templateID = import.meta.env.VITE_TEMPLATE_ID;
-    const userID = import.meta.env.VITE_PUBLIC_KEY;
+    const formData = {
+      name,
+      email,
+      phone,
+      address,
+      inquiry
+    };
 
-    const templateParams = {
-      name: e.target.name.value,
-      email: e.target.email.value,
-      phone: e.target.phone.value,
-      address: e.target.address.value,
-      message: e.target.message.value
-    }
-
-    emailjs.send(serviceID, templateID, templateParams, userID)
-      .then((result) => {
+    try {
+      const response = await axiosInstance.post('/contact', formData);
+      if (response.status === 200) {
         setName("");
         setEmail("");
         setPhone("");
         setAddress("");
-        setMessage("");
-      }, (error) => {
-        console.error(error.text);
-      });
-      setSuccess(true);
-      setTimeout(() => {
-        setSuccess(false);
-      }, 3000);
+        setInquiry("");
+        showToast("Mensaje enviado con éxito", "success");
+      }
+    } catch (error) {
+      showToast("Error al enviar el mensaje", "error");
+    }
   }
 
   return (
     <div className={ContactStyles.form__container}>
-        {success && <Success />}
-        <form onSubmit={send}>
+        <form onSubmit={handleSubmit}>
             <h2>Cont&aacute;ctanos</h2>
             <input type="text" id="name" name="name" placeholder="Nombre" value={name} onChange={(e) => setName(e.target.value)} />
             <input type="email" id="email" name="email" placeholder="Correo electr&oacute;nico" value={email} onChange={(e) => setEmail(e.target.value)} />
             <input type="tel" id="phone" name="phone" placeholder="Tel&eacute;fono" value={phone} onChange={(e) => setPhone(e.target.value)} />
             <input type="text" id="address" name="address" placeholder="Direcci&oacute;n" value={address} onChange={(e) => setAddress(e.target.value)}/>
-            <textarea id="message" name="message" placeholder="Describe brevemente tu problema" value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
+            <textarea id="inquiry" name="inquiry" placeholder="Describe brevemente tu problema" value={inquiry} onChange={(e) => setInquiry(e.target.value)}></textarea>
             <button type="submit">Enviar</button>
         </form>
       </div>

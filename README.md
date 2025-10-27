@@ -95,6 +95,15 @@ npm run dev
 npm run build
 ```
 
+### Environment Variables
+
+The project requires several environment variables to be set for development and production. A template file named `.env.example` is included in the root of the project. Create a copy of this file named `.env` and replace the placeholder values with your actual credentials.
+
+- `VITE_API_BASE_URL`: The base URL for the backend API.
+- `VITE_CLOUDINARY_CLOUD_NAME`: Your Cloudinary cloud name for image hosting.
+- `VITE_REMOVEBG_API_KEY`: Your remove.bg API key for removing image backgrounds.
+- `VITE_FEATURABLE_ID`: Your Featurable ID for customer reviews.
+
 ---
 
 ## Architecture Overview
@@ -107,7 +116,6 @@ npm run build
 | PDF Generation    | jsPDF, html2canvas   |
 | Form Handling     | React Hook Form      |
 | Animation         | Framer Motion        |
-| Communication     | EmailJS              |
 | UI Components     | React Icons, Lucide React |
 
 Component-based architecture:
@@ -143,10 +151,9 @@ Key features:
 ### Form Component
 Contact form that:
 
-- Collects user details
-- Sends email via EmailJS
-- Shows success confirmation
-- Resets form fields
+- Collects user details (name, email, phone, address, inquiry)
+- Sends the data to the backend via a POST request to `/api/contact`
+- Shows a success or error message to the user
 
 ### ServiceOrderButton Component
 Generates service order PDFs with:
