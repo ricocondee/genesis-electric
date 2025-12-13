@@ -25,7 +25,8 @@ export const CartProvider = ({ children }) => {
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
 
-  const addItem = useCallback((product, quantity = 1) => {
+  const addItem = useCallback(async (product, quantity = 1) => {
+    console.log('Adding product to cart:', product);
     setCart(prevCart => {
       const existingItemIndex = prevCart.items.findIndex(item => item.productId._id === product._id);
       let updatedItems;
@@ -38,6 +39,12 @@ export const CartProvider = ({ children }) => {
       }
       return { ...prevCart, items: updatedItems };
     });
+
+    try {
+      await axiosInstance.post('/stats/track-add-to-cart', { productId: product._id });
+    } catch (error) {
+      console.error('Failed to track add to cart event:', error);
+    }
   }, []);
 
   const updateItemQuantity = useCallback((productId, quantity) => {
@@ -75,6 +82,10 @@ export const CartProvider = ({ children }) => {
     return total + (item.productId.price * item.quantity);
   }, 0) : 0;
 
+  const cartIva = cart ? cart.items.reduce((total, item) => {
+    return total + (item.productId.IVA * item.quantity);
+  }, 0) : 0;
+
   const totalItems = cart ? cart.items.reduce((total, item) => {
     return total + item.quantity;
   }, 0) : 0;
@@ -91,6 +102,7 @@ export const CartProvider = ({ children }) => {
     mergeCart,
     cartTotal,
     totalItems,
+    cartIva,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

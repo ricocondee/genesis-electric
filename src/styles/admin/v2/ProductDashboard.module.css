@@ -1,8 +1,9 @@
 .productDashboard {
   padding: 2rem;
+  background-color: #F9F9F9;
 }
 
-.title {
+.desktopTitle {
   font-size: 1.875rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
@@ -21,4 +22,42 @@
 
 .error {
   color: #ef4444;
+}
+
+.mobileHeader {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .productDashboard {
+    padding: 1rem;
+  }
+
+  .desktopTitle {
+    display: none;
+  }
+
+  .mobileHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .mobileTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .mobileActions {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .actionButton, .backButton {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
 }

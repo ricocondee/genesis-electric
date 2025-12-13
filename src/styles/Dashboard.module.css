@@ -1,113 +1,175 @@
-.container {
-  display: flex;
-  height: 100vh;
-  background-color: #2d3748;
-  overflow: hidden;
-  flex-direction: row;
+/* General Dashboard Styling */
+.dashboard {
+  padding: 2rem;
+  background-color: #f9fafb;
 }
 
-/* Botón hamburguesa */
-.menuToggle {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  background-color: #38a169;
-  color: white;
-  border: none;
-  padding: 10px 12px;
-  border-radius: 4px;
-  z-index: 2000;
-  cursor: pointer;
-  display: none;
+.card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
-/* Panel lateral */
-.panel__container {
-  width: 250px;
-  background-color: #1a202c;
-  color: #e2e8f0;
-  padding: 20px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
+h3 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* Top Metrics Row */
+.topMetrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.statCard {
   display: flex;
   flex-direction: column;
-  z-index: 1000;
-  transition: left 0.3s ease-in-out;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
-.panel__container h2 {
-  font-size: 24px;
-  margin-bottom: 40px;
+.statValue {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0.5rem 0 0 0;
 }
 
-.panel__options {
+.growthPositive {
+  color: #28a745; /* Green */
+  font-weight: 600;
+}
+
+.growthNegative {
+  color: #dc3545; /* Red */
+  font-weight: 600;
+}
+
+/* Main Dashboard Grid */
+.mainGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto auto;
+  gap: 1.5rem;
+}
+
+/* Card-specific layouts */
+.revenueCard {
+  grid-column: span 4;
+  height: 450px;
+}
+
+.customerVolumeCard {
+  grid-column: span 2;
+  height: 450px;
+}
+
+.trafficAnalyticsCard {
+  grid-column: span 2;
+  height: 450px;
+}
+
+.salesFunnelCard {
+  grid-column: span 2;
+  height: 250px;
+}
+
+.topProductsCard {
+  grid-column: span 1;
+}
+
+.mostViewedProductsCard {
+  grid-column: span 1;
+}
+
+.productList {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.panel__options li {
+.productItem {
   display: flex;
   align-items: center;
-  padding: 12px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-  border-bottom: 1px solid #919191;
+  margin-bottom: 1.5rem;
 }
 
-.panel__options li svg {
-  margin-right: 8px;
-  font-size: 20px;
-  color: #e2e8f0;
+.productImagePlaceholder {
+  width: 50px;
+  height: 50px;
+  background-color: #e5e7eb;
+  border-radius: 4px;
+  margin-right: 1rem;
 }
 
-.panel__options li:hover {
-  background-color: #4a5568;
+.productInfo {
+  flex-grow: 1;
 }
 
-.panel__options li a {
-  text-decoration: none;
-  color: #e2e8f0;
-  font-size: 16px;
+.productInfo p {
+  margin: 0;
 }
 
-.panel__options li.active {
-  background-color: #38a169;
+.ratingPlaceholder {
+  width: 80px;
+  height: 16px;
+  background-color: #e5e7eb;
+  border-radius: 4px;
+  margin-top: 0.5rem;
 }
 
-.panel__options li.active a {
-  color: #fff;
+.productPrice {
+  font-weight: 600;
 }
 
-.content__container {
-  margin-left: 250px;
-  padding: 20px;
-  width: calc(100% - 250px);
-  overflow-y: auto;
+.chartWrapper {
+  width: 100%;
+  height: 100%;
+  margin: auto;
 }
 
-/* Responsive */
+/* Responsive Rules */
+@media (max-width: 1200px) {
+  .mainGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .revenueCard {
+    grid-column: span 1;
+  }
+  .customerVolumeCard {
+    grid-column: span 1;
+  }
+  .trafficAnalyticsCard {
+    grid-column: span 2;
+  }
+  .salesFunnelCard {
+    grid-column: span 2;
+  }
+  .topProductsCard {
+    grid-column: span 2;
+  }
+}
+
 @media (max-width: 768px) {
-  .menuToggle {
-    display: block;
+  .topMetrics {
+    grid-template-columns: repeat(2, 1fr);
   }
-
-  .panel__container {
-    left: -100%;
-    width: 250px;
-    top: 0;
-    height: 100%;
+  .mainGrid {
+    grid-template-columns: 1fr;
   }
-
-  .panel__container.open {
-    left: 0;
-  }
-
-  .content__container {
-    margin-left: 0;
-    width: 100%;
-    padding-top: 60px;
+  .revenueCard,
+  .customerVolumeCard,
+  .trafficAnalyticsCard,
+  .salesFunnelCard,
+  .topProductsCard {
+    grid-column: span 1;
   }
 }

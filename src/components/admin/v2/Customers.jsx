@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axiosInstance from '../../../api/axios';
-import styles from '../../../styles/admin/v2/ProductsTable.module.css';
+import styles from '../../../styles/admin/v2/Customers.module.css';
 import Pagination from './Pagination';
 import SearchBar from '../../SearchBar';
 import { useDebounce } from '../../../hooks/useDebounce';
 import { showToast } from '../../../utils/toast';
+import Loader from '../../Loader';
 
 const Customers = () => {
   const [customers, setCustomers] = useState([]);
@@ -41,15 +42,15 @@ const Customers = () => {
   }, [page, limit, debouncedSearchTerm]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   return (
-    <div>
+    <div className={styles.container}>
       <div className={styles.header}>
-        <h1 className={styles.pageTitle}>Clientes</h1>
+        <h1>Clientes</h1>
         <div className={styles.headerActions}>
-          <SearchBar setSearchTerm={setSearchTerm} placeholder="Buscar clientes..." />
+          <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} placeholder="Buscar clientes..." />
         </div>
       </div>
       <div className={styles.tableWrapper}>
@@ -57,24 +58,27 @@ const Customers = () => {
           <thead>
             <tr>
               <th>Nombre</th>
-              <th>Apellido</th>
+              <th>Contacto</th>
               <th>Cédula</th>
               <th>Dirección</th>
-              <th>Teléfono</th>
-              <th>Correo Electrónico</th>
               <th>Fecha de Creación</th>
+              <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
             {customers.map(customer => (
               <tr key={customer._id}>
-                <td>{customer.name}</td>
-                <td>{customer.lastname}</td>
-                <td>{customer.nationalId}</td>
-                <td>{customer.address}</td>
-                <td>{customer.phone}</td>
-                <td>{customer.email}</td>
-                <td>{new Date(customer.createdAt).toLocaleDateString()}</td>
+                <td data-label="Nombre">{customer.name} {customer.lastname}</td>
+                <td data-label="Contacto">
+                  <div>{customer.email}</div>
+                  <div>{customer.phone}</div>
+                </td>
+                <td data-label="Cédula">{customer.nationalId}</td>
+                <td data-label="Dirección">{customer.address}</td>
+                <td data-label="Fecha de Creación">{new Date(customer.createdAt).toLocaleDateString()}</td>
+                <td data-label="Acciones">
+                  <button className={styles.actionButton}>Ver</button>
+                </td>
               </tr>
             ))}
           </tbody>

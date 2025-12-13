@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { productService } from '../../../../services/productService';
 import styles from '../../../../styles/admin/v2/inventory/LowStock.module.css';
 import Loader from '../../Loader';

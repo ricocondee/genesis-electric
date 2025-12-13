@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { productService } from '../services/productService';
 import ProductGrid from "../components/ProductGrid";
 import ProductList from "../components/ProductList";

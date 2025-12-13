@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Toolbar from './Toolbar';
 import ProductsTable from './ProductsTable';
 import Pagination from './Pagination';
@@ -10,6 +10,7 @@ import ProductForm from './ProductForm';
 import ConfirmationModal from '../../ConfirmationModal';
 import { showToast } from '../../../utils/toast';
 import { useUser } from '../../../context/UserContext';
+import { ArrowLeft, Search, Plus } from 'lucide-react';
 
 const ProductDashboard = () => {
   const [products, setProducts] = useState([]);
@@ -25,6 +26,7 @@ const ProductDashboard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [productToDelete, setProductToDelete] = useState(null);
   const [categories, setCategories] = useState([]);
+  const [isSearchVisible, setIsSearchVisible] = useState(false);
   const { user } = useUser();
 
   const canDelete = user && (user.role === 'admin' || user.role === 'manager');
@@ -64,6 +66,16 @@ const ProductDashboard = () => {
       showToast('Producto eliminado exitosamente!', "success");
     } catch (error) {
       showToast('Error al eliminar el producto.', "error");
+    }
+  };
+
+  const handleStatusChange = async (productId, newStatus) => {
+    try {
+      await productService.patchProduct(productId, { status: newStatus });
+      fetchProducts();
+      showToast('Estado del producto actualizado.', "success");
+    } catch (error) {
+      showToast('Error al actualizar el estado del producto.', "error");
     }
   };
 
@@ -184,7 +196,15 @@ const ProductDashboard = () => {
         onConfirm={confirmDelete}
         message="¿Estás seguro de que quieres eliminar este producto?"
       />
-      <h1 className={styles.title}>Lista de Productos</h1>
+      <div className={styles.mobileHeader}>
+        <button className={styles.backButton}><ArrowLeft size={24} /></button>
+        <h1 className={styles.mobileTitle}>Products</h1>
+        <div className={styles.mobileActions}>
+          <button className={styles.actionButton} onClick={() => setIsSearchVisible(true)}><Search size={24} /></button>
+          <button className={styles.actionButton} onClick={handleAddClick}><Plus size={24} /></button>
+        </div>
+      </div>
+      <h1 className={styles.desktopTitle}>Lista de Productos</h1>
       <Toolbar
         searchTerm={searchInput}
         setSearchTerm={setSearchInput}
@@ -194,10 +214,12 @@ const ProductDashboard = () => {
         setCategory={setCategory}
         categories={categories}
         onAddClick={handleAddClick}
+        isSearchVisible={isSearchVisible}
+        setIsSearchVisible={setIsSearchVisible}
       />
       <div className={`${styles.tableContainer} ${loading ? styles.loading : ''}`}>
         {loading && <Loader />}
-        <ProductsTable products={products} onEdit={handleEditClick} onDelete={openDeleteModal} canDelete={canDelete} />
+        <ProductsTable products={products} onEdit={handleEditClick} onDelete={openDeleteModal} canDelete={canDelete} onStatusChange={handleStatusChange} />
       </div>
       <Pagination
         page={page}

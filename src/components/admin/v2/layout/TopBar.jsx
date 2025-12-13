@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styles from '../../../../styles/admin/v2/layout/TopBar.module.css';
 import { Search, Bell, Settings } from 'lucide-react';
 

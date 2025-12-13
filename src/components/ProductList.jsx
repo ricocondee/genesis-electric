@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styles from '../styles/ProductList.module.css';
 import Item from './Item';
 import Void from './Void';

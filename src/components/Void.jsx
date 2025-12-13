@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styles from '../styles/Void.module.css';
 import NotFoundImage from '../assets/emptyBox.svg';
 import { Link } from 'react-router-dom';

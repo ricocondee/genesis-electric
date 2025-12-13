@@ -1,4 +1,4 @@
-header {
+.header {
     align-items: center;
     border-bottom: 2px solid #eee;
     display: flex;
@@ -7,7 +7,7 @@ header {
     padding-bottom: 20px;
 }
 
-header img {
+.header img {
     height: 80px;
 }
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import FilterBar from './service_orders/FilterBar';
 import OrdersTable from './service_orders/OrdersTable';
 import Pagination from './layout/Pagination';

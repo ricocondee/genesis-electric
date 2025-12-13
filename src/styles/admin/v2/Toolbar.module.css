@@ -12,6 +12,7 @@
   align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
+  flex-grow: 1;
 }
 
 .searchBar {
@@ -23,6 +24,7 @@
   border-radius: 0.375rem;
   border: 1px solid #e2e8f0;
   height: 42px;
+  flex-grow: 1;
 }
 
 .searchBar input {
@@ -30,6 +32,7 @@
   background-color: transparent;
   outline: none;
   font-size: 1rem;
+  width: 100%;
 }
 
 .searchIcon {
@@ -104,4 +107,111 @@
   color: #ffffff;
   cursor: pointer;
   height: 42px;
+}
+
+.categoryFilters {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.categoryFilters::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+.chip {
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  background-color: #e2e8f0;
+  color: #4a5568;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.chip.activeChip {
+  background-color: var(--light-blue);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .left {
+    width: 100%;
+  }
+
+  .filters {
+    width: 100%;
+  }
+
+  .categoryFilters {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  .categoryFilters::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+
+  .dropdownFilter, .filterButton, .importButton, .exportButton {
+    display: none;
+  }
+
+  .addProductButton span {
+    display: none;
+  }
+
+  .addProductButton {
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  .actions {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 1000;
+  }
+
+  .searchBar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2000;
+    padding: 1rem;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .searchBar input {
+    width: 100%;
+  }
+
+  .searchBar.searchVisible {
+    display: flex;
+  }
+
+  .closeSearchButton {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
 }

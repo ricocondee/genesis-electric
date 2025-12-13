@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styles from '../../../styles/admin/v2/ButtonGroup.module.css';
 
 const ButtonGroup = ({ title, options, selected, setSelected }) => {

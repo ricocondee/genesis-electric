@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import styles from '../../../../styles/admin/v2/pos/CategoryFilters.module.css';
 import axiosInstance from '../../../../api/axios';
 import { showToast } from '../../../../utils/toast';
@@ -12,7 +12,7 @@ const CategoryFilters = ({ selectedCategory, onSelectCategory }) => {
         const response = await axiosInstance.get('/products/categories');
         const categoryNames = response.data.data || [];
         const categoryObjects = categoryNames.map(name => ({ name }));
-        setCategories([{ name: 'All Products' }, ...categoryObjects]);
+        setCategories([{ name: 'Todos los productos' }, ...categoryObjects]);
       } catch (error) {
         showToast('Error fetching categories:' + error.message, "error");
       }

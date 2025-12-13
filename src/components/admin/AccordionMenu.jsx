@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styles from '../../styles/admin/AccordionMenu.module.css';
 
 const AccordionMenu = ({ onSelect }) => {

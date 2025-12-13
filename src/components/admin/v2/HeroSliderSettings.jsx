@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axiosInstance from '../../../api/axios';
 import SlideForm from './SlideForm';
 import styles from '../../../styles/admin/v2/ProductsTable.module.css';
@@ -77,17 +77,13 @@ const HeroSliderSettings = () => {
           <thead>
             <tr>
               <th>Imagen</th>
-              <th>Título</th>
-              <th>Subtítulo</th>
               <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
             {slides.map(slide => (
               <tr key={slide._id}>
-                <td><img src={slide.imageUrl} alt={slide.title} className={styles.productImage} /></td>
-                <td>{slide.title}</td>
-                <td>{slide.subtitle}</td>
+                <td><img src={slide.imageUrl} alt="Slide" className={styles.productImage} /></td>
                 <td>
                   <div className={styles.actionsCell}>
                     <button className={styles.actionButton} onClick={() => handleEdit(slide)}>Editar</button>

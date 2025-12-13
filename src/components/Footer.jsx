@@ -84,7 +84,7 @@ const Footer = () => {
             </div>
             <div className={FooterStyles.service__hours}>
               <TbClock />
-              <span>Lunes a viernes: 8:00 am - 6:00 pm</span>
+              <span>Lunes a viernes: 7:00 am - 5:00 pm</span>
               <span className={FooterStyles.saturday}>
                 Sábados: 8:00 am - 12:00 pm
               </span>
@@ -94,7 +94,7 @@ const Footer = () => {
             <h3>Contacto</h3>
             <div className={FooterStyles.contact}>
               <span>
-                Telefono: <a href="tel:+573005515224">+57 300 5515224</a>
+                Tel&eacute;fono: <a href="tel:+573005515224">+57 300 5515224</a>
               </span>
               <span>
                 Correo:

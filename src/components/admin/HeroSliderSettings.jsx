@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axiosInstance from '../../api/axios';
 import SlideForm from './SlideForm';
 import styles from '../../styles/admin/ProductsTable.module.css';

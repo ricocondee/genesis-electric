@@ -1,26 +1,34 @@
-import React from 'react';
+
 import { useFavorites } from '../context/FavoritesContext';
-import FavoritesTable from '../components/FavoritesTable';
-import styles from '../styles/Product.module.css';
+import FavoriteCard from '../components/FavoriteCard';
+import styles from '../styles/Favorites.module.css';
 import EmptyFavorites from '../components/EmptyFavorites';
+import Loader from '../components/Loader';
 
 const Favorites = () => {
   const { favorites, loading, removeFavorite } = useFavorites();
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
-  const productsForTable = favorites.map(fav => ({
+  const productsForCards = favorites.map(fav => ({
     ...fav.productId,
-    price: fav.productId.price,
+    price: fav.productId.clientPrice,
+    iva: fav.productId.IVA,
+    netPrice: fav.productId.netPrice,
+    imageUrl: fav.productId.imageUrls?.[0] || fav.productId.imageUrl,
   }));
 
   return (
     <div className={styles.container}>
       <h1>Mis Favoritos</h1>
       {favorites.length > 0 ? (
-        <FavoritesTable products={productsForTable} onRemove={removeFavorite} />
+        <div className={styles.cardsGrid}>
+          {productsForCards.map(product => (
+            <FavoriteCard key={product._id} product={product} onRemove={removeFavorite} />
+          ))}
+        </div>
       ) : (
         <EmptyFavorites />
       )}

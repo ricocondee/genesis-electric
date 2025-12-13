@@ -1,9 +1,8 @@
-import React from 'react';
+
 import styles from '../../../../styles/admin/v2/pos/ProductCard.module.css';
 import { ShoppingCart } from 'lucide-react';
 
 const ProductCard = ({ product, onAddProduct }) => {
-  console.log('Product in ProductCard:', product); // Add this line
 
   const formatPrice = (price) => {
     return new Intl.NumberFormat("es-CO", {
@@ -30,7 +29,7 @@ const ProductCard = ({ product, onAddProduct }) => {
       <div className={styles.imageContainer}>
         <img src={getImageUrl(product)} alt={product.name} />
         {product.quantity > 0 ? (
-          <span className={`${styles.badge} ${styles.inStock}`}>{product.quantity} in stock</span>
+          <span className={`${styles.badge} ${styles.inStock}`}>{product.quantity} En stock</span>
         ) : (
           <span className={`${styles.badge} ${styles.outOfStock}`}>Agotado</span>
         )}

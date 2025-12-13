@@ -1,12 +1,14 @@
 import HeaderStyles from '../styles/Header.module.css'
 import Logo from '../assets/GE_SVG_COLOR.svg'
 import { TbMenu2 } from 'react-icons/tb'
-import { ShoppingCart, Heart } from 'lucide-react';
+import { ShoppingCart, Heart, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import { useUser } from '../context/UserContext';
 
 const Header = () => {
   const { totalItems } = useCart();
+  const { user } = useUser();
 
   return (
     <header className={HeaderStyles.container}>
@@ -26,6 +28,11 @@ const Header = () => {
             </ul>
         </nav>
         <div className={HeaderStyles.icons__container}>
+          {user ? (
+            <Link to="/profile"><User /></Link>
+          ) : (
+            <Link to="/login"><User /></Link>
+          )}
           <Link to="/favorites"><Heart /></Link>
           <Link to="/cart" className={HeaderStyles.cart__icon}>
             <ShoppingCart />
@@ -36,4 +43,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default Header;

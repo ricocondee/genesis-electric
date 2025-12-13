@@ -1,5 +1,5 @@
 import AboutStyles from "../styles/About.module.css";
-import Tech from "../assets/tech2.png";
+import Tech from "../assets/tech2.webp";
 import { TbBuildingFactory, TbHome } from "react-icons/tb";
 import CEO from "../assets/ceo.png";
 

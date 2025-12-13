@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import axiosInstance from '../../../../api/axios';
 import styles from '../../../../styles/admin/v2/pos/ProductCatalog.module.css';
 import SearchBar from '../../../SearchBar';
@@ -10,7 +10,7 @@ import { showToast } from '../../../../utils/toast';
 const ProductCatalog = ({ onAddProduct }) => {
   const [products, setProducts] = useState([]);
   const [filters, setFilters] = useState({ q: '' });
-  const [selectedCategory, setSelectedCategory] = useState('All Products');
+  const [selectedCategory, setSelectedCategory] = useState('Todos los productos');
   const [sortBy, setSortBy] = useState('name');
   const debouncedQuery = useDebounce(filters.q, 300);
 
@@ -19,7 +19,7 @@ const ProductCatalog = ({ onAddProduct }) => {
       try {
         const params = {
           search: debouncedQuery,
-          category: selectedCategory === 'All Products' ? '' : selectedCategory,
+          category: selectedCategory === 'Todos los productos' ? '' : selectedCategory,
         };
         const response = await axiosInstance.get('/products/search', { params });
         if (Array.isArray(response.data)) {

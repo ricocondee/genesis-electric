@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect, useCallback } from 'react';
+import { useState, useMemo, useEffect, useCallback } from 'react';
 import styles from '../../../styles/admin/v2/POS.module.css';
 import ProductCatalog from './pos/ProductCatalog';
 import OrderSummary from './pos/OrderSummary';
@@ -8,6 +8,7 @@ import ReceiptModal from './pos/ReceiptModal';
 import axiosInstance from '../../../api/axios';
 import { showToast } from '../../../utils/toast';
 import { useDebounce } from '../../../hooks/useDebounce';
+import useWompi from '../../../hooks/useWompi';
 
 const POS = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -21,6 +22,17 @@ const POS = () => {
   const [showCustomerForm, setShowCustomerForm] = useState(false);
   const [discount, setDiscount] = useState(0);
   const debouncedCustomerSearchTerm = useDebounce(customerSearchTerm, 300);
+  const [isWompiReady, setIsWompiReady] = useState(false);
+
+  const wompiStatus = useWompi();
+
+  useEffect(() => {
+    if (wompiStatus === 'ready') {
+      setIsWompiReady(true);
+    } else if (wompiStatus === 'error' || wompiStatus === 'timeout') {
+      showToast('Error cargando el método de pago Wompi. Por favor recarga la página.', 'error');
+    }
+  }, [wompiStatus]);
 
   useEffect(() => {
     if (!debouncedCustomerSearchTerm) {
@@ -93,6 +105,64 @@ const POS = () => {
     return cartTotal - discount;
   }, [cartTotal, discount]);
 
+  const handleWompiPayment = async () => {
+    const orderData = {
+      customerId: selectedCustomer._id,
+      items: cartItems.map(item => ({
+        productId: item._id,
+        name: item.name,
+        quantity: item.quantity,
+        price: item.netPrice,
+        subtotal: item.quantity * item.netPrice,
+      })),
+      shippingAddress: {
+        fullName: selectedCustomer.name,
+        address: selectedCustomer.address?.street || 'N/A',
+        city: selectedCustomer.address?.city || 'N/A',
+        postalCode: selectedCustomer.address?.postalCode || 'N/A',
+        country: selectedCustomer.address?.country || 'Colombia',
+      },
+      paymentMethod: 'Wompi',
+    };
+
+    try {
+      const orderResponse = await axiosInstance.post('/pos/orders', orderData);
+      const orderNumber = orderResponse.data.orderNumber;
+
+      const amountInCents = Math.round(totalAfterDiscount * 100);
+
+      const { data } = await axiosInstance.post('/wompi/generate-signature', {
+        amount_in_cents: amountInCents,
+        currency: 'COP',
+        reference: orderNumber,
+        customer_email: selectedCustomer.email,
+      });
+
+      const integritySignature = data.signature;
+
+      const checkout = new WidgetCheckout({
+        currency: 'COP',
+        amountInCents,
+        reference: orderNumber,
+        publicKey: import.meta.env.VITE_WOMPI_PUBLIC_KEY,
+        signature: { integrity: integritySignature },
+        redirectUrl: `${window.location.origin}/admin/pos`,
+      });
+
+      checkout.open((result) => {
+        if (result?.transaction?.status === 'APPROVED') {
+          showToast('¡Pago con Wompi exitoso!', "success");
+          setCartItems([]);
+          setSelectedCustomer(null);
+        }
+      });
+
+    } catch (error) {
+      console.error('Error processing Wompi payment:', error);
+      showToast('Error al procesar el pago con Wompi.', "error");
+    }
+  };
+
   const handleProcessPayment = (paymentMethod) => {
     if (cartItems.length === 0) {
       return showToast('El carrito está vacío.', "error");
@@ -100,8 +170,17 @@ const POS = () => {
     if (!selectedCustomer) {
       return showToast('Por favor, selecciona un cliente.', "error");
     }
-    setSelectedPaymentMethod(paymentMethod);
-    setShowPaymentModal(true);
+
+    if (paymentMethod === 'Wompi') {
+      if (isWompiReady) {
+        handleWompiPayment();
+      } else {
+        showToast('El método de pago Wompi no está listo. Por favor espere.', 'warn');
+      }
+    } else {
+      setSelectedPaymentMethod(paymentMethod);
+      setShowPaymentModal(true);
+    }
   };
 
   const onConfirmPayment = async (paymentInfo) => {
@@ -112,11 +191,16 @@ const POS = () => {
         name: item.name,
         quantity: item.quantity,
         price: item.netPrice,
+        subtotal: item.quantity * item.netPrice,
       })),
+      shippingAddress: {
+        fullName: selectedCustomer.name,
+        address: selectedCustomer.address?.street || 'N/A',
+        city: selectedCustomer.address?.city || 'N/A',
+        postalCode: selectedCustomer.address?.postalCode || 'N/A',
+        country: selectedCustomer.address?.country || 'Colombia',
+      },
       paymentMethod: selectedPaymentMethod,
-      paymentInfo: paymentInfo,
-      totalPrice: totalAfterDiscount,
-      discount: discount,
     };
 
     try {

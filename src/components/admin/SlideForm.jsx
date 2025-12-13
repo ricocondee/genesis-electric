@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from '../../styles/admin/ProductForm.module.css';
 import { X, Upload } from 'lucide-react';
 import { showToast } from '../../utils/toast';

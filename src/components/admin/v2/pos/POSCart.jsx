@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styles from '../../../../styles/admin/v2/pos/POSCart.module.css';
 import { Trash2, Plus, Minus } from 'lucide-react';
 

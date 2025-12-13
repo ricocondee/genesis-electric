@@ -1,4 +1,4 @@
-import React from 'react';
+
 import LowStock from '../../../components/admin/v2/inventory/LowStock';
 import styles from '../../../styles/admin/v2/Inventory.module.css';
 

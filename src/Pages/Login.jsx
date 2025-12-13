@@ -1,13 +1,30 @@
-import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 import axiosInstance from "../api/axios";
 import { showToast } from "../utils/toast";
+import { useUser } from "../context/UserContext";
 import logo from "../assets/logo.png";
 import styles from "../styles/Login.module.css";
 
 const Login = ({ login }) => {
   const [formData, setFormData] = useState({ email: "", password: "" });
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const location = useLocation();
+  const { user } = useUser();
+
+  const from = location.state?.from || "/"; // Default to home page for clients
+
+  useEffect(() => {
+    // If user is already logged in and on the login page, redirect them based on their role
+    if (user && location.pathname === '/login') {
+      if (user.role === 'admin' || user.role === 'manager' || user.role === 'technician') {
+        navigate("/admin", { replace: true });
+      } else if (user.role === 'client') {
+        navigate(from, { replace: true });
+      }
+    }
+  }, [user, navigate, from, location]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -15,6 +32,7 @@ const Login = ({ login }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(null); // Clear previous errors
 
     try {
       const res = await axiosInstance.post(
@@ -27,9 +45,11 @@ const Login = ({ login }) => {
       }
 
       login(res.data.accessToken);
-      navigate("/admin");
+      // Redirection will be handled by the useEffect after user context is updated
     } catch (err) {
-      showToast(err.response?.data?.message || err.message || "Login failed", "error");
+      const errorMessage = err.response?.data?.message || err.message || "Login failed";
+      setError(errorMessage);
+      showToast(errorMessage, "error");
     }
   };
 
@@ -42,6 +62,7 @@ const Login = ({ login }) => {
           <p>Inicia sesión para continuar</p>
         </div>
         <form onSubmit={handleSubmit} className={styles.form}>
+          {error && <p className={styles.error}>{error}</p>}
           <input
             type="email"
             name="email"
@@ -63,6 +84,7 @@ const Login = ({ login }) => {
           </button>
           <div className={styles.linksContainer}>
             <Link to="/forgot-password">¿Olvidaste tu contraseña?</Link>
+            <Link to="/signup">¿No tienes una cuenta? Regístrate</Link>
           </div>
         </form>
       </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+
 import BtuCalculator from '../components/BtuCalculator';
 import styles from '../styles/BtuCalculator.module.css';
 import GennyAI from '../assets/gennyAI.svg';

@@ -1,5 +1,5 @@
 import AiSparks from './AiSparks';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styles from '../styles/BtuCalculator.module.css';
 import { Link } from 'react-router-dom';
 import axiosInstance from '../api/axios';
@@ -9,6 +9,7 @@ const BtuCalculator = () => {
   const [length, setLength] = useState('');
   const [occupants, setOccupants] = useState(2);
   const [sunlight, setSunlight] = useState('normal');
+  const [mostEfficient, setMostEfficient] = useState(false);
   const [recommendedBtu, setRecommendedBtu] = useState(null);
   const [recommendedProduct, setRecommendedProduct] = useState(null);
   const [showForm, setShowForm] = useState(true);
@@ -20,28 +21,43 @@ const BtuCalculator = () => {
     e.preventDefault();
     setShowSparks(true);
 
-    const area = width * length;
+    const widthNum = parseFloat(width);
+    const lengthNum = parseFloat(length);
+    const occupantsNum = parseInt(occupants);
+
+    // Validación de inputs
+    if (widthNum <= 0 || lengthNum <= 0 || occupantsNum <= 0) {
+      alert('Por favor ingresa valores válidos y positivos');
+      setShowSparks(false);
+      return;
+    }
+
+    const area = widthNum * lengthNum;
     let btu = area * 600;
+    btu += occupantsNum * 600;
 
-    btu += occupants * 600;
-
+    // Ajuste por exposición solar
     if (sunlight === 'sunny') {
       btu += btu * 0.1;
+    } else if (sunlight === 'shady') {
+      btu -= btu * 0.1;
     }
 
     const calculatedBtu = Math.ceil(btu);
     setOriginalBtu(calculatedBtu);
 
     const standardBtuValues = [9000, 12000, 18000, 24000, 36000, 48000, 60000];
-    let recommendedBtuValue = standardBtuValues[standardBtuValues.length - 1]; // Default to max
+    let recommendedBtuValue = standardBtuValues[standardBtuValues.length - 1];
+    let closestBtuValue = null;
 
     for (let i = 0; i < standardBtuValues.length; i++) {
       const standardBtu = standardBtuValues[i];
-      setClosestBtu(standardBtu);
-      const nextStandardBtu = standardBtuValues[i + 1] || standardBtu; // Use current if it's the last one
+      const nextStandardBtu = standardBtuValues[i + 1];
 
       if (calculatedBtu <= standardBtu) {
-        if (Math.abs(calculatedBtu - standardBtu) / standardBtu <= 0.1) {
+        // Verificar si está muy cerca del límite (dentro del 90% de capacidad)
+        if (calculatedBtu >= standardBtu * 0.9 && nextStandardBtu) {
+          closestBtuValue = standardBtu;
           recommendedBtuValue = nextStandardBtu;
         } else {
           recommendedBtuValue = standardBtu;
@@ -50,11 +66,16 @@ const BtuCalculator = () => {
       }
     }
 
+    setClosestBtu(closestBtuValue);
     setRecommendedBtu(recommendedBtuValue);
 
     setTimeout(async () => {
       try {
-        const response = await axiosInstance.get(`/products/search-by-btu?btu=${recommendedBtuValue}`);
+        let url = `/products/search-by-btu?btu=${recommendedBtuValue}`;
+        if (mostEfficient) {
+          url += '&mostEfficient=true';
+        }
+        const response = await axiosInstance.get(url);
         setRecommendedProduct(response.data.data);
         setShowForm(false);
         setShowSparks(false);
@@ -70,6 +91,7 @@ const BtuCalculator = () => {
     setRecommendedBtu(null);
     setRecommendedProduct(null);
     setOriginalBtu(null);
+    setClosestBtu(null);
   };
 
   return (
@@ -84,6 +106,8 @@ const BtuCalculator = () => {
               id="width"
               value={width}
               onChange={(e) => setWidth(e.target.value)}
+              step="0.1"
+              min="0.1"
               required
             />
           </div>
@@ -94,6 +118,8 @@ const BtuCalculator = () => {
               id="length"
               value={length}
               onChange={(e) => setLength(e.target.value)}
+              step="0.1"
+              min="0.1"
               required
             />
           </div>
@@ -104,6 +130,7 @@ const BtuCalculator = () => {
               id="occupants"
               value={occupants}
               onChange={(e) => setOccupants(e.target.value)}
+              min="1"
               required
             />
           </div>
@@ -115,6 +142,13 @@ const BtuCalculator = () => {
               <option value="shady">Poca sol</option>
             </select>
           </div>
+          <div className={`${styles.inputGroup} ${styles.toggleGroup}`}>
+            <label>Deseas el de menor consumo energetico?</label>
+            <div className={styles.toggleSwitch}>
+              <button type="button" className={`${styles.toggleButton} ${mostEfficient ? styles.active : ''}`} onClick={() => setMostEfficient(true)}>Si</button>
+              <button type="button" className={`${styles.toggleButton} ${!mostEfficient ? styles.active : ''}`} onClick={() => setMostEfficient(false)}>No</button>
+            </div>
+          </div>
           <button type="submit" className={styles.button}>Calcular</button>
         </form>
       ) : (
@@ -122,8 +156,10 @@ const BtuCalculator = () => {
           {recommendedBtu && (
             <div className={styles.result}>
               <h3>Análisis de Genny</h3>
-              {originalBtu !== recommendedBtu && (
+              {closestBtu ? (
                 <p>El BTU calculado es <strong>{originalBtu}</strong>. Para evitar que un aire acondicionado de <strong>{closestBtu} BTU</strong> trabaje al límite, he determinado que necesitas un aire acondicionado con una capacidad de al menos <strong>{recommendedBtu} BTU</strong>.</p>
+              ) : (
+                <p>Basado en tus necesidades, te recomiendo un aire acondicionado de <strong>{recommendedBtu} BTU</strong>.</p>
               )}
             </div>
           )}

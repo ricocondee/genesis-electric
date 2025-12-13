@@ -11,7 +11,11 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@nivo/bar": "^0.99.0",
+    "@nivo/funnel": "^0.99.0",
+    "@nivo/pie": "^0.99.0",
     "axios": "^1.8.1",
+    "click-to-react-component": "^1.0.3",
     "dotenv": "^16.4.7",
     "emailjs-com": "^3.2.0",
     "framer-motion": "^12.4.7",

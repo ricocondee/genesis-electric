@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styles from '../styles/ProductGrid.module.css';
 import Item from '../components/Item';
 import Void from '../components/Void';

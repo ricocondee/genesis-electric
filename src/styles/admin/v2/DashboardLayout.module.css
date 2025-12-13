@@ -29,12 +29,31 @@
   z-index: 999;
 }
 
+.mobileHidden {
+  /* No styles by default, will be hidden on mobile */
+}
+
 @media (max-width: 768px) {
+  .mobileHidden {
+    display: none;
+  }
+
   .mainContent.sidebarOpen {
-    margin-left: 250px;
+    margin-left: 0;
   }
 
   .overlay.sidebarOpen {
-    display: block;
+    display: none;
+  }
+
+  .pageContent {
+    padding: 1rem;
+    padding-bottom: 70px; /* Space for bottom nav */
+  }
+}
+
+@media (min-width: 768px) {
+  .mainContent {
+    margin-left: 250px;
   }
 }

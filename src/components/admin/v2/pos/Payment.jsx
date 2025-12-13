@@ -1,8 +1,8 @@
-import React from 'react';
+
 import styles from '../../../../styles/admin/v2/pos/Payment.module.css';
 
 const Payment = ({ selectedPaymentMethod, setSelectedPaymentMethod }) => {
-  const paymentMethods = ['Cash', 'Credit Card', 'Other'];
+  const paymentMethods = ['cash', 'credit_card', 'Wompi', 'Other'];
 
   return (
     <div className={styles.container}>

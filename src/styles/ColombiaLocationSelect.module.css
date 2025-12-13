@@ -1,0 +1,19 @@
+.locationSelectContainer {
+  display: flex;
+  gap: 1rem;
+}
+
+.locationSelectContainer select {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.locationSelectContainer select:disabled {
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+}

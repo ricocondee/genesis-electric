@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styles from '../../../styles/admin/v2/Pagination.module.css';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 

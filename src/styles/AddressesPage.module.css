@@ -1,0 +1,32 @@
+.addressesPage {
+  padding: 1rem;
+}
+
+.addressesPage h2 {
+  color: var(--primary-text-color);
+  margin-bottom: 1.5rem;
+}
+
+.addAddressButton {
+  background-color: var(--light-blue);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.3s;
+  margin-bottom: 1.5rem;
+}
+
+.addAddressButton:hover {
+  background-color: var(--medium-blue);
+  transform: scale(1.05);
+}
+
+.addressList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}

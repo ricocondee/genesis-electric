@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styles from '../../../../styles/admin/v2/pos/OrderSummary.module.css';
 import { Trash2, ShoppingCart } from 'lucide-react';
 import Payment from './Payment';

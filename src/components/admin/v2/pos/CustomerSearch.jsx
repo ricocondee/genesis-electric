@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styles from '../../../../styles/admin/v2/pos/CustomerSearch.module.css';
 
 const CustomerSearch = ({ searchTerm, onSearchChange, results, onSelectCustomer, selectedCustomer, onClearCustomer, onAddNewCustomer }) => {

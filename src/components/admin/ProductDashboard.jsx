@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Toolbar from './Toolbar';
 import ProductsTable from './ProductsTable';
 import Pagination from './Pagination';
@@ -14,8 +14,8 @@ const ProductDashboard = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchInput, setSearchInput] = useState('');
-  const [status, setStatus] = useState('All');
-  const [category, setCategory] = useState('All');
+  const [status, setStatus] = useState('Todo');
+  const [category, setCategory] = useState('Todo');
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(10);
   const [totalProducts, setTotalProducts] = useState(0);
@@ -72,8 +72,8 @@ const ProductDashboard = () => {
         search: searchTerm,
         page,
         limit,
-        status: status === 'All' ? '' : status,
-        category: category === 'All' ? '' : category,
+        status: status === 'Todo' ? '' : status,
+        category: category === 'Todo' ? '' : category,
       };
 
       const response = await productService.getAllProducts(params);

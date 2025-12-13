@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from '../styles/OrderSummary.module.css';
 import { useCart } from '../context/CartContext';
 

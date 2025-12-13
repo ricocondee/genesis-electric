@@ -247,3 +247,30 @@
   z-index: 9999;
 }
 
+.toggleSwitch {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  width: fit-content;
+}
+
+.toggleGroup {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.toggleButton {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggleButton.active {
+  background-color: var(--medium-blue);
+  color: white;
+}
+

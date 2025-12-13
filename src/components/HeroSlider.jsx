@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Slider from 'react-slick';
+import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../api/axios';
 import styles from '../styles/HeroSlider.module.css';
 import Skeleton from './Skeleton';
@@ -8,6 +9,8 @@ import { showToast } from '../utils/toast';
 const HeroSlider = () => {
   const [slides, setSlides] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isDragging, setIsDragging] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axiosInstance.get('/slides').then(response => {
@@ -20,22 +23,16 @@ const HeroSlider = () => {
         {
           _id: '1',
           imageUrl: 'https://via.placeholder.com/1200x400?text=Slide+1',
-          title: 'Instalación Profesional de Aires Acondicionados',
-          subtitle: 'Dejamos tu hogar o negocio con la temperatura perfecta.',
           cta: { text: 'Cotiza ahora', link: '/contact' },
         },
         {
           _id: '2',
           imageUrl: 'https://via.placeholder.com/1200x400?text=Slide+2',
-          title: 'Mantenimiento Preventivo y Correctivo',
-          subtitle: 'Asegura el buen funcionamiento y la vida útil de tus equipos.',
           cta: { text: 'Agenda tu visita', link: '/services' },
         },
         {
           _id: '3',
           imageUrl: 'https://via.placeholder.com/1200x400?text=Slide+3',
-          title: 'Venta de Equipos de las Mejores Marcas',
-          subtitle: 'Encuentra el aire acondicionado ideal para tus necesidades.',
           cta: { text: 'Ver productos', link: '/products' },
         },
       ];
@@ -54,6 +51,8 @@ const HeroSlider = () => {
     autoplaySpeed: 5000,
     pauseOnHover: true,
     arrows: false,
+    beforeChange: () => setIsDragging(true),
+    afterChange: () => setIsDragging(false),
   };
 
   return (
@@ -63,18 +62,24 @@ const HeroSlider = () => {
       ) : (
         <Slider {...settings}>
           {slides.map(slide => (
-            <div key={slide._id} className={styles.slide}>
+            <div
+              key={slide._id}
+              className={styles.slide}
+              onClick={() => {
+                if (!isDragging && slide.cta && slide.cta.link) {
+                  navigate(slide.cta.link);
+                }
+              }}
+            >
               <div 
                 className={styles.slideBackground}
                 style={{ backgroundImage: `url(${slide.imageUrl})` }}
               ></div>
               <div className={styles.slideContent}>
-                <h1>{slide.title}</h1>
-                <p>{slide.subtitle}</p>
                 {slide.cta && (
-                  <a href={slide.cta.link} className={styles.ctaButton}>
+                  <span className={styles.ctaButton}>
                     {slide.cta.text}
-                  </a>
+                  </span>
                 )}
               </div>
             </div>

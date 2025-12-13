@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styles from '../../../styles/admin/v2/ProductsTable.module.css';
 import { MoreVertical, Pencil, Trash2, Thermometer, Zap, Palette, Leaf, Wind, Cpu, Wifi, Building2, Plug, Package } from 'lucide-react';
 
@@ -27,7 +27,7 @@ const specTranslations = {
   energyType: "Tipo de energía",
 };
 
-const ProductsTable = ({ products, onEdit, onDelete, canDelete }) => {
+const ProductsTable = ({ products, onEdit, onDelete, canDelete, onStatusChange }) => {
 
   const getStatusClass = (status) => {
     switch (status) {
@@ -73,29 +73,60 @@ const ProductsTable = ({ products, onEdit, onDelete, canDelete }) => {
         </thead>
         <tbody>
           {products.map((product) => (
-            <tr key={product.id}>
-              <td><input type="checkbox" className={styles.checkbox} /></td>
-              <td data-label="Nombre del Producto">
+            <tr key={product.id} className={styles.productRow}>
+              {/* Mobile Card View */}
+              <td className={styles.mobileCardCell}>
+                <div className={styles.mobileCard}>
+                  <img src={product.image} alt={product.name} className={styles.productImage} />
+                  <div className={styles.productInfo}>
+                    <span className={styles.productName}>{product.name}</span>
+                    <span className={styles.productPrice}>${product.providersPrice.toLocaleString('es-CO')}</span>
+                  </div>
+                  <div className={styles.productActions}>
+                    <button className={styles.editButton} onClick={() => onEdit(product)}>
+                      Editar
+                    </button>
+                    {canDelete && (
+                      <button className={styles.deleteButton} onClick={() => onDelete(product.id)}>
+                        <Trash2 size={20} />
+                      </button>
+                    )}
+                  </div>
+                  <div className={styles.productStock}>
+                    <span className={getStockClass(product.quantity)}>
+                      {product.quantity > 0 ? 'En stock' : 'Agotado'}
+                    </span>
+                    <div 
+                      className={`${styles.toggleSwitch} ${product.status === 'publicado' ? styles.toggleOn : ''}`}
+                      onClick={() => onStatusChange(product.id, product.status === 'publicado' ? 'inactivo' : 'publicado')}
+                    ></div>
+                  </div>
+                </div>
+              </td>
+
+              {/* Desktop Table Row */}
+              <td className={styles.desktopCell}><input type="checkbox" className={styles.checkbox} /></td>
+              <td className={styles.desktopCell} data-label="Nombre del Producto">
                 <div className={styles.productCell}>
                   <img src={product.image} alt={product.name} className={styles.productImage} />
                   <span>{product.name}</span>
                 </div>
               </td>
-              <td data-label="SKU">{product.SKU}</td>
-              <td data-label="Marca">{product.brand}</td>
-              <td data-label="Categoría">{product.category}</td>
-              <td data-label="Inventario">
+              <td className={styles.desktopCell} data-label="SKU">{product.SKU}</td>
+              <td className={styles.desktopCell} data-label="Marca">{product.brand}</td>
+              <td className={styles.desktopCell} data-label="Categoría">{product.category}</td>
+              <td className={styles.desktopCell} data-label="Inventario">
                 <span className={getStockClass(product.quantity)}>
                   {product.quantity === 0 ? 'Agotado' : product.quantity < 10 ? `Poco Inventario (${product.quantity})` : product.quantity}
                 </span>
               </td>
-              <td data-label="Precio Proveedor">${product.providersPrice.toLocaleString('es-CO')}</td>
-              <td data-label="Estado">
+              <td className={styles.desktopCell} data-label="Precio Proveedor">${product.providersPrice.toLocaleString('es-CO')}</td>
+              <td className={styles.desktopCell} data-label="Estado">
                 <span className={`${styles.statusLabel} ${getStatusClass(product.status)}`}>
                   {product.status}
                 </span>
               </td>
-              <td data-label="Especificaciones">
+              <td className={styles.desktopCell} data-label="Especificaciones">
                 <ul className={styles.specsList}>
                   {product.specs && Object.entries(product.specs).filter(([_, value]) => value).map(([key, value]) => (
                     <li key={key} title={specTranslations[key] || key}>
@@ -105,7 +136,7 @@ const ProductsTable = ({ products, onEdit, onDelete, canDelete }) => {
                   ))}
                 </ul>
               </td>
-              <td data-label="Acciones">
+              <td className={styles.desktopCell} data-label="Acciones">
                 <div className={styles.actionsCell}>
                   <button className={styles.actionButton} onClick={() => onEdit(product)}>
                     <Pencil size={20} />

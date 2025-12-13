@@ -1,8 +1,8 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import styles from '../../../styles/admin/v2/Toolbar.module.css';
-import { Search, ChevronDown, Plus } from 'lucide-react';
+import { Search, ChevronDown, Plus, X } from 'lucide-react';
 
-const Toolbar = ({ searchTerm, setSearchTerm, status, setStatus, category, setCategory, categories, onAddClick, onImport, onExport }) => {
+const Toolbar = ({ searchTerm, setSearchTerm, status, setStatus, category, setCategory, categories, onAddClick, onImport, onExport, isSearchVisible, setIsSearchVisible }) => {
   const fileInputRef = useRef(null);
 
   const handleImportClick = () => {
@@ -19,7 +19,7 @@ const Toolbar = ({ searchTerm, setSearchTerm, status, setStatus, category, setCa
   return (
     <div className={styles.toolbar}>
       <div className={styles.left}>
-        <div className={styles.searchBar}>
+        <div className={`${styles.searchBar} ${isSearchVisible ? styles.searchVisible : ''}`}>
           <Search size={20} className={styles.searchIcon} />
           <input
             type="text"
@@ -27,6 +27,7 @@ const Toolbar = ({ searchTerm, setSearchTerm, status, setStatus, category, setCa
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
+          <button className={styles.closeSearchButton} onClick={() => setIsSearchVisible(false)}><X size={24} /></button>
         </div>
         <div className={styles.filters}>
           <div className={styles.dropdownFilter}>
@@ -38,13 +39,11 @@ const Toolbar = ({ searchTerm, setSearchTerm, status, setStatus, category, setCa
               <option value="agotado">Agotado</option>
             </select>
           </div>
-          <div className={styles.dropdownFilter}>
-            <select value={category} onChange={(e) => setCategory(e.target.value)}>
-              <option value="All">Categoría</option>
-              {categories.map((cat) => (
-                <option key={cat} value={cat}>{cat}</option>
-              ))}
-            </select>
+          <div className={styles.categoryFilters}>
+            <button className={`${styles.chip} ${category === 'All' ? styles.activeChip : ''}`} onClick={() => setCategory('All')}>All</button>
+            {categories.map((cat) => (
+              <button key={cat} className={`${styles.chip} ${category === cat ? styles.activeChip : ''}`} onClick={() => setCategory(cat)}>{cat}</button>
+            ))}
           </div>
           <button className={styles.filterButton}>Filtrar</button>
         </div>

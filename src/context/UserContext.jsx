@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, useEffect } from 'react';
+import { createContext, useState, useContext, useEffect, useCallback } from 'react';
 import axiosInstance from '../api/axios';
 import { logout as logoutService } from '../services/authService';
 
@@ -10,10 +10,8 @@ export const useUser = () => {
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState(localStorage.getItem('token'));
   const [loading, setLoading] = useState(true);
-
-
 
   useEffect(() => {
     // This effect will run when the token changes.
@@ -27,7 +25,7 @@ export const UserProvider = ({ children }) => {
     }
   }, [token]);
 
-  const fetchUser = async () => {
+  const fetchUser = useCallback(async () => {
     setLoading(true);
     try {
       const response = await axiosInstance.get('/auth/profile');
@@ -38,19 +36,22 @@ export const UserProvider = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
-  const login = (newToken) => {
+  const login = useCallback((newToken) => {
+    localStorage.setItem('token', newToken);
     setToken(newToken);
-  };
+  }, []);
 
-  const logout = async () => {
+  const logout = useCallback(async () => {
     await logoutService();
+    localStorage.removeItem('token');
     setToken(null);
-  };
+  }, []);
 
   const value = {
     user,
+    setUser,
     token,
     loading,
     login,

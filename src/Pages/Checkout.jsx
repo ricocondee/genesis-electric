@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styles from '../styles/Checkout.module.css';
 import CheckoutForm from '../components/CheckoutForm';
 import OrderSummary from '../components/OrderSummary';

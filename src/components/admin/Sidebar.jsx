@@ -1,5 +1,5 @@
 
-import React from 'react';
+
 import { NavLink } from 'react-router-dom';
 import styles from '../../styles/admin/Sidebar.module.css';
 import { Home, Store, DollarSign, Users, BarChart2, Megaphone, Settings, ShoppingBag } from 'lucide-react';
@@ -13,7 +13,7 @@ const Sidebar = () => {
       <nav className={styles.nav}>
         <ul>
           <li>
-            <NavLink to="/admin/home" className={({ isActive }) => isActive ? styles.active : ''}>
+            <NavLink to="/admin" className={({ isActive }) => isActive ? styles.active : ''}>
               <Home size={20} />
               <span>Inicio</span>
             </NavLink>

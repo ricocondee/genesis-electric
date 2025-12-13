@@ -48,6 +48,11 @@
     --pale-blue: #A6E1FA;
     --contrast-blue: #97becf;
 
+    --primary-text-color: #00072D;
+    --muted-text-color: #6c757d;
+    --light-gray: #f7fafc;
+    --danger-color: #dc3545;
+
     --font-family-sentient: 'Sentient', sans-serif;
     --font-weight-normal: normal;
     --font-style-normal: normal;

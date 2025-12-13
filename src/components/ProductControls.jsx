@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styles from '../styles/ProductControls.module.css';
 import SortFilter from './SortFilter';
 import SearchBar from './SearchBar';

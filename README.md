@@ -35,6 +35,7 @@
   - [Commit Message Format](#commit-message-format)
   - [Pull Request Process](#pull-request-process)
 - [Notes](#notes)
+- [Backend API Documentation for Dashboard](#backend-api-documentation-for-dashboard)
 
 ---
 
@@ -330,3 +331,134 @@ For questions or help, please [open an issue](https://github.com/ricocondee/gene
 
 - [Routing and Navigation](https://github.com/ricocondee/genesis-electric/wiki/Routing-and-Navigation)
 - [Home and About Pages](https://github.com/ricocondee/genesis-electric/wiki/Home-and-About-Pages)
+
+---
+
+## Backend API Documentation for Dashboard
+
+The analytics dashboard in the admin interface relies on a set of backend API endpoints to fetch real-time and historical data. The detailed documentation for these endpoints, including their paths, descriptions, and expected response bodies, can be found [here](#dashboard-backend-api-details).
+
+### Dashboard Backend API Details
+
+*(This section contains the API documentation provided by the user)*
+
+**Authentication**
+
+All endpoints require authentication and administrator or manager privileges. The API uses token-based authentication.
+
+**Top Metrics Row**
+
+*   **Total Sales (Last 30 Days)**
+    *   **Endpoint:** `GET /api/stats/dashboard-summary`
+    *   **Description:** Returns total sales value and growth percentage over the last 30 days.
+    *   **Response Body:**
+        ```json
+        {
+          "totalSales": {
+            "value": 15000.00,
+            "growth": 15.5
+          },
+          "totalOrders": { ... },
+          "storeProducts": { ... }
+        }
+        ```
+
+*   **Total Orders (Last 30 Days)**
+    *   **Endpoint:** `GET /api/stats/dashboard-summary`
+    *   **Description:** Returns total number of orders and growth percentage over the last 30 days.
+    *   **Response Body:**
+        ```json
+        {
+          "totalSales": { ... },
+          "totalOrders": {
+            "value": 120,
+            "growth": 10
+          },
+          "storeProducts": { ... }
+        }
+        ```
+
+*   **Total Visitors**
+    *   **Endpoint:** `GET /api/stats/total-visitors`
+    *   **Description:** Returns the total number of unique sessions.
+    *   **Response Body:**
+        ```json
+        {
+          "totalVisitors": 54321
+        }
+        ```
+
+*   **Live Visitors**
+    *   **Endpoint:** `GET /api/stats/live-visitors`
+    *   **Description:** Returns the number of sessions active in the last 5 minutes.
+    *   **Response Body:**
+        ```json
+        {
+          "liveVisitors": 42
+        }
+        ```
+
+**Main Dashboard Grid**
+
+*   **Total Revenue by Year**
+    *   **Endpoint:** `GET /api/stats/sales-by-year`
+    *   **Description:** Returns the total sales revenue aggregated by year.
+    *   **Response Body:**
+        ```json
+        {
+          "salesByYear": [
+            { "year": 2024, "value1": 120000.00 },
+            { "year": 2025, "value1": 150000.00 }
+          ]
+        }
+        ```
+
+*   **Customer Volume**
+    *   **Endpoint:** `GET /api/stats/customer-volume`
+    *   **Description:** Returns a breakdown of new vs. returning customers.
+    *   **Response Body:**
+        ```json
+        {
+          "newCustomers": 500,
+          "returningCustomers": 250,
+          "totalCustomers": 750
+        }
+        ```
+
+*   **Traffic Analytics**
+    *   **Endpoint:** `GET /api/stats/traffic-sources`
+    *   **Description:** Returns a breakdown of website traffic by source, based on the `referrer` field in the `Session` model.
+    *   **Response Body:**
+        ```json
+        [
+          { "source": "Direct", "value": 4567 },
+          { "source": "Google", "value": 3456 },
+          { "source": "Facebook", "value": 1234 },
+          { "source": "Referral", "value": 567 }
+        ]
+        ```
+
+*   **Sales Funnel**
+    *   **Endpoint:** `GET /api/stats/sales-funnel`
+    *   **Description:** Provides data representing the different stages of the sales funnel.
+    *   **Response Body:**
+        ```json
+        [
+          { "stage": "Product Views", "value": 12000 },
+          { "stage": "Add to Cart", "value": 3000 },
+          { "stage": "Reached Checkout", "value": 1500 },
+          { "stage": "Completed Purchase", "value": 800 }
+        ]
+        ```
+
+*   **Top Selling Products**
+    *   **Endpoint:** `GET /api/stats/top-selling-products`
+    *   **Description:** Returns a list of the top 5 best-selling products.
+    *   **Response Body:**
+        ```json
+        [
+          { "_id": "60d5f2c9c9b8a83d4c8b4567", "name": "Product A", "totalSold": 150 },
+          { "_id": "60d5f2c9c9b8a83d4c8b4568", "name": "Product B", "totalSold": 120 },
+          ...
+        ]
+        ```

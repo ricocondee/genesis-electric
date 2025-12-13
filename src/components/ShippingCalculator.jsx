@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useCart } from '../context/CartContext';
 import axiosInstance from '../api/axios';
 import { cities } from '../data/cities';

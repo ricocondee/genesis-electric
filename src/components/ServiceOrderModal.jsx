@@ -1,4 +1,4 @@
-import React from 'react';
+
 import Modal from 'react-modal';
 import ServiceOrderForm from './ServiceOrderForm';
 import styles from '../styles/ServiceOrderModal.module.css';

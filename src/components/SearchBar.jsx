@@ -1,12 +1,10 @@
-import { useState } from "react";
 import styles from "../styles/SearchBar.module.css";
 import { Search } from "lucide-react";
 
-const SearchBar = ({ filters, setFilters, placeholder }) => {
+const SearchBar = ({ searchTerm, setSearchTerm, placeholder }) => {
 
   const handleSearch = (event) => {
-    const value = event.target.value;
-    setFilters({ ...filters, q: value });
+    setSearchTerm(event.target.value);
   };
 
   return (
@@ -15,7 +13,7 @@ const SearchBar = ({ filters, setFilters, placeholder }) => {
         type="text"
         className={styles.searchInput}
         placeholder={placeholder || "Buscar..."}
-        value={filters.q}
+        value={searchTerm}
         onChange={handleSearch}
       />
       <Search className={styles.searchIcon}/>

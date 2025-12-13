@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from '../../../styles/admin/v2/ProductForm.module.css';
 import { X, Upload } from 'lucide-react';
 import { showToast } from '../../../utils/toast';
@@ -6,8 +6,6 @@ import { showToast } from '../../../utils/toast';
 const SlideForm = ({ onSave, slide, onClose }) => {
   const [formData, setFormData] = useState({
     imageUrl: '',
-    title: '',
-    subtitle: '',
     cta: { text: '', link: '' },
   });
   const fileInputRef = useRef(null);
@@ -21,8 +19,6 @@ const SlideForm = ({ onSave, slide, onClose }) => {
     } else {
       setFormData({
         imageUrl: '',
-        title: '',
-        subtitle: '',
         cta: { text: '', link: '' },
       });
       setImagePreview(null);
@@ -107,14 +103,7 @@ const SlideForm = ({ onSave, slide, onClose }) => {
               <label className={styles.label}>URL de la Imagen</label>
               <input name="imageUrl" value={formData.imageUrl} onChange={handleChange} placeholder="URL de la Imagen" required className={styles.inputField} />
             </div>
-            <div className={styles.formField}>
-              <label className={styles.label}>Título</label>
-              <input name="title" value={formData.title} onChange={handleChange} placeholder="Título" required className={styles.inputField} />
-            </div>
-            <div className={styles.formField}>
-              <label className={styles.label}>Subtítulo</label>
-              <input name="subtitle" value={formData.subtitle} onChange={handleChange} placeholder="Subtítulo" className={styles.inputField} />
-            </div>
+
             <div className={styles.formField}>
               <label className={styles.label}>Texto del Botón</label>
               <input name="ctaText" value={formData.cta.text} onChange={handleChange} placeholder="Texto del Botón" className={styles.inputField} />

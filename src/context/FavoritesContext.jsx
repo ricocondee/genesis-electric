@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, useEffect, useCallback } from 'react';
+import { createContext, useState, useContext, useEffect, useCallback } from 'react';
 import axiosInstance from '../api/axios';
 import { showToast } from '../utils/toast';
 
@@ -39,21 +39,18 @@ export const FavoritesProvider = ({ children }) => {
   }, [fetchFavorites]);
 
   const addFavorite = useCallback(async (product) => {
-    // Optimistic update
-    setFavorites(prev => [...prev, product]);
     try {
       await axiosInstance.post('/favorites', { productId: product._id });
+      fetchFavorites();
     } catch (error) {
       showToast('Error adding favorite:' + error.message, "error");
-      // Revert if error
-      setFavorites(prev => prev.filter(fav => fav._id !== product._id));
     }
-  }, []);
+  }, [fetchFavorites]);
 
   const removeFavorite = useCallback(async (productId) => {
     const previousFavorites = favorites;
     // Optimistic update
-    setFavorites(prev => prev.filter(fav => fav._id !== productId));
+    setFavorites(prev => prev.filter(fav => fav.productId._id !== productId));
     try {
       await axiosInstance.delete(`/favorites/${productId}`);
     } catch (error) {
@@ -64,7 +61,7 @@ export const FavoritesProvider = ({ children }) => {
   }, [favorites]);
 
   const isFavorite = (productId) => {
-    return favorites.some(fav => fav._id === productId);
+    return favorites.some(fav => fav.productId?._id === productId);
   };
 
   const value = {

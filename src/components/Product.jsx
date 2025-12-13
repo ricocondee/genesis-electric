@@ -1,11 +1,13 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import styles from "../styles/ProductD.module.css";
 import Loader from "./Loader";
 import { showToast } from "../utils/toast";
 import { productService } from "../services/productService";
 import { useCart } from "../context/CartContext";
+import { trackProductView } from "../services/sessionService";
 import { ChevronDown } from "lucide-react";
+import ProductDetailSkeleton from "./ProductDetailSkeleton";
 
 const specTranslations = {
   btu: "BTU",
@@ -26,6 +28,11 @@ function Product() {
   const [quantity, setQuantity] = useState(1);
   const [isSpecsOpen, setIsSpecsOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(0);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    trackProductView(id);
+  }, [id]);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -47,12 +54,38 @@ function Product() {
   const decreaseQty = () => setQuantity((q) => (q > 1 ? q - 1 : 1));
 
   const handleAddToCart = () => {
-    addItem({ ...product, quantity });
+    const productToAdd = {
+      ...product,
+      quantity,
+      imageUrl: imageUrls[0],
+      price: product.clientPrice,
+      iva: product.IVA,
+      netPrice: product.netPrice,
+    };
+    addItem(productToAdd);
     showToast(`${product.name} agregado al carrito!`, "success");
   };
 
-  if (loading) return <Loader />;
-  if (!product) return <p>Producto no encontrado</p>;
+  const handleBuyNow = () => {
+    const productToAdd = {
+      ...product,
+      quantity,
+      imageUrl: imageUrls[0],
+      price: product.clientPrice,
+      iva: product.IVA,
+      netPrice: product.netPrice,
+    };
+    addItem(productToAdd);
+    const token = localStorage.getItem('token');
+    if (token && token !== "undefined") {
+      navigate('/checkout');
+    } else {
+      navigate('/login', { state: { from: '/checkout' } });
+    }
+  };
+
+  if (loading) return <ProductDetailSkeleton />;
+  if (!product) return <ProductDetailSkeleton />;
 
   const imageUrls =
     product.imageUrls && product.imageUrls.length > 0
@@ -171,7 +204,7 @@ function Product() {
             >
               Añadir al carrito
             </button>
-            <button className={styles.buyNowButton}>Comprar ahora</button>
+            <button className={styles.buyNowButton} onClick={handleBuyNow}>Comprar ahora</button>
           </div>
         </div>
       </div>

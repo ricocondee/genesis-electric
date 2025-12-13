@@ -7,7 +7,6 @@ import Products from "../Pages/Products";
 import ScrollToSection from "../components/ScrollToSection";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
-import { Navigate, Outlet } from "react-router-dom";
 import { motion } from "framer-motion";
 import Product from "../components/Product";
 import TermsAndConditions from "../Pages/TermsAndConditions";
@@ -29,15 +28,32 @@ import ServiceOrder from "../Pages/ServiceOrder";
 import Checkout from "../Pages/Checkout"; // import new page
 import { useUser } from "../context/UserContext";
 import { refreshToken } from "../services/authService";
+import { initializeSession } from "../services/sessionService";
 import BtuCalculatorPage from "../Pages/BtuCalculatorPage";
 import ForgotPassword from "../Pages/ForgotPassword";
 import ResetPassword from "../Pages/ResetPassword";
 import ProtectedRoute from "./ProtectedRoute";
 import AdminHome from "../Pages/admin/AdminHome";
+import ProfileLayout from "../Pages/ProfileLayout";
+import AccountOverview from "../Pages/AccountOverview";
+import OrdersPage from "../Pages/OrdersPage";
+import Security from "../Pages/Security";
+import Signup from "../Pages/Signup";
+import AddressesPage from "../Pages/AddressesPage";
+import OrderStatus from "../Pages/OrderStatus";
+import AdminOrders from "../Pages/admin/AdminOrders";
+import AdminOrderDetail from "../Pages/admin/AdminOrderDetail";
+import Plans from "../Pages/Plans";
+import Loader from "../components/Loader";
+
 
 const App = () => {
   const { token, login } = useUser();
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    initializeSession();
+  }, []);
 
   useEffect(() => {
     const getAccessToken = async () => {
@@ -55,193 +71,271 @@ const App = () => {
   }, [login]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 1.5 }}
-    >
-      <BrowserRouter>
-        <ToastContainer />
-        <ScrollToSection />
-        <CartProvider>
-          <FavoritesProvider>
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <Layout>
-                    <Home />
-                  </Layout>
-                }
-              />
-              <Route
-                exact
-                path="/privacy-policy"
-                element={
-                  <Layout>
-                    <PrivacyPolicy />
-                  </Layout>
-                }
-              />
-              <Route
-                exact
-                path="/terms-and-conditions"
-                element={
-                  <Layout>
-                    <TermsAndConditions />
-                  </Layout>
-                }
-              />
-              <Route
-                exact
-                path="/products"
-                element={
-                  <Layout>
-                    <Products />
-                  </Layout>
-                }
-              />
-              <Route
-                exact
-                path="/products/:id"
-                element={
-                  <Layout>
-                    <Product />
-                  </Layout>
-                }
-              />
-              <Route
-                path="/cart"
-                element={
-                  <Layout>
-                    <Cart />
-                  </Layout>
-                }
-              />
-              <Route
-                path="/favorites"
-                element={
-                  <Layout>
-                    <Favorites />
-                  </Layout>
-                }
-              />
-              <Route
-                path="/service-order"
-                element={
-                  <Layout>
-                    <ServiceOrder />
-                  </Layout>
-                }
-              />
-              <Route
-                path="/checkout"
-                element={
-                  <Layout>
-                    <Checkout />
-                  </Layout>
-                }
-              />
-              <Route
-                path="/btu-calculator"
-                element={
-                  <Layout>
-                    <BtuCalculatorPage />
-                  </Layout>
-                }
-              />
-              <Route path="*" element={<h1>Not Found</h1>} />
-              <Route exact path="/login" element={<Login login={login} />} />
-              <Route exact path="/register" element={<Register />} />
-              <Route exact path="/forgot-password" element={<ForgotPassword />} />
-              <Route exact path="/reset-password/:token" element={<ResetPassword />} />
-              <Route exact path="/reset-password/:token" element={<ResetPassword />} />
-              <Route exact path="/reset-password/:token" element={<ResetPassword />} />
-              <Route exact path="/reset-password/:token" element={<ResetPassword />} />
-              <Route exact path="/reset-password/:token" element={<ResetPassword />} />
-              <Route
-                path="/admin"
-                element={
-                  <ProtectedRoute allowedRoles={['admin', 'manager', 'technician']}>
-                    <DashboardLayout />
-                  </ProtectedRoute>
-                }
-              >
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 1.5 }}
+      >
+        <BrowserRouter>
+          <ToastContainer />
+          <ScrollToSection />
+          <CartProvider>
+            <FavoritesProvider>
+              <Routes>
                 <Route
-                  index
+                  path="/"
                   element={
-                    <ProtectedRoute allowedRoles={['admin', 'manager', 'technician']}>
-                      <AdminHome />
+                    <Layout>
+                      <Home />
+                    </Layout>
+                  }
+                />
+                <Route
+                  exact
+                  path="/privacy-policy"
+                  element={
+                    <Layout>
+                      <PrivacyPolicy />
+                    </Layout>
+                  }
+                />
+                <Route
+                  exact
+                  path="/terms-and-conditions"
+                  element={
+                    <Layout>
+                      <TermsAndConditions />
+                    </Layout>
+                  }
+                />
+                <Route
+                  exact
+                  path="/products"
+                  element={
+                    <Layout>
+                      <Products />
+                    </Layout>
+                  }
+                />
+                <Route
+                  exact
+                  path="/products/:id"
+                  element={
+                    <Layout>
+                      <Product />
+                    </Layout>
+                  }
+                />
+                <Route
+                  path="/cart"
+                  element={
+                    <Layout>
+                      <Cart />
+                    </Layout>
+                  }
+                />
+                <Route
+                  path="/favorites"
+                  element={
+                    <Layout>
+                      <Favorites />
+                    </Layout>
+                  }
+                />
+                <Route
+                  path="/service-order"
+                  element={
+                    <Layout>
+                      <ServiceOrder />
+                    </Layout>
+                  }
+                />
+                <Route
+                  path="/checkout"
+                  element={
+                    <ProtectedRoute
+                      allowedRoles={[
+                        "admin",
+                        "manager",
+                        "technician",
+                        "client",
+                      ]}
+                    >
+                      <Layout>
+                        <Checkout />
+                      </Layout>
                     </ProtectedRoute>
                   }
                 />
                 <Route
-                  path="products"
+                  path="/order-status"
                   element={
-                    <ProtectedRoute allowedRoles={['admin', 'manager']}>
-                      <ProductDashboard />
-                    </ProtectedRoute>
+                    <Layout>
+                      <OrderStatus />
+                    </Layout>
                   }
                 />
                 <Route
-                  path="service-orders"
+                  path="/btu-calculator"
                   element={
-                    <ProtectedRoute allowedRoles={['admin', 'manager', 'technician']}>
-                      <ServiceOrders />
-                    </ProtectedRoute>
+                    <Layout>
+                      <BtuCalculatorPage />
+                    </Layout>
                   }
                 />
                 <Route
-                  path="service-orders/:id"
+                  path="/plans"
                   element={
-                    <ProtectedRoute allowedRoles={['admin', 'manager', 'technician']}>
-                      <ServiceOrderDetail />
-                    </ProtectedRoute>
+                    <Layout>
+                      <Plans />
+                    </Layout>
                   }
                 />
                 <Route
-                  path="customers"
+                  path="/profile"
                   element={
-                    <ProtectedRoute allowedRoles={['admin', 'manager']}>
-                      <Customers />
+                    <ProtectedRoute
+                      allowedRoles={[
+                        "admin",
+                        "manager",
+                        "technician",
+                        "client",
+                      ]}
+                    >
+                      <Layout>
+                        <ProfileLayout />
+                      </Layout>
                     </ProtectedRoute>
                   }
+                >
+                  <Route index element={<AccountOverview />} />
+                  <Route path="orders" element={<OrdersPage />} />
+                  <Route path="addresses" element={<AddressesPage />} />
+                  <Route path="security" element={<Security />} />
+                  {/* Add other profile sub-routes here */}
+                </Route>
+                <Route path="*" element={<h1>Not Found</h1>} />
+                <Route exact path="/login" element={<Login login={login} />} />
+                <Route exact path="/register" element={<Register />} />
+                <Route exact path="/signup" element={<Signup />} />
+                <Route
+                  exact
+                  path="/forgot-password"
+                  element={<ForgotPassword />}
                 />
                 <Route
-                  path="pos"
-                  element={
-                    <ProtectedRoute allowedRoles={['admin', 'manager']}>
-                      <POS />
-                    </ProtectedRoute>
-                  }
+                  exact
+                  path="/reset-password/:token"
+                  element={<ResetPassword />}
                 />
                 <Route
-                  path="inventory"
+                  path="/admin"
                   element={
-                    <ProtectedRoute allowedRoles={['admin', 'manager']}>
-                      <Inventory />
+                    <ProtectedRoute
+                      allowedRoles={["admin", "manager", "technician"]}
+                    >
+                      <DashboardLayout />
                     </ProtectedRoute>
                   }
-                />
-                <Route
-                  path="settings"
-                  element={
-                    <ProtectedRoute allowedRoles={['admin', 'manager']}>
-                      <Settings />
-                    </ProtectedRoute>
-                  }
-                />
-              </Route>
-            </Routes>
-          </FavoritesProvider>
-        </CartProvider>
-      </BrowserRouter>
-    </motion.div>
+                >
+                  <Route
+                    index
+                    element={
+                      <ProtectedRoute
+                        allowedRoles={["admin", "manager", "technician"]}
+                      >
+                        <AdminHome />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="products"
+                    element={
+                      <ProtectedRoute allowedRoles={["admin", "manager"]}>
+                        <ProductDashboard />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="orders"
+                    element={
+                      <ProtectedRoute allowedRoles={["admin", "manager"]}>
+                        <AdminOrders />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="orders/:id"
+                    element={
+                      <ProtectedRoute allowedRoles={["admin", "manager"]}>
+                        <AdminOrderDetail />
+                      </ProtectedRoute>
+                    }
+                  />
+
+                  <Route
+                    path="service-orders"
+                    element={
+                      <ProtectedRoute
+                        allowedRoles={["admin", "manager", "technician"]}
+                      >
+                        <ServiceOrders />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="service-orders/:id"
+                    element={
+                      <ProtectedRoute
+                        allowedRoles={["admin", "manager", "technician"]}
+                      >
+                        <ServiceOrderDetail />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="customers"
+                    element={
+                      <ProtectedRoute allowedRoles={["admin", "manager"]}>
+                        <Customers />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="pos"
+                    element={
+                      <ProtectedRoute allowedRoles={["admin", "manager"]}>
+                        <POS />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="inventory"
+                    element={
+                      <ProtectedRoute allowedRoles={["admin", "manager"]}>
+                        <Inventory />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="settings"
+                    element={
+                      <ProtectedRoute allowedRoles={["admin", "manager"]}>
+                        <Settings />
+                      </ProtectedRoute>
+                    }
+                  />
+                </Route>
+              </Routes>
+            </FavoritesProvider>
+          </CartProvider>
+        </BrowserRouter>
+      </motion.div>
   );
 };
 
