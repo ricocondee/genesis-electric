@@ -19,6 +19,7 @@ export const CartProvider = ({ children }) => {
     }
   });
   const [loading, setLoading] = useState(false); // No longer need loading state for cart
+  const [shippingCost, setShippingCost] = useState(0); // New shipping cost state
 
   useEffect(() => {
     // Persist cart to local storage whenever it changes
@@ -35,7 +36,15 @@ export const CartProvider = ({ children }) => {
         updatedItems = [...prevCart.items];
         updatedItems[existingItemIndex].quantity += quantity;
       } else {
-        updatedItems = [...prevCart.items, { productId: product, quantity: quantity, _id: product._id }];
+        updatedItems = [...prevCart.items, {
+          productId: {
+            ...product,
+            category: product.category, // Explicitly include category
+            specs: product.specs, // Explicitly include specs
+          },
+          quantity: quantity,
+          _id: product._id
+        }];
       }
       return { ...prevCart, items: updatedItems };
     });
@@ -103,6 +112,8 @@ export const CartProvider = ({ children }) => {
     cartTotal,
     totalItems,
     cartIva,
+    shippingCost, // Expose shippingCost
+    setShippingCost, // Expose the original setter
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

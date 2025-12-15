@@ -147,7 +147,21 @@
   transform: scale(1.05);
 }
 
-.recommendation .text__container {
+.recommendation h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+  line-height: 1.2;
+  height: 3rem; /* 2 lines */
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflowing text */
+  text-overflow: ellipsis; /* Display ellipsis for overflowed text */
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.recommendation {
   width: 100%;
   flex-grow: 1;
   display: flex;
@@ -164,8 +178,10 @@
   margin: 0;
   line-height: 1.2;
   height: 3rem; /* 2 lines */
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflowing text */
+  text-overflow: ellipsis; /* Display ellipsis for overflowed text */
+  text-align: center;
 }
 
 .recommendation .text__container a {

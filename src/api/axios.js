@@ -2,7 +2,7 @@ import axios from 'axios';
 import { refreshToken } from '../services/authService';
 import { getSessionToken } from '../services/sessionService';
 
-const API_URL = 'http://localhost:5001/api';
+const API_URL = 'https://api.genesiselectricsas.com/api';
 
 const axiosInstance = axios.create({
   baseURL: API_URL,

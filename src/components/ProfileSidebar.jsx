@@ -34,12 +34,6 @@ const ProfileSidebar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/profile/archived-orders" className={({ isActive }) => isActive ? styles.active : ''}>
-              <Archive size={20} />
-              <span>Pedidos Archivados</span>
-            </NavLink>
-          </li>
-          <li>
             <NavLink to="/favorites" className={({ isActive }) => isActive ? styles.active : ''}>
               <Heart size={20} />
               <span>Mis Favoritos</span>

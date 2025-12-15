@@ -166,9 +166,11 @@ const BtuCalculator = () => {
           {recommendedProduct && (
             <div className={styles.recommendation}>
               <h3>Producto Recomendado</h3>
-              {recommendedProduct.imageUrls && recommendedProduct.imageUrls.length > 0 && (
+              {recommendedProduct.imageUrls && recommendedProduct.imageUrls.length > 0 ? (
                 <img src={recommendedProduct.imageUrls[0]} alt={recommendedProduct.name} />
-              )}
+              ) : recommendedProduct.imageUrl ? (
+                <img src={recommendedProduct.imageUrl} alt={recommendedProduct.name} />
+              ) : null}
               <h4>{recommendedProduct.name}</h4>
               <Link to={`/products/${recommendedProduct._id}`}>Ver producto</Link>
             </div>

@@ -1,5 +1,6 @@
 .locationSelectContainer {
   display: flex;
+  flex-direction: column; /* Stack dropdowns vertically */
   gap: 1rem;
 }
 

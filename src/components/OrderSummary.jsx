@@ -2,7 +2,7 @@ import styles from '../styles/OrderSummary.module.css';
 import { useCart } from '../context/CartContext';
 
 const OrderSummary = () => {
-  const { cart, cartTotal, totalItems } = useCart();
+  const { cart, cartTotal, totalItems, shippingCost } = useCart();
 
   const formatPrice = (price) => {
     return new Intl.NumberFormat("es-CO", {
@@ -34,11 +34,11 @@ const OrderSummary = () => {
         </div>
         <div className={styles.summaryRow}>
           <span>Envío</span>
-          <span>GRATIS</span>
+          <span>{shippingCost === 0 ? 'GRATIS' : formatPrice(shippingCost)}</span>
         </div>
         <div className={`${styles.summaryRow} ${styles.totalRow}`}>
           <span>Total</span>
-          <span>{formatPrice(cartTotal)}</span>
+          <span>{formatPrice(cartTotal + shippingCost)}</span>
         </div>
       </div>
     </div>

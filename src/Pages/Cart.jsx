@@ -8,13 +8,8 @@ import ShippingCalculator from '../components/ShippingCalculator';
 import EmptyCart from '../components/EmptyCart';
 
 const Cart = () => {
-  const { cart, loading, error, updateItemQuantity, removeItem, cartTotal, totalItems } = useCart();
+  const { cart, loading, error, updateItemQuantity, removeItem, cartTotal, totalItems, shippingCost, setShippingCost } = useCart();
   const navigate = useNavigate();
-  const [shippingCost, setShippingCost] = useState(0);
-
-  const handleShippingCostChange = (cost) => {
-    setShippingCost(cost);
-  };
 
   const handleIncreaseQuantity = (item) => {
     const stockQuantity = item.productId.quantity;
@@ -105,7 +100,7 @@ const Cart = () => {
               <button className={styles.checkoutButton} onClick={handleCheckout}>Proceder al Pago</button>
             </div>
             <div className={styles.shippingCalculatorContainer}>
-              <ShippingCalculator onShippingCostChange={handleShippingCostChange} />
+              <ShippingCalculator onShippingCostChange={setShippingCost} />
             </div>
           </div>
         </div>

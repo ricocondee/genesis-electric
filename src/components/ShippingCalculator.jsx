@@ -1,76 +1,55 @@
-
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useCart } from '../context/CartContext';
-import axiosInstance from '../api/axios';
-import { cities } from '../data/cities';
+import ColombiaLocationSelect from './ColombiaLocationSelect';
 import styles from '../styles/ShippingCalculator.module.css';
-import { showToast } from '../utils/toast';
+import { calculateShippingCost } from '../utils/shipping';
 
 const ShippingCalculator = ({ onShippingCostChange }) => {
+  const [selectedDepartment, setSelectedDepartment] = useState('');
   const [selectedCity, setSelectedCity] = useState('');
   const [shippingCost, setShippingCost] = useState(0);
-  const { cart, cartTotal } = useCart();
+  const { cart } = useCart();
 
-  const handleCityChange = async (e) => {
-    const cityId = e.target.value;
-    setSelectedCity(cityId);
+  const handleSelectDepartment = useCallback((department) => {
+    setSelectedDepartment(department);
+    setSelectedCity('');
+  }, []);
 
-    if (!cityId) {
-      setShippingCost(0);
-      onShippingCostChange(0);
-      return;
-    }
+  const handleSelectCity = useCallback((city) => {
+    setSelectedCity(city);
+  }, []);
 
-    if (!cart || !cart.items || cart.items.length === 0) {
-      // Handle empty cart case if necessary
-      return;
-    }
+  useEffect(() => {
+    // Calculate shipping cost whenever selectedDepartment, selectedCity, or cart changes
+    const updateShippingCost = () => {
+      if (!selectedCity) {
+        setShippingCost(0);
+        onShippingCostChange(0);
+        return;
+      }
 
-    const totalWeight = cart.items.reduce((acc, item) => acc + (item.productId.weight || 0) * item.quantity, 0);
-    const totalHeight = cart.items.reduce((acc, item) => acc + (item.productId.height || 0) * item.quantity, 0);
-    const totalWidth = cart.items.reduce((acc, item) => acc + (item.productId.width || 0) * item.quantity, 0);
-    const totalLength = cart.items.reduce((acc, item) => acc + (item.productId.length || 0) * item.quantity, 0);
-
-    const params = {
-      origin: '11001000', // Bogota
-      destination: cityId,
-      weight: totalWeight,
-      height: totalHeight,
-      width: totalWidth,
-      length: totalLength,
-      value: cartTotal,
-    };
-
-    try {
-      const response = await axiosInstance.get('/quote', { params });
-      const cost = response.data.price;
+      const cost = calculateShippingCost(selectedDepartment, cart?.items);
       setShippingCost(cost);
       onShippingCostChange(cost);
-    } catch (error) {
-      showToast('Error fetching shipping quote:' + error.message, "error");
-      // Handle error case, maybe set a default cost or show an error message
-      setShippingCost(0);
-      onShippingCostChange(0);
-    }
-  };
+    };
+
+    updateShippingCost();
+  }, [selectedDepartment, selectedCity, cart, onShippingCostChange]); // Dependencies for useEffect
 
   return (
     <div className={styles.container}>
       <h3>Calcular Envío</h3>
       <div className={styles.formGroup}>
-        <label htmlFor="city">Selecciona tu ciudad:</label>
-        <select id="city" value={selectedCity} onChange={handleCityChange} className={styles.select}>
-          <option value="">Seleccionar ciudad</option>
-          {cities.map((city) => (
-            <option key={city.id} value={city.id}>
-              {city.name}
-            </option>
-          ))}
-        </select>
+        <ColombiaLocationSelect
+          selectedDepartment={selectedDepartment}
+          selectedCity={selectedCity}
+          onSelectDepartment={handleSelectDepartment}
+          onSelectCity={handleSelectCity}
+        />
       </div>
       {selectedCity && (
         <div className={styles.result}>
-          <p>Costo de envío a {cities.find(c => c.id === selectedCity)?.name}:</p>
+          <p>Costo de envío a {selectedCity}:</p>
           <p className={styles.cost}>${shippingCost.toLocaleString('es-CO')}</p>
         </div>
       )}

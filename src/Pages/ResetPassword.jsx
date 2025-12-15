@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import styles from '../styles/Login.module.css';
+import styles from '../styles/ResetPassword.module.css';
 import { showToast } from '../utils/toast';
 import axiosInstance from '../api/axios';
 

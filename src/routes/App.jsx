@@ -41,6 +41,7 @@ import Security from "../Pages/Security";
 import Signup from "../Pages/Signup";
 import AddressesPage from "../Pages/AddressesPage";
 import OrderStatus from "../Pages/OrderStatus";
+import Support from "../Pages/Support";
 import AdminOrders from "../Pages/admin/AdminOrders";
 import AdminOrderDetail from "../Pages/admin/AdminOrderDetail";
 import Plans from "../Pages/Plans";
@@ -110,6 +111,14 @@ const App = () => {
                   element={
                     <Layout>
                       <TermsAndConditions />
+                    </Layout>
+                  }
+                />
+                <Route
+                  path="/support"
+                  element={
+                    <Layout>
+                      <Support />
                     </Layout>
                   }
                 />

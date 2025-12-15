@@ -7,6 +7,7 @@ import { showToast } from '../utils/toast';
 import { useUser } from '../context/UserContext';
 import ConfirmationModal from './ConfirmationModal';
 import ColombiaLocationSelect from './ColombiaLocationSelect';
+import { calculateShippingCost } from '../utils/shipping';
 
 import useWompi from '../hooks/useWompi';
 
@@ -25,7 +26,7 @@ const CheckoutForm = () => {
   const [isWompiReady, setIsWompiReady] = useState(false);
   const [showUpdateProfileModal, setShowUpdateProfileModal] = useState(false);
   const [missingFields, setMissingFields] = useState([]);
-  const { cart, clearCart, cartTotal, cartIva } = useCart();
+  const { cart, clearCart, cartTotal, cartIva, shippingCost, setShippingCost } = useCart();
   const navigate = useNavigate();
   const { user, setUser } = useUser();
 
@@ -54,6 +55,14 @@ const CheckoutForm = () => {
       }));
     }
   }, [user]);
+
+  // Calculate shipping cost based on selected location
+  useEffect(() => {
+    if (formData.department && formData.city) {
+      const cost = calculateShippingCost(formData.department, cart?.items);
+      setShippingCost(cost);
+    }
+  }, [formData.department, formData.city, cart, setShippingCost]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -90,10 +99,11 @@ const CheckoutForm = () => {
           country: formData.country,
           postalCode: 'N/A',
         },
+        paymentMethod: 'Wompi', // Backend expects this field at the root level
         paymentInfo: {
           paymentType: 'Wompi',
         },
-        totalPrice: parseFloat(cartTotal.toFixed(2)),
+        totalPrice: parseFloat((cartTotal + shippingCost).toFixed(2)),
       };
 
       const orderResponse = await axiosInstance.post('/orders', orderPayload);
@@ -101,7 +111,7 @@ const CheckoutForm = () => {
       const orderNumber = orderResponse.data.data.order.orderNumber;
 
       // Step 2: Use the orderNumber as the reference for Wompi
-      const amountInCents = Math.round(cartTotal * 100);
+      const amountInCents = Math.round((cartTotal + shippingCost) * 100);
 
       const { data } = await axiosInstance.post('/wompi/generate-signature', {
         amount_in_cents: amountInCents,
@@ -118,7 +128,7 @@ const CheckoutForm = () => {
         reference: orderNumber,
         publicKey: import.meta.env.VITE_WOMPI_PUBLIC_KEY,
         signature: { integrity: integritySignature },
-        redirectUrl: `${window.location.origin}/order-status`,
+        redirectUrl: "https://genesiselectricsas.com/order-status", // Using prod URL to bypass potential localhost block
       };
 
       if (cartIva > 0) {
@@ -144,6 +154,12 @@ const CheckoutForm = () => {
   const handleSubmit = useCallback(
     async (e) => {
       e.preventDefault();
+
+      if (!formData.department || !formData.city) {
+        showToast('Por favor selecciona un departamento y una ciudad.', 'error');
+        return;
+      }
+
       const requiredContactFields = ['nationalId', 'address', 'phone'];
       const currentMissingFields = requiredContactFields.filter(field => !user[field]);
 
@@ -155,7 +171,7 @@ const CheckoutForm = () => {
 
       await processCheckout();
     },
-    [user, processCheckout]
+    [user, processCheckout, formData.department, formData.city]
   );
 
   const handleUpdateProfile = async (updatedData) => {
@@ -240,6 +256,7 @@ const CheckoutForm = () => {
               selectedCity={formData.city}
               onSelectDepartment={handleSelectDepartment}
               onSelectCity={handleSelectCity}
+              required={true}
             />
           </div>
         </div>
