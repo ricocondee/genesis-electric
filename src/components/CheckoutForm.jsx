@@ -156,9 +156,8 @@ const CheckoutForm = () => {
         if (transaction.status === 'APPROVED') {
           clearCart();
           // --- FIX: CLIENT SIDE REDIRECT ---
-          navigate('/order-status', { 
-            state: { 
-              transactionId: transaction.id,
+          navigate(`/order-status?id=${transaction.id}`, { 
+            state: {
               orderNumber: orderNumber 
             },
             replace: true 
