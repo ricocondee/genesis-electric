@@ -8,7 +8,6 @@ import { useUser } from '../context/UserContext';
 import ConfirmationModal from './ConfirmationModal';
 import ColombiaLocationSelect from './ColombiaLocationSelect';
 import { calculateShippingCost } from '../utils/shipping';
-
 import useWompi from '../hooks/useWompi';
 
 const CheckoutForm = () => {
@@ -26,20 +25,23 @@ const CheckoutForm = () => {
   const [isWompiReady, setIsWompiReady] = useState(false);
   const [showUpdateProfileModal, setShowUpdateProfileModal] = useState(false);
   const [missingFields, setMissingFields] = useState([]);
+  
   const { cart, clearCart, cartTotal, cartIva, shippingCost, setShippingCost } = useCart();
   const navigate = useNavigate();
   const { user, setUser } = useUser();
-
   const wompiStatus = useWompi();
 
+  // 1. Monitor Wompi Script Status
   useEffect(() => {
     if (wompiStatus === 'ready') {
       setIsWompiReady(true);
     } else if (wompiStatus === 'error' || wompiStatus === 'timeout') {
-      showToast('Error cargando el método de pago. Por favor recarga la página.', 'error');
+      console.error("Wompi failed to load. Check console for 'undefined' or '404' errors.");
+      showToast('Error cargando la pasarela de pagos.', 'error');
     }
   }, [wompiStatus]);
 
+  // 2. Load User Data
   useEffect(() => {
     if (user) {
       setFormData(prevData => ({
@@ -56,7 +58,7 @@ const CheckoutForm = () => {
     }
   }, [user]);
 
-  // Calculate shipping cost based on selected location
+  // 3. Calculate Shipping
   useEffect(() => {
     if (formData.department && formData.city) {
       const cost = calculateShippingCost(formData.department, cart?.items);
@@ -68,21 +70,27 @@ const CheckoutForm = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // 4. MAIN CHECKOUT LOGIC
   const processCheckout = useCallback(async () => {
     if (!user?.email) {
-      showToast('Por favor inicia sesión antes de continuar.', 'error');
+      showToast('Por favor inicia sesión.', 'error');
+      return;
+    }
+    if (cartTotal <= 0) {
+      showToast('El carrito está vacío.', 'error');
       return;
     }
 
-    if (cartTotal <= 0) {
-      showToast('Tu carrito está vacío.', 'error');
-      return;
-    }
+    // --- FIX: CLEANUP OLD MODALS ---
+    // This removes any stuck "Waybox" modals from previous attempts
+    const existingModals = document.querySelectorAll('.waybox-modal, .waybox-backdrop');
+    existingModals.forEach(el => el.remove());
+    // -------------------------------
 
     setIsSubmitting(true);
 
     try {
-      // Step 1: Create the order on the backend
+      // Step A: Create Order on Backend
       const orderPayload = {
         items: cart.items.map(item => ({
           productId: item.productId._id,
@@ -99,20 +107,16 @@ const CheckoutForm = () => {
           country: formData.country,
           postalCode: 'N/A',
         },
-        paymentMethod: 'Wompi', // Backend expects this field at the root level
-        paymentInfo: {
-          paymentType: 'Wompi',
-        },
+        paymentMethod: 'Wompi',
+        paymentInfo: { paymentType: 'Wompi' },
         totalPrice: parseFloat((cartTotal + shippingCost).toFixed(2)),
       };
 
       const orderResponse = await axiosInstance.post('/orders', orderPayload);
-      console.log('Order Payload:', orderPayload);
       const orderNumber = orderResponse.data.data.order.orderNumber;
 
-      // Step 2: Use the orderNumber as the reference for Wompi
+      // Step B: Generate Signature
       const amountInCents = Math.round((cartTotal + shippingCost) * 100);
-
       const { data } = await axiosInstance.post('/wompi/generate-signature', {
         amount_in_cents: amountInCents,
         currency: 'COP',
@@ -120,15 +124,15 @@ const CheckoutForm = () => {
         customer_email: user.email,
       });
 
-      const integritySignature = data.signature;
-
+      // Step C: Initialize Widget
       const checkoutOptions = {
         currency: 'COP',
         amountInCents,
         reference: orderNumber,
-        publicKey: import.meta.env.VITE_WOMPI_PUBLIC_KEY,
-        signature: { integrity: integritySignature },
-        redirectUrl: "https://genesiselectricsas.com/order-status", // Using prod URL to bypass potential localhost block
+        // Ensure this variable is clean in your .env
+        publicKey: import.meta.env.VITE_WOMPI_PUBLIC_KEY?.trim(), 
+        signature: { integrity: data.signature },
+        redirectUrl: "https://genesiselectricsas.com/order-status", 
       };
 
       if (cartIva > 0) {
@@ -137,53 +141,72 @@ const CheckoutForm = () => {
 
       const checkout = new WidgetCheckout(checkoutOptions);
 
+      // Step D: Open Widget & Handle Callback
       checkout.open((result) => {
-        setIsSubmitting(false);
+        const transaction = result?.transaction;
 
-        if (result?.transaction?.status === 'APPROVED') {
+        // Handle case where user closes window without paying
+        if (!transaction) {
+          console.log("Usuario cerró el widget sin pagar.");
+          setIsSubmitting(false); 
+          return;
+        }
+
+        // Handle Approved Payment
+        if (transaction.status === 'APPROVED') {
           clearCart();
+          // --- FIX: CLIENT SIDE REDIRECT ---
+          navigate('/order-status', { 
+            state: { 
+              transactionId: transaction.id,
+              orderNumber: orderNumber 
+            },
+            replace: true 
+          });
+        } 
+        // Handle Errors/Declines
+        else if (transaction.status === 'DECLINED' || transaction.status === 'ERROR') {
+          setIsSubmitting(false);
+          showToast(`Transacción ${transaction.status_message || 'rechazada'}`, 'error');
         }
       });
+
     } catch (err) {
-      console.error('Error during checkout process:', err);
-      showToast(err.response?.data?.message || 'Error al iniciar el checkout.', 'error');
+      console.error('Checkout error:', err);
+      showToast(err.response?.data?.message || 'Error iniciando el pago.', 'error');
       setIsSubmitting(false);
     }
-  }, [cart, cartTotal, cartIva, user, formData, shippingCost]);
+  }, [cart, cartTotal, cartIva, user, formData, shippingCost, navigate, clearCart]);
 
-  const handleSubmit = useCallback(
-    async (e) => {
-      e.preventDefault();
+  const handleSubmit = useCallback(async (e) => {
+    e.preventDefault();
 
-      if (!formData.department || !formData.city) {
-        showToast('Por favor selecciona un departamento y una ciudad.', 'error');
-        return;
-      }
+    if (!formData.department || !formData.city) {
+      showToast('Selecciona departamento y ciudad.', 'error');
+      return;
+    }
 
-      const requiredContactFields = ['nationalId', 'address', 'phone'];
-      const currentMissingFields = requiredContactFields.filter(field => !user[field]);
+    const requiredContactFields = ['nationalId', 'address', 'phone'];
+    const currentMissingFields = requiredContactFields.filter(field => !user[field]);
 
-      if (currentMissingFields.length > 0) {
-        setMissingFields(currentMissingFields);
-        setShowUpdateProfileModal(true);
-        return;
-      }
+    if (currentMissingFields.length > 0) {
+      setMissingFields(currentMissingFields);
+      setShowUpdateProfileModal(true);
+      return;
+    }
 
-      await processCheckout();
-    },
-    [user, processCheckout, formData.department, formData.city]
-  );
+    await processCheckout();
+  }, [user, processCheckout, formData]);
 
   const handleUpdateProfile = async (updatedData) => {
     try {
       const response = await axiosInstance.patch('/auth/profile', updatedData);
       setUser(response.data.data);
-      showToast('Perfil actualizado exitosamente', 'success');
+      showToast('Perfil actualizado', 'success');
       setShowUpdateProfileModal(false);
       await processCheckout();
     } catch (error) {
-      const message = error.response?.data?.message || 'Error al actualizar el perfil';
-      showToast(message, 'error');
+      showToast('Error actualizando perfil', 'error');
     }
   };
 
@@ -281,7 +304,7 @@ const CheckoutForm = () => {
             ? 'Procesando...'
             : isWompiReady
             ? 'Pagar con Wompi'
-            : 'Cargando método de pago...'}
+            : 'Cargando pasarela...'}
         </button>
       </form>
 
@@ -289,7 +312,7 @@ const CheckoutForm = () => {
         <ConfirmationModal
           isOpen={showUpdateProfileModal}
           onClose={() => setShowUpdateProfileModal(false)}
-          message="Por favor, completa tu información de contacto antes de continuar."
+          message="Completa tu información para continuar."
         >
           <form
             onSubmit={(e) => {
@@ -313,42 +336,24 @@ const CheckoutForm = () => {
           >
             {missingFields.includes('nationalId') && (
               <div className={styles.formGroup}>
-                <label htmlFor="modal-nationalId">Cédula/NIT</label>
-                <input
-                  type="text"
-                  id="modal-nationalId"
-                  name="nationalId"
-                  defaultValue={user?.nationalId}
-                  required
-                />
+                <label>Cédula/NIT</label>
+                <input name="nationalId" defaultValue={user?.nationalId} required />
               </div>
             )}
             {missingFields.includes('address') && (
               <div className={styles.formGroup}>
-                <label htmlFor="modal-address">Dirección</label>
-                <input
-                  type="text"
-                  id="modal-address"
-                  name="address"
-                  defaultValue={user?.address?.street}
-                  required
-                />
+                <label>Dirección</label>
+                <input name="address" defaultValue={user?.address?.street} required />
               </div>
             )}
             {missingFields.includes('phone') && (
               <div className={styles.formGroup}>
-                <label htmlFor="modal-phone">Teléfono</label>
-                <input
-                  type="tel"
-                  id="modal-phone"
-                  name="phone"
-                  defaultValue={user?.phone}
-                  required
-                />
+                <label>Teléfono</label>
+                <input name="phone" defaultValue={user?.phone} required />
               </div>
             )}
             <button type="submit" className={styles.submitButton}>
-              Actualizar Perfil
+              Actualizar y Pagar
             </button>
           </form>
         </ConfirmationModal>
