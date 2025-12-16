@@ -6,9 +6,10 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  margin: 1rem;
-  border-radius: 8px;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); Removed shadow to flatten design inside layout */
+  margin: 0; /* Managed by layout */
+  border-radius: 8px 0 0 8px; /* Rounded left corners only */
+  height: 100%; /* Fill height */
 }
 
 .userInfo {
@@ -56,7 +57,7 @@
 
 .navigation a.active {
   background-color: var(--pale-blue);
-  color: var(--primary-color);
+  color: var(--dark-blue); /* Adjusted contrast */
 }
 
 .bottomSection {
@@ -96,9 +97,86 @@
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.2s, color 0.2s;
+  width: 100%; /* Full width clickable */
+  font-size: 1rem; /* Match link font size */
 }
 
 .logoutButton:hover {
   background-color: var(--light-gray);
   color: var(--danger-color);
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+    border-radius: 0;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .userInfo {
+    padding-bottom: 0.5rem;
+    border-bottom: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navigation {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navigation ul {
+    display: flex;
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .navigation li {
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
+  .navigation a {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.75rem;
+    font-size: 0.75rem;
+    width: 80px;
+    gap: 0.5rem;
+    background-color: #f8f9fa; /* Slight background for cards */
+  }
+
+  .navigation a.active {
+    background-color: var(--pale-blue);
+    border: 1px solid var(--light-blue);
+  }
+
+  .bottomSection {
+    padding-top: 1rem;
+    border-top: 1px solid #e2e8f0;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 0.5rem;
+  }
+
+  .bottomSection a, .logoutButton {
+    justify-content: center;
+    flex-direction: column;
+    font-size: 0.75rem;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    width: auto;
+    flex: 1;
+  }
 }

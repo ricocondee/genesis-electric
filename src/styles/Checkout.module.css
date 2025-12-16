@@ -18,6 +18,26 @@
   gap: 2rem;
 }
 
+@media (max-width: 992px) {
+  .mainLayout {
+    grid-template-columns: 1fr;
+  }
+  
+  .rightColumn {
+    order: -1; /* Order Summary first on mobile? Or last? Usually last or collapsed. Let's keep it last for now as form is priority */
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .container h1 {
+    font-size: 2rem;
+  }
+}
+
 .leftColumn {
   /* styles for left column */
 }

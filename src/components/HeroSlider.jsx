@@ -17,37 +17,18 @@ const HeroSlider = () => {
       setSlides(response.data);
       setLoading(false);
     }).catch(error => {
-      showToast('Error fetching slides:' + error.message, "error");
-      // Fallback to mock data for development
-      const mockSlides = [
-        {
-          _id: '1',
-          imageUrl: 'https://via.placeholder.com/1200x400?text=Slide+1',
-          cta: { text: 'Cotiza ahora', link: '/contact' },
-        },
-        {
-          _id: '2',
-          imageUrl: 'https://via.placeholder.com/1200x400?text=Slide+2',
-          cta: { text: 'Agenda tu visita', link: '/services' },
-        },
-        {
-          _id: '3',
-          imageUrl: 'https://via.placeholder.com/1200x400?text=Slide+3',
-          cta: { text: 'Ver productos', link: '/products' },
-        },
-      ];
-      setSlides(mockSlides);
+      showToast('Error fetching slides', "error");
       setLoading(false);
     });
   }, []);
 
   const settings = {
-    dots: slides.length > 1,
+    dots: true,
     infinite: slides.length > 1,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: slides.length > 1,
+    autoplay: true,
     autoplaySpeed: 5000,
     pauseOnHover: true,
     arrows: false,
@@ -55,37 +36,58 @@ const HeroSlider = () => {
     afterChange: () => setIsDragging(false),
   };
 
+  if (loading) {
+      return (
+        <div className={styles.sliderContainer}>
+            <Skeleton width="100%" height="400px" />
+        </div>
+      );
+  }
+
+  if (slides.length === 0) return null;
+
   return (
     <div className={styles.sliderContainer}>
-      {loading ? (
-        <Skeleton width="100%" height="400px" />
-      ) : (
-        <Slider {...settings}>
-          {slides.map(slide => (
-            <div
-              key={slide._id}
-              className={styles.slide}
-              onClick={() => {
-                if (!isDragging && slide.cta && slide.cta.link) {
-                  navigate(slide.cta.link);
-                }
-              }}
-            >
-              <div 
-                className={styles.slideBackground}
-                style={{ backgroundImage: `url(${slide.imageUrl})` }}
-              ></div>
-              <div className={styles.slideContent}>
-                {slide.cta && (
-                  <span className={styles.ctaButton}>
-                    {slide.cta.text}
-                  </span>
-                )}
-              </div>
+      <Slider {...settings}>
+        {slides.map(slide => (
+          <div
+            key={slide._id}
+            className={styles.slide}
+            onClick={() => {
+              if (!isDragging && slide.cta && slide.cta.link) {
+                navigate(slide.cta.link);
+              }
+            }}
+          >
+            <div className={styles.imageWrapper}>
+               {/* 
+                 Responsive Art Direction:
+                 - Mobile: Shows mobileImageUrl (if available)
+                 - Desktop: Shows imageUrl
+               */}
+               <picture>
+                 {slide.mobileImageUrl && (
+                    <source media="(max-width: 768px)" srcSet={slide.mobileImageUrl} />
+                 )}
+                 <img 
+                   src={slide.imageUrl} 
+                   alt={slide.title || "Slide"} 
+                   className={styles.responsiveImage} 
+                 />
+               </picture>
             </div>
-          ))}
-        </Slider>
-      )}
+
+            {/* CTA Content */}
+            {(slide.cta && slide.cta.text) && (
+              <div className={styles.slideContent}>
+                  <button className={styles.ctaButton}>
+                    {slide.cta.text}
+                  </button>
+              </div>
+            )}
+          </div>
+        ))} 
+      </Slider>
     </div>
   );
 };

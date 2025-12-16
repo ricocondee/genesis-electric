@@ -149,7 +149,7 @@ const CheckoutForm = () => {
       showToast(err.response?.data?.message || 'Error al iniciar el checkout.', 'error');
       setIsSubmitting(false);
     }
-  }, [cart, cartTotal, cartIva, user, formData]);
+  }, [cart, cartTotal, cartIva, user, formData, shippingCost]);
 
   const handleSubmit = useCallback(
     async (e) => {

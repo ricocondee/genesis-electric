@@ -1,6 +1,11 @@
 .profileLayoutContainer {
   display: flex;
   background-color: #F8F8F8;
+  min-height: calc(100vh - 80px); /* Adjust based on header height */
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .profileContent {
@@ -8,6 +13,30 @@
   padding: 2rem;
   background-color: #fff;
   border-radius: 8px;
-  margin: 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-height: 500px;
+}
+
+@media (max-width: 992px) {
+  .profileLayoutContainer {
+    padding: 1rem;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .profileLayoutContainer {
+    flex-direction: column;
+    padding: 0;
+    gap: 0;
+    background-color: #fff;
+  }
+
+  .profileContent {
+    padding: 1.5rem 1rem;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    min-height: auto;
+  }
 }

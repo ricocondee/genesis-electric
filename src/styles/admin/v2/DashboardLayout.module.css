@@ -1,5 +1,7 @@
 .dashboardLayout {
   display: flex;
+  min-height: 100vh;
+  position: relative;
 }
 
 .mainContent {
@@ -26,24 +28,36 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 999;
+  z-index: 1001; /* Above bottom nav */
 }
 
-.mobileHidden {
-  /* No styles by default, will be hidden on mobile */
+/* Sidebar Wrapper Defaults */
+.sidebarWrapper {
+  width: 250px;
+  flex-shrink: 0;
+  background-color: white;
+  border-right: 1px solid #e2e8f0;
 }
 
 @media (max-width: 768px) {
-  .mobileHidden {
-    display: none;
+  .sidebarWrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1002; /* Above overlay */
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    width: 80%; /* Partial width on mobile */
+    max-width: 300px;
   }
 
-  .mainContent.sidebarOpen {
-    margin-left: 0;
+  .sidebarWrapper.open {
+    transform: translateX(0);
   }
 
-  .overlay.sidebarOpen {
-    display: none;
+  .overlay {
+    display: block; /* Visible when rendered */
   }
 
   .pageContent {
@@ -54,6 +68,6 @@
 
 @media (min-width: 768px) {
   .mainContent {
-    margin-left: 250px;
+    width: calc(100% - 250px);
   }
 }

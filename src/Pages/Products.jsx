@@ -168,7 +168,13 @@ const Products = () => {
           <h3>Filtros</h3>
           <button onClick={() => setIsFilterDrawerOpen(false)}>&times;</button>
         </div>
-        <Filters filters={filters} setFilters={setFilters} availableBrands={availableBrands} availableCategories={availableCategories} />
+        <Filters 
+            filters={filters} 
+            setFilters={setFilters} 
+            availableBrands={availableBrands} 
+            availableCategories={availableCategories} 
+            onClose={() => setIsFilterDrawerOpen(false)}
+        />
       </div>
       {isFilterDrawerOpen && <div className={styles.overlay} onClick={() => setIsFilterDrawerOpen(false)}></div>}
     </div>

@@ -6,6 +6,8 @@
     display: flex;
     justify-content: space-between;
     padding: 0 2rem;
+    position: relative;
+    z-index: 1000;
 }
 
 .logo__container {
@@ -18,32 +20,37 @@
     width: 150px
 }
 
-.container .menu,
-.container input[type=checkbox] {
-    display: none
+/* Replaced checkbox with button */
+.menuToggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    color: var(--light-blue);
 }
 
-.container nav {
+.nav {
     justify-content: end;
 }
 
-.container nav,
-.container nav ul {
+.nav,
+.nav ul {
     align-items: center;
     display: flex;
 }
 
-.container nav ul {
+.nav ul {
     justify-content: space-around;
     list-style: none;
     gap: 2rem;
 }
 
-.container nav ul li {
+.nav ul li {
     padding: .5vw
 }
 
-.container nav ul li a {
+.nav ul li a {
     color: var(--dark-blue);
     font-family: var(--font-family-lato);
     font-weight: var(--font-weight-bold)
@@ -83,77 +90,66 @@
     font-weight: bold;
 }
 
-.hidden {
-    display: none
-}
-
 @media (width <=768px) {
     .container {
         background: var(--white);
         background: linear-gradient(var(--white));
         justify-content: space-between;
-        position: relative;
-        width: 100%
-    }
-
-    .container .menu {
-        color: var(--light-blue);
-        display: block
-    }
-
-    .container .menu svg {
-        font-size: 2rem
-    }
-
-    .container nav {
-        background-color: var(--white);
-        height: 90lvh;
-        left: 0;
-        opacity: 0;
-        pointer-events: none;
-        position: absolute;
-        top: 100%;
-        transform: translateY(-10px);
-        transition: opacity .5s ease-in-out, transform .5s ease-in-out;
         width: 100%;
-        z-index: 1
+        padding: 0 1rem;
     }
 
-    .container input:checked~nav {
-        opacity: 1;
-        pointer-events: auto;
-        transform: translateY(0)
-    }
-
-    .container nav img {
+    .menuToggle {
         display: block;
-        left: 80%;
-        margin: 1rem;
-        position: absolute;
+        order: 3; /* Ensure it's on the right if needed, or adjust flex order */
+    }
+    
+    .icons__container {
+        order: 2; /* Keep icons visible */
+    }
+
+    .nav {
+        background-color: var(--white);
+        height: 100vh; /* Full height */
+        width: 60%; /* 60% width for better touch, effectively "half" visual weight */
+        max-width: 300px;
+        position: fixed; /* Fixed to viewport */
         top: 0;
-        width: 2rem
-    }
-
-    .container nav ul {
-        align-items: center;
-        flex: 1;
+        left: 0;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        
+        /* Animation setup */
+        transform: translateX(-100%); /* Start hidden off-screen left */
+        transition: transform 0.3s ease-in-out;
+        
+        display: flex;
         flex-direction: column;
-        height: 100%;
-        justify-content: space-around;
-        width: 100%
+        align-items: flex-start; /* Align items to left */
+        justify-content: flex-start; /* Align content to top */
+        padding-top: 6rem; /* Space from top */
+        z-index: 999;
     }
 
-    .container nav ul li {
-        flex: 1;
-        margin-right: 0
+    .nav.open {
+        transform: translateX(0); /* Slide in */
     }
 
-    .container nav ul li a {
-        font-size: 1.2rem
+    .nav ul {
+        flex-direction: column;
+        align-items: flex-start; /* Align list items left */
+        justify-content: flex-start;
+        width: 100%;
+        padding-left: 2rem;
+        gap: 2rem;
     }
 
-    .container .button {
-        font-size: 1rem;
-        padding: .75rem 1.5rem
+    .nav ul li {
+        width: 100%;
+    }
+
+    .nav ul li a {
+        font-size: 1.2rem;
+        display: block;
+        width: 100%;
     }
 }

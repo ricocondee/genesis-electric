@@ -18,7 +18,7 @@ const FilterSection = ({ title, children }) => {
   );
 };
 
-const Filters = ({ filters, setFilters, availableBrands, availableCategories }) => {
+const Filters = ({ filters, setFilters, availableBrands, availableCategories, onClose }) => {
 
   const handleFilterChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -30,13 +30,18 @@ const Filters = ({ filters, setFilters, availableBrands, availableCategories }) 
     }
   };
 
+  const handleCategoryClick = (category) => {
+      setFilters({ ...filters, category });
+      if (onClose) onClose();
+  };
+
   return (
     <div className={styles.container}>
       <FilterSection title="Categorías">
         <ul className={styles.filterList}>
-          <li><button className={filters.category === '' ? styles.active : ''} onClick={() => setFilters({ ...filters, category: '' })}>Todas</button></li>
+          <li><button className={filters.category === '' ? styles.active : ''} onClick={() => handleCategoryClick('')}>Todas</button></li>
           {Array.isArray(availableCategories) && availableCategories.map(category => (
-            <li key={category}><button className={filters.category === category ? styles.active : ''} onClick={() => setFilters({ ...filters, category })}>{category}</button></li>
+            <li key={category}><button className={filters.category === category ? styles.active : ''} onClick={() => handleCategoryClick(category)}>{category}</button></li>
           ))}
         </ul>
       </FilterSection>

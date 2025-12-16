@@ -76,14 +76,28 @@ const HeroSliderSettings = () => {
         <table className={styles.table}>
           <thead>
             <tr>
-              <th>Imagen</th>
+              <th>Desktop</th>
+              <th>Mobile</th>
+              <th>Título</th>
+              <th>Link</th>
               <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
             {slides.map(slide => (
               <tr key={slide._id}>
-                <td><img src={slide.imageUrl} alt="Slide" className={styles.productImage} /></td>
+                <td>
+                    {slide.imageUrl ? (
+                        <img src={slide.imageUrl} alt="Desk" className={styles.productImage} style={{width: '60px', height: '40px', objectFit:'cover'}} />
+                    ) : <span style={{color:'#ccc'}}>N/A</span>}
+                </td>
+                <td>
+                    {slide.mobileImageUrl ? (
+                        <img src={slide.mobileImageUrl} alt="Mob" className={styles.productImage} style={{width: '30px', height: '40px', objectFit:'cover'}} />
+                    ) : <span style={{color:'#ccc'}}>N/A</span>}
+                </td>
+                <td>{slide.title || '-'}</td>
+                <td>{slide.cta ? slide.cta.link : '-'}</td>
                 <td>
                   <div className={styles.actionsCell}>
                     <button className={styles.actionButton} onClick={() => handleEdit(slide)}>Editar</button>

@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { productService } from '../services/productService';
 import Item from './Item';
 import styles from '../styles/ProductCarousel.module.css';

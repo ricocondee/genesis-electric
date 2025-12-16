@@ -1,44 +1,48 @@
 .sliderContainer {
     width: 100%;
-    height: 400px; /* Adjust as needed */
     position: relative;
+    overflow: hidden;
 }
 
 .slide {
     position: relative;
     width: 100%;
-    height: 400px;
+    outline: none;
     cursor: pointer;
 }
 
-.slideBackground {
-    position: absolute;
-    top: 0;
-    left: 0;
+.imageWrapper {
+    width: 100%;
+    height: 400px; /* Default Desktop Height */
+    position: relative;
+}
+
+.responsiveImage {
     width: 100%;
     height: 100%;
-    background-size: cover;
-    background-position: center;
+    object-fit: cover;
+    object-position: center;
+    display: block;
 }
 
 .slideContent {
-    position: relative;
+    position: absolute;
+    bottom: 20%;
+    right: 10%; /* Aligned right as per original design intention */
     z-index: 2;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Align to bottom */
-    align-items: flex-end;   /* Align to right */
-    height: 100%;
-    padding: 2rem;
+    align-items: flex-end;
 }
 
 .ctaButton {
     background-color: var(--light-blue);
     color: white;
     padding: 0.75rem 1.5rem;
+    border: none;
     border-radius: 5px;
-    text-decoration: none;
     font-weight: 600;
+    cursor: pointer;
     transition: background-color 0.2s;
 }
 
@@ -69,4 +73,17 @@
 .sliderContainer :global(.slick-prev:before),
 .sliderContainer :global(.slick-next:before) {
     font-size: 30px;
+}
+
+@media (max-width: 768px) {
+    .imageWrapper {
+        height: 500px; /* Taller height for Mobile if desired, or keep 400px */
+    }
+    
+    .slideContent {
+        bottom: 15%;
+        right: 50%;
+        transform: translateX(50%); /* Center CTA on mobile */
+        align-items: center;
+    }
 }
